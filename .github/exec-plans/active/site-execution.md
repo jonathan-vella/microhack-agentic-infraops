@@ -15,10 +15,10 @@
 
 <!-- Update this at the START of each session -->
 
-**Phase**: F (Reference)
-**Step**: F1 — Migrate GLOSSARY.md
-**Prompt**: `site-08-reference.prompt.md`
-**Goal**: Migrate glossary.md, troubleshooting.md, governance-scripts.md to docs/reference/
+**Phase**: G (About)
+**Step**: G1 — Migrate AGENDA.md
+**Prompt**: `site-09-about.prompt.md`
+**Goal**: Migrate agenda.md, invitation.md, feedback.md to docs/about/
 **Blockers**: Smoke test deferred (no Ruby in WSL environment — will run in devcontainer or CI)
 
 ---
@@ -113,9 +113,9 @@ Transformation rules for ALL migration steps:
 
 **Prompt**: site-08
 
-- [ ] F1: Migrate `import/docs/GLOSSARY.md` → `docs/reference/glossary.md`
-- [ ] F2: Migrate `import/docs/troubleshooting.md` → `docs/reference/troubleshooting.md`
-- [ ] F3: Create `docs/reference/governance-scripts.md` (consolidate `import/microhack/scripts/README.md`)
+- [x] F1: Migrate `import/docs/GLOSSARY.md` → `docs/reference/glossary.md`
+- [x] F2: Migrate `import/docs/troubleshooting.md` → `docs/reference/troubleshooting.md`
+- [x] F3: Create `docs/reference/governance-scripts.md` (consolidate `import/microhack/scripts/README.md`)
 
 ### Phase G — Content Migration: About (Step 9)
 
@@ -286,6 +286,15 @@ Each challenge file (D2-D9) must include the challenge header at the top of cont
 |     |            |            | facilitator link→text,   |                     |           |
 |     |            |            | stray backtick fence     |                     |           |
 |     |            |            | fixed). All verified.    |                     |           |
+| 8   | 2026-03-07 | F / F1-F3  | Migrated 3 reference     | G1: Migrate AGENDA  | None      |
+|     |            |            | files: glossary (alpha   | .md                 |           |
+|     |            |            | anchors added), trouble  |                     |           |
+|     |            |            | shooting (version link   |                     |           |
+|     |            |            | removed, script path     |                     |           |
+|     |            |            | fixed), governance-      |                     |           |
+|     |            |            | scripts (3 callouts      |                     |           |
+|     |            |            | converted, GH URLs for   |                     |           |
+|     |            |            | .ps1 files). All verified|                     |           |
 
 ---
 
