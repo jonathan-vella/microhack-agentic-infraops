@@ -1,0 +1,5 @@
+pre-commit:
+  jobs:
+    - name: markdownlint
+      glob: "**/*.md"
+      run: npm run lint:md -- --no-globs {staged_files}

@@ -6,8 +6,6 @@ nav_order: 1
 description: "Detailed 1-day hackathon agenda with timing, activities, and facilitator notes"
 ---
 
-# Microhack Agenda
-
 > **Agentic InfraOps Microhack** — 1-day hackathon (09:00 - 17:00)
 
 ---

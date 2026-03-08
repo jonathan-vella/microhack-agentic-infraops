@@ -53,6 +53,13 @@ facilitator/            # Facilitator guide, scoring rubric, solution reference
 scripts/                # Governance PowerShell scripts
 ```
 
+## Markdown Checks
+
+This repository uses `markdownlint-cli2` for Markdown linting and `lefthook` for Git hooks.
+
+- Run `npm install` once after cloning to install dependencies and register the `pre-commit` hook.
+- Run `npm run lint:md` to lint all Markdown files in the repository.
+
 ## Getting Started
 
 1. **Create your repo from the template** — Start from [azure-agentic-infraops-accelerator](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator) and create your own repository.

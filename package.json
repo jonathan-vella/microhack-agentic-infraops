@@ -1,0 +1,12 @@
+{
+  "name": "microhack-agentic-infraops",
+  "private": true,
+  "scripts": {
+    "prepare": "lefthook install",
+    "lint:md": "markdownlint-cli2"
+  },
+  "devDependencies": {
+    "lefthook": "^2.1.3",
+    "markdownlint-cli2": "^0.21.0"
+  }
+}

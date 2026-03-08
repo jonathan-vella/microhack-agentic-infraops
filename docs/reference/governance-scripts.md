@@ -6,8 +6,6 @@ nav_order: 3
 description: "Azure Policy governance scripts for workshop environment setup"
 ---
 
-# Governance Scripts
-
 Three PowerShell scripts manage the Azure Policy lifecycle for the microhack event.
 All require the **Azure CLI** (`az`) and **PowerShell 7+** (`pwsh`), both pre-installed in the dev container.
 
@@ -65,7 +63,7 @@ pwsh -File ./Setup-GovernancePolicies.ps1 -Subscription "<subscription-name-or-i
 Deploys eight `Deny`-effect policy assignments at the subscription scope. Assignments use the `microhack-` prefix
 and are idempotent — existing assignments are skipped automatically.
 
-#### Parameters
+#### Setup Parameters
 
 | Parameter       | Required | Description                               |
 | --------------- | -------- | ----------------------------------------- |
@@ -73,7 +71,7 @@ and are idempotent — existing assignments are skipped automatically.
 | `-WhatIf`       | No       | Preview assignments without creating them |
 | `-Verbose`      | No       | Show detailed progress per assignment     |
 
-#### Usage
+#### Setup Usage
 
 ```bash
 # Preview first (always recommended)
@@ -104,9 +102,9 @@ pwsh -File scripts/Setup-GovernancePolicies.ps1 \
 | `microhack-storage-no-public-blob`  | Storage no public blob   | Deny   | `allowBlobPublicAccess: false`                       |
 | `microhack-appservice-https`        | App Service HTTPS only   | Deny   | `httpsOnly: true`                                    |
 
-#### Output
+#### Setup Output
 
-```
+```text
 Subscription   : my-subscription-name
 SubscriptionId : 00000000-0000-0000-0000-000000000000
 Created        : 8
@@ -129,7 +127,7 @@ and their compliance state.
 
 Lists policy assignments on the subscription and reports compliance counts from Azure Policy state.
 
-#### Parameters
+#### Status Parameters
 
 | Parameter       | Required | Description                              |
 | --------------- | -------- | ---------------------------------------- |
@@ -137,7 +135,7 @@ Lists policy assignments on the subscription and reports compliance counts from 
 | `-MicrohackOnly`| No       | Filter to `microhack-*` assignments only |
 | `-Verbose`      | No       | Show detailed progress                   |
 
-#### Usage
+#### Status Usage
 
 ```bash
 # Check all policy assignments on the subscription
@@ -150,9 +148,9 @@ pwsh -File scripts/Get-GovernanceStatus.ps1 \
   -MicrohackOnly
 ```
 
-#### Output
+#### Status Output
 
-```
+```text
 Name            DisplayName                        EnforcementMode State        Compliant NonCompliant
 ----            -----------                        --------------- -----        --------- ------------
 microhack-al... Microhack: Allowed locations       Default         Compliant    12        0
@@ -173,7 +171,7 @@ microhack-re... Microhack: Require Environment tag Default         NonCompliant 
 
 Finds and deletes all policy assignments with the `microhack-` prefix. Supports `-WhatIf` to preview removals before committing.
 
-#### Parameters
+#### Removal Parameters
 
 | Parameter       | Required | Description                                |
 | --------------- | -------- | ------------------------------------------ |
@@ -181,7 +179,7 @@ Finds and deletes all policy assignments with the `microhack-` prefix. Supports 
 | `-WhatIf`       | No       | Preview removals without deleting anything |
 | `-Verbose`      | No       | Show detailed progress per assignment      |
 
-#### Usage
+#### Removal Usage
 
 ```bash
 # Preview what will be removed
@@ -194,9 +192,9 @@ pwsh -File scripts/Remove-GovernancePolicies.ps1 \
   -Subscription "<subscription-name-or-id>"
 ```
 
-#### Output
+#### Removal Output
 
-```
+```text
 Subscription   : my-subscription-name
 SubscriptionId : 00000000-0000-0000-0000-000000000000
 Removed        : 8
