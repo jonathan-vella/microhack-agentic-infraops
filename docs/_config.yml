@@ -1,6 +1,6 @@
 title: "Agentic InfraOps MicroHack"
 description: >-
-  6-hour hands-on microhack: Design, deploy, and present Azure
+  1-day hands-on hackathon: Design, deploy, and present Azure
   infrastructure using AI agents and GitHub Copilot
 baseurl: "/microhack-agentic-infraops"
 url: "https://jonathan-vella.github.io"
@@ -51,20 +51,12 @@ callouts:
 
 # External links
 aux_links:
-  "View on GitHub":
-    - "https://github.com/jonathan-vella/microhack-agentic-infraops"
+  "Use the Template Repo":
+    - "https://github.com/jonathan-vella/azure-agentic-infraops-accelerator"
 aux_links_new_tab: true
 
-# Edit on GitHub
-gh_edit_link: true
-gh_edit_link_text: "Edit this page on GitHub"
-gh_edit_repository: "https://github.com/jonathan-vella/microhack-agentic-infraops"
-gh_edit_source: docs
-gh_edit_branch: "main"
-gh_edit_view_mode: "tree"
-
 # Footer
-footer_content: "&copy; 2025 Jonathan Vella. Distributed under the <a href=\"https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/LICENSE\">MIT License</a>."
+footer_content: "&copy; 2025 Jonathan Vella. Distributed under the MIT License."
 
 # Plugins
 plugins:

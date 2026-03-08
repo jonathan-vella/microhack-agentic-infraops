@@ -121,7 +121,7 @@ Design and deploy the Azure infrastructure for the **FreshConnect MVP** (Minimum
 
 ### The Microhack Journey
 
-8 challenges over 6 hours:
+8 challenges across a 1-day hackathon:
 
 1. **Requirements** — Capture business needs using the Requirements agent
 2. **Architecture** — Design Azure solution aligned with Well-Architected Framework
@@ -195,7 +195,7 @@ Begin with [Challenge 1: Requirements](../challenges/challenge-1-requirements.md
 
 - Have the challenge doc open on your device
 - Call out the next step before Driver finishes the current one
-- Track time per challenge — 8 challenges in 6 hours!
+- Track time per challenge — 8 challenges in one day means the pace stays tight
 - In **Challenge 4** (DR Curveball): Help team pivot quickly
 
 **Coaching Mindset:**

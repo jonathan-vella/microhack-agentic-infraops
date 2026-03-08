@@ -142,17 +142,19 @@ Check status with:
 pwsh scripts/Get-GovernanceStatus.ps1
 ```
 
-### Scoring script returns zero
+### Scoring totals do not match expectations
 
-**Symptoms**: `Score-Team.ps1` gives 0 points even after deployment.
+**Symptoms**: Facilitator totals look lower than expected after reviewing a team's submission.
 
 **Fixes**:
 
-1. Ensure resources are deployed in the correct resource group
-2. Check that required tags (`Environment`, `ManagedBy`, `Project`, `Owner`) are applied
-3. Run the script with `-Verbose` for detailed output
+1. Recheck the team artifacts against the criteria in the scoring rubric
+2. Confirm deployment evidence and bonus claims in Azure before awarding those points
+3. Verify that the Partner Showcase score was added separately from the base score
 
 ## Leaderboard App
+
+This section applies only if your event package includes a separately provided HackerBoard deployment.
 
 ### SWA authentication redirect loop
 
@@ -190,6 +192,6 @@ az storage table create --name Submissions \
 
 **Symptoms**: JSON upload returns "Team mismatch" error.
 
-**Fix**: The `teamName` in the uploaded `score-results.json` must match the
+**Fix**: The team identifier in the uploaded score payload must match the
 team the signed-in user is registered to. Verify the user's attendee profile
-has the correct `teamNumber`.
+has the correct team assignment.

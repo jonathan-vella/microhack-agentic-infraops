@@ -2,37 +2,24 @@
 
 > [!IMPORTANT]
 > This file is the **single source of truth** for all scoring values.
-> The app PRD, challenge files, scripts, and all other docs MUST derive their
+> Challenge files, facilitator tooling, and all other docs MUST derive their
 > point values and grading rules from this rubric. If a conflict exists
 > elsewhere, this file wins.
 
-> **105-point base + 25 bonus** | WAF-aligned | 🤖 Script-assisted + facilitator scoring
+> **105-point base + 25 bonus** | WAF-aligned | Scored by facilitators using the rubric
 
-> **Note**: Challenge 8 (Partner Showcase) is scored manually by facilitators (0-10)
-> using the `-ShowcaseScore` parameter.
+> **Note**: Challenge 8 (Partner Showcase) is scored by facilitators using the rubric on a 0-10 scale.
 
-## Automated Scoring
-
-```powershell
-# Score team
-.\scripts\microhack\Score-Team.ps1 -TeamName "freshconnect" \
-  -ResourceGroupName "rg-freshconnect-dev-swc" \
-  -ShowcaseScore 8
-
-# Score without Azure verification
-.\scripts\microhack\Score-Team.ps1 -TeamName "freshconnect" -SkipAzureCheck -ShowcaseScore 8
-
-# Leaderboard
-.\scripts\microhack\Get-Leaderboard.ps1
-```
+## Recommended Scoring Workflow
 
 > [!TIP]
-> For live events, the **HackerBoard web app** provides a browser-based
-> alternative to script-based scoring.
-> See [`agent-output/hacker-board/app/app-prd.md`](../../agent-output/hacker-board/app/app-prd.md)
-> for details.
+> Score directly from this rubric. If your event package includes HackerBoard or other facilitator tooling,
+> enter the same rubric-based totals there after review.
 
-Results saved to `agent-output/{team}/score-results.json`.
+1. Review each team's deliverables under `agent-output/{team}/` and `infra/bicep/{team}/`.
+2. Validate deployment and bonus criteria using the Azure portal or CLI where needed.
+3. Record the Partner Showcase score during the presentation.
+4. Keep the final totals in your chosen leaderboard tool or facilitator worksheet.
 
 ---
 
@@ -136,7 +123,7 @@ or `agent-output/{team}/07-ab-diagnostics-runbook.md` (bonus depth)
 
 ### 8. Partner Showcase (10 pts)
 
-**Scoring method**: Facilitator manually assigns 0-10 and passes via `-ShowcaseScore`
+**Scoring method**: Scored by facilitators using the rubric on a 0-10 scale
 
 | Criterion               | Points |
 | ----------------------- | ------ |

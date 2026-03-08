@@ -2,7 +2,7 @@
 layout: default
 title: Home
 nav_order: 1
-description: "Agentic InfraOps MicroHack — 6-hour hands-on workshop: Design, deploy, and present Azure infrastructure using AI agents and GitHub Copilot"
+description: "Agentic InfraOps MicroHack — 1-day hands-on hackathon: Design, deploy, and present Azure infrastructure using AI agents and GitHub Copilot"
 permalink: /
 ---
 
@@ -11,7 +11,7 @@ permalink: /
 # Agentic InfraOps MicroHack
 
 {: .hero-tagline }
-Transform how you deliver Azure infrastructure using AI-powered agents in this 6-hour hands-on workshop.
+Transform how you deliver Azure infrastructure using AI-powered agents in this 1-day hands-on hackathon.
 
 [Get Started](getting-started/){: .hero-cta }
 
@@ -19,39 +19,40 @@ Transform how you deliver Azure infrastructure using AI-powered agents in this 6
 
 ## What Is This MicroHack?
 
-A team-based, 6-hour challenge where you orchestrate **specialized AI agents** to transform business requirements into production-ready Azure infrastructure. Instead of writing Bicep templates line by line, you'll collaborate with agents that understand Azure best practices — from requirements gathering through architecture design, code generation, and deployment.
+A team-based, 1-day hackathon where you orchestrate **specialized AI agents** to transform business requirements into production-ready Azure infrastructure. Instead of writing Bicep templates line by line, you'll collaborate with agents that understand Azure best practices — from requirements gathering through architecture design, code generation, and deployment.
 
 ## Schedule Overview
 
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 gantt
-    title MicroHack Day (10:00 – 16:00)
+  title Hackathon Day (09:00 – 17:00)
     dateFormat HH:mm
     axisFormat %H:%M
     section Morning
-        Intro & Setup           :active, 10:00, 30m
-        C1 Requirements         :10:30, 30m
-        C2 Architecture         :11:00, 30m
-        Lunch                   :crit, 11:30, 30m
+        Intro & Setup           :active, 09:00, 60m
+        C1 Requirements         :10:00, 60m
+        C2 Architecture         :11:00, 60m
+        Lunch                   :crit, 12:00, 45m
     section Afternoon
-        C3 Bicep & Deploy       :12:00, 45m
-        C4 DR Curveball         :12:45, 45m
-        Break                   :crit, 13:30, 15m
-        C5 Load Testing         :13:45, 30m
-        C6 Documentation        :14:15, 15m
-        C7 Diagnostics          :14:30, 5m
-        Presentation Prep       :14:35, 15m
+        C3 Bicep & Deploy       :12:45, 45m
+        C4 DR Curveball         :13:30, 45m
+        Facilitator Checkpoint  :14:15, 15m
+        C5 Load Testing         :14:30, 30m
+        Break                   :crit, 15:00, 15m
+        C6 Documentation        :15:15, 15m
+        C7 Diagnostics          :15:30, 5m
+        Presentation Prep       :15:35, 15m
     section Showcase
-        C8 Partner Showcase     :14:50, 60m
-        Wrap-up                 :15:50, 10m
+        C8 Partner Showcase     :15:50, 60m
+        Wrap-up                 :16:50, 10m
 ```
 
 ## Key Facts
 
 | Aspect | Details |
 |---|---|
-| **Duration** | 6 hours (including breaks) |
+| **Duration** | 1 day (including breaks) |
 | **Challenges** | 8 challenges across the full IaC lifecycle |
 | **Scoring** | 105 base points + up to 25 bonus points |
 | **Teams** | 3–6 members per team |

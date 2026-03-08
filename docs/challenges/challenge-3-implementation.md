@@ -19,8 +19,8 @@ description: "Generate Bicep templates, deploy infrastructure to Azure, and demo
 
 If your facilitator has deployed Azure Policies for the event, your Bicep templates will need to
 comply with governance constraints (required tags, HTTPS-only, TLS 1.2, etc.).
-See the [Setup-GovernancePolicies.ps1](https://github.com/jonathan-vella/microhack-agentic-infraops/tree/main/microhack/scripts#governance-scripts)
-section of the repository for details.
+See the [Governance Scripts](../reference/governance-scripts.md)
+reference for details.
 
 ## The Business Challenge
 

@@ -555,7 +555,7 @@ Why check database DTU before App Service CPU? What's the reasoning?
 | Storage account with hyphens | Use lowercase letters and numbers only              |
 | Missing uniqueSuffix         | Generate once in main.bicep, pass to all modules    |
 | Hardcoded secrets            | Use Key Vault references or managed identity        |
-| Over-engineering MVP         | Keep it simple — you have 6 hours!                  |
+| Over-engineering MVP         | Keep it simple — you have one day.                  |
 | Forgetting to deploy         | Run `bicep build` often, deploy incrementally       |
 
 ## Agent-Specific Tips

@@ -14,7 +14,7 @@ description: "Event invitation details — what to expect, what to bring, and ho
 
 ## What Is This?
 
-A **6-hour hands-on microhack** where you'll experience the future of Infrastructure as Code.
+A **1-day hands-on hackathon** where you'll experience the future of Infrastructure as Code.
 
 Forget writing Bicep templates line by line. In this microhack, you'll orchestrate **specialized
 AI agents** that collaborate to transform business requirements into production-ready Azure
@@ -70,9 +70,10 @@ ability to adapt to changing requirements — just like real projects!
 - Laptop with VS Code
 - GitHub Copilot license (Business or Enterprise)
 - Azure subscription with Owner access (required for Azure Policy)
+- A repository created from the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)
 - Curiosity and a willingness to experiment! 🚀
 
-📋 **Full setup checklist**: [Getting Started](https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/docs/getting-started/setup.md)
+📋 **Full setup checklist**: [Getting Started](../getting-started/setup.md)
 
 ---
 
@@ -80,8 +81,8 @@ ability to adapt to changing requirements — just like real projects!
 
 |                  |                                                           |
 | ---------------- | --------------------------------------------------------- |
-| **Duration**     | 6 hours (including breaks)                                |
-| **Format**       | Team-based microhack (3-6 per team)                       |
+| **Duration**     | 1 day (including breaks)                                  |
+| **Format**       | Team-based hackathon (3-6 per team)                       |
 | **Skill Level**  | Beginner to Intermediate                                  |
 | **Deliverables** | Working Azure infrastructure + architecture documentation |
 

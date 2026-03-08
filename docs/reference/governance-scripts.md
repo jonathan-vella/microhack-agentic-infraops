@@ -37,7 +37,7 @@ You need **Owner** or **Resource Policy Contributor** role on the subscription t
 
 ## Running the Scripts
 
-Scripts are located in [`scripts/`](https://github.com/jonathan-vella/microhack-agentic-infraops/tree/main/scripts) in the repository.
+Scripts are located in the `scripts/` folder of the repository you create from the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator).
 
 Run from the **repository root**:
 
@@ -58,7 +58,7 @@ pwsh -File ./Setup-GovernancePolicies.ps1 -Subscription "<subscription-name-or-i
 
 ### 1. Setup-GovernancePolicies.ps1
 
-[View source on GitHub](https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/scripts/Setup-GovernancePolicies.ps1)
+[View source on GitHub](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator/blob/main/scripts/Setup-GovernancePolicies.ps1)
 
 **When to use:** Before the event starts, to deploy governance constraints that teams must work around.
 
@@ -122,7 +122,7 @@ TotalPolicies  : 8
 
 ### 2. Get-GovernanceStatus.ps1
 
-[View source on GitHub](https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/scripts/Get-GovernanceStatus.ps1)
+[View source on GitHub](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator/blob/main/scripts/Get-GovernanceStatus.ps1)
 
 **When to use:** Anytime — before, during, or after the event — to verify which policies are active
 and their compliance state.
@@ -167,7 +167,7 @@ microhack-re... Microhack: Require Environment tag Default         NonCompliant 
 
 ### 3. Remove-GovernancePolicies.ps1
 
-[View source on GitHub](https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/scripts/Remove-GovernancePolicies.ps1)
+[View source on GitHub](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator/blob/main/scripts/Remove-GovernancePolicies.ps1)
 
 **When to use:** After the event ends, to restore the subscription to its pre-event state.
 

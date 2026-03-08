@@ -12,23 +12,24 @@ description: "At-a-glance reference card for challenges, scoring, agents, and ke
 
 ---
 
-## Microhack Schedule (6 Hours)
+## Hackathon Schedule (1 Day)
 
 | Time        | Challenge       | Duration | Points |
 | ----------- | --------------- | -------- | ------ |
-| 10:00-10:30 | Intro           | 30 min   | —      |
-| 10:30-11:00 | **Challenge 1** | 30 min   | 20     |
-| 11:00-11:30 | **Challenge 2** | 30 min   | 25     |
-| 11:30-12:00 | 🍽️ Lunch        | 30 min   | —      |
-| 12:00-12:45 | **Challenge 3** | 45 min   | 25     |
-| 12:45-13:30 | **Challenge 4** | 45 min   | 10     |
-| 13:30-13:45 | ☕ Break        | 15 min   | —      |
-| 13:45-14:15 | **Challenge 5** | 30 min   | 5      |
-| 14:15-14:30 | **Challenge 6** | 15 min   | 5      |
-| 14:30-14:35 | **Challenge 7** | 5 min    | 5      |
-| 14:35-14:50 | Prep            | 15 min   | —      |
-| 14:50-15:50 | **Challenge 8** | 60 min   | 10     |
-| 15:50-16:00 | Wrap-up         | 10 min   | —      |
+| 09:00-10:00 | Intro           | 60 min   | —      |
+| 10:00-11:00 | **Challenge 1** | 60 min   | 20     |
+| 11:00-12:00 | **Challenge 2** | 60 min   | 25     |
+| 12:00-12:45 | 🍽️ Lunch        | 45 min   | —      |
+| 12:45-13:30 | **Challenge 3** | 45 min   | 25     |
+| 13:30-14:15 | **Challenge 4** | 45 min   | 10     |
+| 14:15-14:30 | Checkpoint      | 15 min   | —      |
+| 14:30-15:00 | **Challenge 5** | 30 min   | 5      |
+| 15:00-15:15 | ☕ Break        | 15 min   | —      |
+| 15:15-15:30 | **Challenge 6** | 15 min   | 5      |
+| 15:30-15:35 | **Challenge 7** | 5 min    | 5      |
+| 15:35-15:50 | Prep            | 15 min   | —      |
+| 15:50-16:50 | **Challenge 8** | 60 min   | 10     |
+| 16:50-17:00 | Wrap-up         | 10 min   | —      |
 
 **Total Points**: 105 base + 25 bonus
 
@@ -36,9 +37,9 @@ description: "At-a-glance reference card for challenges, scoring, agents, and ke
 
 | Method              | How                                                                                              |
 | ------------------- | ------------------------------------------------------------------------------------------------ |
-| **Script scoring**  | `pwsh scripts/microhack/Score-Team.ps1 -TeamName "<team>" -SkipAzureCheck -ShowcaseScore 0`      |
-| **Leaderboard CLI** | `pwsh scripts/microhack/Get-Leaderboard.ps1`                                                     |
-| **Web app**         | Open the HackerBoard app URL — submit scores via browser and view live standings                 |
+| **Rubric scoring**  | Facilitators score against the published rubric and team artifacts                               |
+| **Leaderboard**     | Use your facilitator worksheet or HackerBoard instance if your event package includes one        |
+| **Web app**         | Optional: submit the same rubric-based totals in HackerBoard when that tooling is available      |
 | **Rubric**          | Scoring Rubric (available from facilitator) — single source of truth for points |
 
 ---

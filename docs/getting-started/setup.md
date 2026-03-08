@@ -6,26 +6,26 @@ nav_order: 1
 description: "Complete environment setup: Azure subscription, GitHub Codespace, VS Code extensions, and verification"
 ---
 
-# Requirements Guide
+<!-- markdownlint-disable MD033 -->
 
 > Mandatory requirements and setup steps for Agentic InfraOps
 
 ## 📑 Table of Contents
 
-- [🎯 Who This Is For](#-who-this-is-for)
-- [🗺️ What to Expect](#️-what-to-expect)
-- [📋 Prerequisites](#-prerequisites)
+- [Who This Is For](#who-this-is-for)
+- [What to Expect](#what-to-expect)
+- [Prerequisites](#prerequisites)
 - [🐳 Dev Container](#dev-container)
-- [🚀 Setup Steps](#-setup-steps)
+- [Setup Steps](#setup-steps)
 - [⚖️ Azure Quota Requirements](#azure-quota-requirements)
-- [✅ Pre-Event Checklist](#pre-event-checklist)
-- [⏱️ First 10 Minutes on Event Day](#️-first-10-minutes-on-event-day)
-- [🚑 Troubleshooting Quick Fixes](#-troubleshooting-quick-fixes)
-- [⏭️ Next Steps](#️-next-steps)
+- [Pre-Event Checklist](#pre-event-checklist)
+- [First 10 Minutes on Event Day](#first-10-minutes-on-event-day)
+- [Troubleshooting Quick Fixes](#troubleshooting-quick-fixes)
+- [Next Steps](#next-steps)
 
 ---
 
-## 🎯 Who This Is For
+## Who This Is For
 
 - **Microhack participants**: Complete the setup checklist and read "What to Expect"
   before event day.
@@ -34,7 +34,7 @@ description: "Complete environment setup: Azure subscription, GitHub Codespace, 
 
 ---
 
-## 🗺️ What to Expect
+## What to Expect
 
 ### The Microhack in 60 Seconds
 
@@ -73,16 +73,14 @@ Bicep Infrastructure as Code.
 
 ---
 
-## 📋 Prerequisites
+## Prerequisites
 
 > All items in this section are **mandatory**. The microhack cannot proceed without every
 > prerequisite in place. Complete the [Pre-Event Day Checklist](#pre-event-checklist) to confirm
 > readiness before the event.
 {: .warning }
 
-### ✅ Pre-Event Checklist
-
-{: #pre-event-checklist }
+### Pre-Event Checklist
 
 > Complete every item below **before the event day**. Arrive ready — there is no setup
 > time built into the agenda.
@@ -301,13 +299,11 @@ az account list --output table
 
 ---
 
-## 🐳 Dev Container
-
-{: #dev-container }
+## Dev Container
 
 > **Pull and build the Dev Container image before the event day.** The first build
 > downloads ~1–2 GB of layers and takes 3–5 minutes. Doing this on-site wastes time
-> and strains shared Wi-Fi. Complete [Setup Steps](#-setup-steps) in advance.
+> and strains shared Wi-Fi. Complete [Setup Steps](#setup-steps) in advance.
 {: .important }
 
 The repo includes a Dev Container with all tools pre-installed. It works with
@@ -372,28 +368,35 @@ The repo includes a Dev Container with all tools pre-installed. It works with
 <details markdown="1">
 <summary><strong>GitHub Codespaces</strong></summary>
 
-1. Go to the repository on GitHub
-2. Click **Code** → **Codespaces** → **Create codespace on main**
-3. Wait for the container to build (first time takes 2-3 minutes)
+1. Create your own repository from the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)
+2. Open your new repository on GitHub
+3. Click **Code** → **Codespaces** → **Create codespace on main**
+4. Wait for the container to build (first time takes 2-3 minutes)
 
 </details>
 
 ---
 
-## 🚀 Setup Steps
+## Setup Steps
 
 > Complete **all steps below before the event day**. Steps 1 and 2 pull and build the
 > Dev Container image (~1–2 GB download). Do not leave this for the morning of the event.
 {: .important }
 
 <details markdown="1">
-<summary><strong>1. Clone and Open</strong></summary>
+<summary><strong>1. Create Your Repo and Open It</strong></summary>
+
+1. Go to the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)
+2. Click **Use this template** → **Create a new repository**
+3. Clone your new repository and open it in VS Code:
 
 ```bash
-git clone https://github.com/jonathan-vella/microhack-agentic-infraops.git
-cd microhack-agentic-infraops
+git clone https://github.com/<your-org-or-user>/<your-new-repo>.git
+cd <your-new-repo>
 code .
 ```
+
+1. If the repository still contains template placeholders, run `npm run init:template` from the repo root. If you do not have Node.js locally, run it after reopening in the dev container.
 
 When VS Code opens, accept the **"Reopen in Container"** prompt.
 
@@ -449,11 +452,15 @@ Open VS Code Settings (`Ctrl+,`) and add:
 <details markdown="1">
 <summary><strong>5. Verify Prerequisites - skip this step</strong></summary>
 
-```powershell
-pwsh scripts/check-prerequisites.ps1
-```
+Verify the core tools manually:
 
-This validates Azure CLI, Bicep CLI, Node.js, npm, and GitHub CLI.
+```powershell
+az version
+bicep --version
+node --version
+npm --version
+gh --version
+```
 
 </details>
 
@@ -496,9 +503,7 @@ Ensure your network allows outbound HTTPS to:
 
 ---
 
-## ⚖️ Azure Quota Requirements
-
-{: #azure-quota-requirements }
+## Azure Quota Requirements
 
 > **Verify your subscription has sufficient quota BEFORE the microhack.**
 {: .warning }
@@ -599,7 +604,7 @@ az storage account list --query "length(@)"
 | 4 teams (shared sub)  | €30-50                    |
 
 > Delete all resources immediately after the microhack.
-> Use: `scripts/microhack/Cleanup-MicrohackResources.ps1`
+> Delete the resource groups created for the event, or use your own cleanup automation if your workshop fork includes it.
 {: .important }
 
 </details>
@@ -618,7 +623,7 @@ az group delete --name rg-quota-test --yes --no-wait
 
 ---
 
-## ⏱️ First 10 Minutes on Event Day
+## First 10 Minutes on Event Day
 
 1. Open VS Code → Reopen in Container (if not already running)
 2. Verify Azure auth: `az account show`
@@ -628,7 +633,7 @@ az group delete --name rg-quota-test --yes --no-wait
 
 ---
 
-## 🚑 Troubleshooting Quick Fixes
+## Troubleshooting Quick Fixes
 
 | Problem                   | Fix                                                                                   |
 | ------------------------- | ------------------------------------------------------------------------------------- |
@@ -642,7 +647,7 @@ See [Troubleshooting](../reference/troubleshooting.md) for a complete reference.
 
 ---
 
-## ⏭️ Next Steps
+## Next Steps
 
 - [Copilot Guide](../guides/copilot-guide.md) — agents, skills, and prompting best practices
 - [Workshop Prep](workshop-prep.md) — scenario brief and team role cards

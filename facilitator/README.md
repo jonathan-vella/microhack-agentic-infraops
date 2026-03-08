@@ -10,20 +10,14 @@
 
 ## Quick Reference
 
-### Scoring Commands
+### Scoring Workflow
 
-```powershell
-# Score individual team
-.\scripts\microhack\Score-Team.ps1 -TeamName "freshconnect" -ShowcaseScore 8
+Use [scoring-rubric.md](scoring-rubric.md) as the source of truth for all points and grading decisions.
 
-# Score all teams
-Get-ChildItem .\agent-output -Directory | ForEach-Object {
-    .\scripts\microhack\Score-Team.ps1 -TeamName $_.Name -SkipAzureCheck -ShowcaseScore 0
-}
-
-# Display leaderboard
-.\scripts\microhack\Get-Leaderboard.ps1
-```
+1. Review each team's artifacts in `agent-output/{team}/` and `infra/bicep/{team}/`.
+2. Record the base and bonus scores using the rubric criteria.
+3. Add the Partner Showcase score using the rubric during Challenge 8.
+4. If your event package includes HackerBoard, you can enter the same rubric-based scores there for live leaderboard display.
 
 ### Curveball Timing
 

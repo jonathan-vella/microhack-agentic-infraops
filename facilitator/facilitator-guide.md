@@ -6,7 +6,7 @@
 
 | Aspect      | Details                               |
 | ----------- | ------------------------------------- |
-| Duration    | 6 hours (10:00 - 16:00)               |
+| Duration    | 1 day (09:00 - 17:00)                 |
 | Team Size   | 3-6 members per team                  |
 | Teams       | Flexible based on cohort              |
 | Format      | Challenge-based, full 7-step workflow |
@@ -58,13 +58,13 @@ Deploy Azure Policies to create realistic governance constraints. Teams will enc
 
 ```powershell
 # Check current governance status
-.\microhack\scripts\Get-GovernanceStatus.ps1 -SubscriptionId "<sub-id>"
+.\scripts\Get-GovernanceStatus.ps1 -SubscriptionId "<sub-id>"
 
 # Deploy microhack policies (checks for existing before creating)
-.\microhack\scripts\Setup-GovernancePolicies.ps1 -SubscriptionId "<sub-id>"
+.\scripts\Setup-GovernancePolicies.ps1 -SubscriptionId "<sub-id>"
 
 # After event: Remove policies
-.\microhack\scripts\Remove-GovernancePolicies.ps1 -SubscriptionId "<sub-id>"
+.\scripts\Remove-GovernancePolicies.ps1 -SubscriptionId "<sub-id>"
 ```
 
 **Policies deployed:**
@@ -87,15 +87,15 @@ Deploy Azure Policies to create realistic governance constraints. Teams will enc
 
 ## Schedule
 
-📅 **See [AGENDA.md](../AGENDA.md) for the full schedule overview.**
+📅 **See [docs/about/agenda.md](../docs/about/agenda.md) for the full schedule overview.**
 
-> **Event runs 10:00 - 16:00** (6 hours with 30-min lunch and 15-min afternoon break)
+> **Event runs 09:00 - 17:00** as a 1-day hackathon with lunch from 12:00 - 12:45 and a 15-minute afternoon break at 15:00
 
 ---
 
 ## Block-by-Block Facilitator Notes
 
-### Block 1: Intro (10:00 - 10:30)
+### Block 1: Intro (09:00 - 10:00)
 
 **Facilitator Actions:**
 
@@ -114,9 +114,9 @@ bicep --version
 echo "✅ Ready!"
 ```
 
-### Block 2: Challenge 1 - Requirements (10:30 - 11:00)
+### Block 2: Challenge 1 - Requirements (10:00 - 11:00)
 
-**Duration**: 30 minutes
+**Duration**: 60 minutes
 
 **Coaching Tips:**
 
@@ -131,9 +131,9 @@ echo "✅ Ready!"
 | Agent not responding | Reload VS Code window       |
 | Vague requirements   | Ask "What SLA? What's RTO?" |
 
-### Block 3: Challenge 2 - Architecture (11:00 - 11:30)
+### Block 3: Challenge 2 - Architecture (11:00 - 12:00)
 
-**Duration**: 30 minutes
+**Duration**: 60 minutes
 
 **Coaching Tips:**
 
@@ -145,11 +145,11 @@ echo "✅ Ready!"
 
 No common issues — monitor Pricing MCP functionality.
 
-### 🍽️ Lunch Break (11:30 - 12:00)
+### 🍽️ Lunch Break (12:00 - 12:45)
 
-**Duration**: 30 minutes
+**Duration**: 45 minutes
 
-### Block 4: Challenge 3 - Implementation & Deployment (12:00 - 12:45)
+### Block 4: Challenge 3 - Implementation & Deployment (12:45 - 13:30)
 
 **Duration**: 45 minutes (includes Bicep plan + code + deployment + Mermaid diagram)
 
@@ -166,11 +166,11 @@ No common issues — monitor Pricing MCP functionality.
 | Key Vault name too long | ≤24 chars              |
 | Storage account invalid | Lowercase+numbers only |
 
-### Block 5: ⚡ Challenge 4 - DR Curveball & Deployment (12:45 - 13:30)
+### Block 5: ⚡ Challenge 4 - DR Curveball & Deployment (13:30 - 14:15)
 
 **Duration**: 45 minutes
 
-#### 📢 Announcement Script (12:45)
+#### 📢 Announcement Script (13:30)
 
 Stand up, get everyone's attention:
 
@@ -200,15 +200,13 @@ Stand up, get everyone's attention:
 - Prompt: "How would you test failover?"
 - Encourage ADR creation to document DR decision rationale
 
-### ☕ Break (13:30 - 13:45)
+### Deployment Checkpoint (14:15 - 14:30)
 
-**Duration**: 15 minutes
+Use this short buffer to confirm teams are ready for load testing, unblock deployment issues, and reset for the final stretch.
 
-### Block 6: Challenges 5-7 - Load Test, Docs, Diagnose (13:45 - 14:35)
+### Block 6: Challenge 5 - Load Testing (14:30 - 15:00)
 
-**Duration**: 50 minutes (3 challenges: 30 min + 15 min + 5 min)
-
-#### Challenge 5: Load Testing (13:45 - 14:15)
+**Duration**: 30 minutes
 
 **Coaching Tips:**
 
@@ -216,7 +214,15 @@ Stand up, get everyone's attention:
 - Prompt: "How would you simulate 500 concurrent users?"
 - Encourage design agent for structured report generation
 
-#### Challenge 6: Documentation (14:15 - 14:30)
+### ☕ Break (15:00 - 15:15)
+
+**Duration**: 15 minutes
+
+### Block 7: Challenges 6-7 - Docs, Diagnose, Prep (15:15 - 15:50)
+
+**Duration**: 35 minutes
+
+#### Challenge 6: Documentation (15:15 - 15:30)
 
 **Coaching Tips:**
 
@@ -224,7 +230,7 @@ Stand up, get everyone's attention:
 - Prompt: "How does design agent ensure completeness?"
 - Encourage runbook creation for operational procedures
 
-#### Challenge 7: Diagnostics (14:30 - 14:35)
+#### Challenge 7: Diagnostics (15:30 - 15:35)
 
 **Coaching Tips:**
 
@@ -241,16 +247,16 @@ Stand up, get everyone's attention:
 
 ---
 
-### 🎯 Presentation Prep (14:35 - 14:50)
+### 🎯 Presentation Prep (15:35 - 15:50)
 
 **Facilitator Actions:**
 
 - Remind teams of the 4-min pitch + 2-min Q&A format
-- Share the [Presentation Template](../challenges/challenge-8-partner-showcase.md#what-to-present)
+- Share the [Presentation Template](../docs/challenges/challenge-8-partner-showcase.md#what-to-present)
 - Assign team pairings (see below)
 - Set up presentation area (projector, timer)
 
-### Block 7: Challenge 8 - Partner Showcase 🎤 (14:50 - 15:50)
+### Block 8: Challenge 8 - Partner Showcase 🎤 (15:50 - 16:50)
 
 **Duration**: 60 minutes (up to 6 teams × ~9 min + transitions)
 
@@ -267,7 +273,7 @@ Pair teams for the role-play:
 | Team 5               | Team 6                 |
 | Team 6               | Team 1                 |
 
-#### 📢 Announcement Script (14:50)
+#### 📢 Announcement Script (15:50)
 
 > _"Time for Challenge 8 — the Partner Showcase! 🎤_
 >
@@ -293,17 +299,9 @@ After each presentation, briefly comment on:
 | **WAF Alignment**   | Reliability, security, cost, operations covered? |
 | **Professionalism** | How would this land with a real customer?        |
 
-### Wrap-up (15:50 - 16:00)
+### Wrap-up (16:50 - 17:00)
 
-```powershell
-# Score all teams
-Get-ChildItem .\agent-output -Directory | ForEach-Object {
-    .\scripts\microhack\Score-Team.ps1 -TeamName $_.Name -SkipAzureCheck -ShowcaseScore 0
-}
-
-# Display leaderboard
-.\scripts\microhack\Get-Leaderboard.ps1
-```
+Finalize scores using [scoring-rubric.md](scoring-rubric.md), then announce the leaderboard from your facilitator worksheet or HackerBoard instance if your event package includes it.
 
 - Share key learnings from presentations
 - Announce final leaderboard
@@ -341,25 +339,15 @@ Fast teams disengage if idle. Offer these stretch activities:
 
 ## Scoring
 
-### Automated Scoring
+### Recommended Workflow
 
-```powershell
-# Individual team
-.\scripts\microhack\Score-Team.ps1 -TeamName "freshconnect" -ResourceGroupName "rg-freshconnect-dev-swc"
-
-# All teams
-Get-ChildItem .\agent-output -Directory | Where-Object { $_.Name -ne ".gitkeep" } | ForEach-Object {
-    .\scripts\microhack\Score-Team.ps1 -TeamName $_.Name -SkipAzureCheck -ShowcaseScore 0
-}
-
-# Leaderboard
-.\scripts\microhack\Get-Leaderboard.ps1
-```
+1. Review each team's artifacts and deployment evidence against [scoring-rubric.md](scoring-rubric.md).
+2. Verify bonus claims in Azure where needed.
+3. Add the Partner Showcase score using the rubric after each presentation.
+4. Publish totals from your facilitator worksheet or HackerBoard instance if your event package includes one.
 
 > [!TIP]
-> Scores can also be submitted and reviewed via the **HackerBoard web app**
-> for a browser-based experience during live events.
-> See the [app PRD](../../agent-output/hacker-board/app/app-prd.md) for setup details.
+> Keep scoring rubric-first. Any optional leaderboard tooling should reflect the totals you calculate from this guide and the rubric.
 
 ### Manual Verification (Bonus Points)
 

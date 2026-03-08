@@ -36,7 +36,7 @@ description: "Workshop feedback form — help us improve future events"
 ☐ ⭐⭐ Below Average
 ☐ ⭐ Poor
 
-### 2. Was the 6-hour duration appropriate?
+### 2. Was the 1-day hackathon format appropriate?
 
 ☐ Too short — needed more time
 ☐ Just right
@@ -53,7 +53,7 @@ description: "Workshop feedback form — help us improve future events"
 
 ## Content & Learning
 
-### 4. Rate each challenge (1=Poor, 5=Excellent):
+### 4. Rate each challenge (1=Poor, 5=Excellent)
 
 | Challenge                   | Rating         | Comments |
 | --------------------------- | -------------- | -------- |
@@ -87,7 +87,7 @@ description: "Workshop feedback form — help us improve future events"
 
 ## Tools & Environment
 
-### 7. Rate the tools (1=Poor, 5=Excellent):
+### 7. Rate the tools (1=Poor, 5=Excellent)
 
 | Tool                       | Rating         | Issues? |
 | -------------------------- | -------------- | ------- |
@@ -113,7 +113,7 @@ If yes, describe:
 
 ## Facilitation
 
-### 9. Rate the facilitation:
+### 9. Rate the facilitation
 
 | Aspect                 | Rating         |
 | ---------------------- | -------------- |

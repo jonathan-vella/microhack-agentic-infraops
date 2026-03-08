@@ -32,13 +32,13 @@ You need **Owner** or **Resource Policy Contributor** role on the subscription t
 Run from the **repository root**:
 
 ```bash
-pwsh -File microhack/scripts/<script-name>.ps1 -Subscription "<subscription-name-or-id>"
+pwsh -File scripts/<script-name>.ps1 -Subscription "<subscription-name-or-id>"
 ```
 
 Or navigate to the folder first:
 
 ```bash
-cd microhack/scripts
+cd scripts
 pwsh -File ./Setup-GovernancePolicies.ps1 -Subscription "<subscription-name-or-id>"
 ```
 
@@ -65,16 +65,16 @@ and are idempotent — existing assignments are skipped automatically.
 
 ```bash
 # Preview first (always recommended)
-pwsh -File microhack/scripts/Setup-GovernancePolicies.ps1 \
+pwsh -File scripts/Setup-GovernancePolicies.ps1 \
   -Subscription "<subscription-name-or-id>" \
   -WhatIf
 
 # Deploy policies
-pwsh -File microhack/scripts/Setup-GovernancePolicies.ps1 \
+pwsh -File scripts/Setup-GovernancePolicies.ps1 \
   -Subscription "<subscription-name-or-id>"
 
 # Deploy with verbose output
-pwsh -File microhack/scripts/Setup-GovernancePolicies.ps1 \
+pwsh -File scripts/Setup-GovernancePolicies.ps1 \
   -Subscription "<subscription-name-or-id>" \
   -Verbose
 ```
@@ -127,11 +127,11 @@ Lists policy assignments on the subscription and reports compliance counts from 
 
 ```bash
 # Check all policy assignments on the subscription
-pwsh -File microhack/scripts/Get-GovernanceStatus.ps1 \
+pwsh -File scripts/Get-GovernanceStatus.ps1 \
   -Subscription "<subscription-name-or-id>"
 
 # Check only microhack policies
-pwsh -File microhack/scripts/Get-GovernanceStatus.ps1 \
+pwsh -File scripts/Get-GovernanceStatus.ps1 \
   -Subscription "<subscription-name-or-id>" \
   -MicrohackOnly
 ```
@@ -169,12 +169,12 @@ Finds and deletes all policy assignments with the `microhack-` prefix. Supports 
 
 ```bash
 # Preview what will be removed
-pwsh -File microhack/scripts/Remove-GovernancePolicies.ps1 \
+pwsh -File scripts/Remove-GovernancePolicies.ps1 \
   -Subscription "<subscription-name-or-id>" \
   -WhatIf
 
 # Remove all microhack policies
-pwsh -File microhack/scripts/Remove-GovernancePolicies.ps1 \
+pwsh -File scripts/Remove-GovernancePolicies.ps1 \
   -Subscription "<subscription-name-or-id>"
 ```
 
@@ -196,15 +196,15 @@ TotalFound     : 8
 SUB="<your-subscription-name-or-id>"
 
 # 1. Before the event — deploy governance
-pwsh -File microhack/scripts/Setup-GovernancePolicies.ps1 -Subscription $SUB -WhatIf
-pwsh -File microhack/scripts/Setup-GovernancePolicies.ps1 -Subscription $SUB
+pwsh -File scripts/Setup-GovernancePolicies.ps1 -Subscription $SUB -WhatIf
+pwsh -File scripts/Setup-GovernancePolicies.ps1 -Subscription $SUB
 
 # 2. Verify policies are active (run after 5–15 min)
-pwsh -File microhack/scripts/Get-GovernanceStatus.ps1 -Subscription $SUB -MicrohackOnly
+pwsh -File scripts/Get-GovernanceStatus.ps1 -Subscription $SUB -MicrohackOnly
 
 # 3. After the event — remove governance
-pwsh -File microhack/scripts/Remove-GovernancePolicies.ps1 -Subscription $SUB -WhatIf
-pwsh -File microhack/scripts/Remove-GovernancePolicies.ps1 -Subscription $SUB
+pwsh -File scripts/Remove-GovernancePolicies.ps1 -Subscription $SUB -WhatIf
+pwsh -File scripts/Remove-GovernancePolicies.ps1 -Subscription $SUB
 ```
 
 ---
