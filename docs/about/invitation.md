@@ -58,7 +58,7 @@ changing requirements.
 ## What You'll Need
 
 - Laptop with VS Code
-- GitHub Copilot license (Business or Enterprise)
+- GitHub Copilot license (Pro+ or Enterprise)
 - Azure subscription with Owner access (required for Azure Policy)
 - A repository created from the
   [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)
@@ -90,3 +90,4 @@ workshop site above.
 
 Powered by GitHub Copilot custom agents, Azure Well-Architected
 Framework, and Azure Verified Modules.
+
