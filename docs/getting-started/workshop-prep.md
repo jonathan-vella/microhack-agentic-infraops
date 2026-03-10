@@ -1,8 +1,5 @@
 ---
-layout: default
 title: Workshop Prep & Scenario
-parent: Getting Started
-nav_order: 2
 description: "Business scenario details, team roles, and preparation checklist for Nordic Fresh Foods"
 ---
 

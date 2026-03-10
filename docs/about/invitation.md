@@ -1,8 +1,5 @@
 ---
-layout: default
 title: Workshop Invitation
-parent: About
-nav_order: 2
 description: "Event invitation details — what to expect, what to bring, and how to prepare"
 ---
 

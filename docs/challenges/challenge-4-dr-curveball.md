@@ -1,17 +1,10 @@
 ---
-layout: default
 title: "C4: DR Curveball"
-parent: Challenges
-nav_order: 5
 description: "Respond to a surprise business requirement change — add high availability and disaster recovery to your FreshConnect infrastructure."
 ---
 
-{% include challenge_header.html
-   duration="45 min"
-   points="10"
-   agents="architect"
-   outputs="04-adr-ha-dr-strategy.md"
-%}
+!!! abstract "Challenge Info"
+    :material-clock-outline: **45 min** · :material-trophy-outline: **10 pts** · :material-robot-outline: architect · :material-file-document-outline: 04-adr-ha-dr-strategy.md
 
 # Challenge 4: The Curveball — High Availability & Disaster Recovery
 
@@ -54,8 +47,9 @@ Your Challenge 4 path depends on Challenge 3 outcome:
 | **Partial deployment** | Design DR strategy → Update Bicep for what works → Document remaining gaps in ADR → Update diagram |
 | **Deployment failed** | Design DR strategy → **Paper exercise**: Write ADR + architecture diagram without deploying |
 
-> **Paper exercise path**: If your Challenge 3 deployment failed, you still earn points by producing a high-quality ADR and updated architecture diagram. Describe what you _would_ deploy, which services need replication, and what your failover strategy would be. No pre-built reference deployment is provided.
-{: .tip }
+!!! tip
+
+    **Paper exercise path**: If your Challenge 3 deployment failed, you still earn points by producing a high-quality ADR and updated architecture diagram. Describe what you _would_ deploy, which services need replication, and what your failover strategy would be. No pre-built reference deployment is provided.
 
 ### Option A: Single-Region HA
 
@@ -190,8 +184,9 @@ to show HA/DR configuration based on agent-output/freshconnect/04-adr-ha-dr-stra
 | Updated architecture diagram        | 2      | Full points available |
 | **Total**                           | **10** | **Max 8 pts** |
 
-> Teams on the paper-exercise path (Challenge 3 deployment failed) can earn up to 8 of 10 points by producing a high-quality ADR, justified approach, written Bicep design, and updated diagram. The 2 deployment points require actual Azure resources.
-{: .note }
+!!! note
+
+    Teams on the paper-exercise path (Challenge 3 deployment failed) can earn up to 8 of 10 points by producing a high-quality ADR, justified approach, written Bicep design, and updated diagram. The 2 deployment points require actual Azure resources.
 
 ## Time Management Tips
 
@@ -213,8 +208,9 @@ This challenge tests your ability to:
 **Remember**: There's no single "right answer" - the quality of your decision-making process
 matters more than the specific option you choose.
 
-> Final scoring uses the criteria in the scoring rubric, which is the single source of truth for all point values. Scoring rubric available from your facilitator.
-{: .note }
+!!! note
+
+    Final scoring uses the criteria in the scoring rubric, which is the single source of truth for all point values. Scoring rubric available from your facilitator.
 
 ## Artifact Handoff
 

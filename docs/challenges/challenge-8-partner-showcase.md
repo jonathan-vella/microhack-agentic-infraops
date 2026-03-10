@@ -1,17 +1,10 @@
 ---
-layout: default
 title: "C8: Partner Showcase"
-parent: Challenges
-nav_order: 9
 description: "Present your FreshConnect solution in a role-play partner-customer engagement with Microsoft coaches observing."
 ---
 
-{% include challenge_header.html
-   duration="60 min"
-   points="10"
-   agents=""
-   outputs="Presentation (facilitator-scored)"
-%}
+!!! abstract "Challenge Info"
+    :material-clock-outline: **60 min** · :material-trophy-outline: **10 pts** · :material-file-document-outline: Presentation (facilitator-scored)
 
 # Challenge 8: Partner Showcase 🎤
 
@@ -48,15 +41,12 @@ graph TB
     style O fill:#5c2d91,color:#fff
 ```
 
-<details markdown="1">
-<summary><strong>Text alternative: Presentation setup</strong></summary>
+??? note "Text alternative: Presentation setup"
 
-- **Presenting Team** (Partner role): Presents their solution to the Customer Team
-- **Customer Team**: Asks tough questions to challenge the presenting team
-- **Microsoft Coaches**: Observe and evaluate both teams
-- **Other Teams**: Learn from the presentation and Q&A
-
-</details>
+    - **Presenting Team** (Partner role): Presents their solution to the Customer Team
+    - **Customer Team**: Asks tough questions to challenge the presenting team
+    - **Microsoft Coaches**: Observe and evaluate both teams
+    - **Other Teams**: Learn from the presentation and Q&A
 
 ## Role Assignments
 

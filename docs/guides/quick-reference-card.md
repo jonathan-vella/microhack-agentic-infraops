@@ -1,8 +1,5 @@
 ---
-layout: default
 title: Quick Reference Card
-parent: Guides
-nav_order: 3
 description: "At-a-glance reference card for challenges, scoring, agents, and key commands"
 ---
 

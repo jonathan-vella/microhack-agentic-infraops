@@ -1,17 +1,10 @@
 ---
-layout: default
 title: "C2: Architecture Assessment"
-parent: Challenges
-nav_order: 3
 description: "Use the architect agent to create a Well-Architected Framework assessment with service selection and cost estimates."
 ---
 
-{% include challenge_header.html
-   duration="30 min"
-   points="25"
-   agents="architect"
-   outputs="02-architecture-assessment.md, 03-des-architecture-diagram.md"
-%}
+!!! abstract "Challenge Info"
+    :material-clock-outline: **30 min** · :material-trophy-outline: **25 pts** · :material-robot-outline: architect · :material-file-document-outline: 02-architecture-assessment.md, 03-des-architecture-diagram.md
 
 # Challenge 2: Architecture Assessment
 
@@ -165,37 +158,28 @@ After completing this challenge:
 - What architectural decisions were hardest to make? Why?
 - Did you prioritize business constraints or technical preferences?
 
-<details markdown="1">
-<summary>📊 Reliability Checklist</summary>
+??? note "📊 Reliability Checklist"
 
-- [ ] SLA target defined and achievable
-- [ ] RTO/RPO documented
-- [ ] Backup strategy defined
-- [ ] Failure modes identified
-- [ ] Health monitoring configured
+    - [ ] SLA target defined and achievable
+    - [ ] RTO/RPO documented
+    - [ ] Backup strategy defined
+    - [ ] Failure modes identified
+    - [ ] Health monitoring configured
 
-</details>
+??? note "🔒 Security Checklist"
 
-<details markdown="1">
-<summary>🔒 Security Checklist</summary>
+    - [ ] Authentication method defined
+    - [ ] TLS 1.2 minimum
+    - [ ] Secrets in Key Vault
+    - [ ] Network security considered
+    - [ ] Managed identities preferred
 
-- [ ] Authentication method defined
-- [ ] TLS 1.2 minimum
-- [ ] Secrets in Key Vault
-- [ ] Network security considered
-- [ ] Managed identities preferred
+??? note "💰 Cost Checklist"
 
-</details>
-
-<details markdown="1">
-<summary>💰 Cost Checklist</summary>
-
-- [ ] Within budget
-- [ ] Right-sized SKUs
-- [ ] Consumption vs. provisioned evaluated
-- [ ] Dev/Test vs. Production considered
-
-</details>
+    - [ ] Within budget
+    - [ ] Right-sized SKUs
+    - [ ] Consumption vs. provisioned evaluated
+    - [ ] Dev/Test vs. Production considered
 
 ## Tips
 
@@ -204,8 +188,9 @@ After completing this challenge:
 - 💡 Don't gold-plate the MVP — focus on essential features
 - 💡 Document assumptions and constraints
 
-> Final scoring uses the criteria in the scoring rubric, which is the single source of truth for all point values. Scoring rubric available from your facilitator.
-{: .note }
+!!! note
+
+    Final scoring uses the criteria in the scoring rubric, which is the single source of truth for all point values. Scoring rubric available from your facilitator.
 
 ## Required: Architecture Diagram ⭐ MANDATORY
 

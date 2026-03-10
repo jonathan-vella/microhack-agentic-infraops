@@ -1,9 +1,5 @@
 ---
-layout: default
 title: Challenges
-nav_order: 3
-has_children: true
-has_toc: false
 description: "8 challenges taking you from requirements to partner showcase"
 ---
 
@@ -11,7 +7,9 @@ description: "8 challenges taking you from requirements to partner showcase"
 
 Eight challenges guide you through the full Infrastructure-as-Code lifecycle — from gathering requirements with an AI agent to presenting your solution in a partner showcase.
 
-> Each challenge names its **input artifact** (what you need from the previous step), **output artifact** (what you produce), and **next step**. Check the Artifact Handoff table at the bottom of each challenge page.\n{: .tip }
+!!! tip
+
+    Each challenge names its **input artifact** (what you need from the previous step), **output artifact** (what you produce), and **next step**. Check the Artifact Handoff table at the bottom of each challenge page.
 
 ## Challenge Overview
 
@@ -46,14 +44,12 @@ graph LR
     style C8 fill:#0078d4,color:#fff
 ```
 
-<details markdown="1">
-<summary><strong>Text alternative: Challenge flow</strong></summary>
+??? note "Text alternative: Challenge flow"
 
-C1 Requirements → C2 Architecture → C3 Bicep Implementation → ⚡ CURVEBALL ⚡ → C4 DR → C5 Load Test → C6 Docs → C7 Diagnose → C8 Showcase
+    C1 Requirements → C2 Architecture → C3 Bicep Implementation → ⚡ CURVEBALL ⚡ → C4 DR → C5 Load Test → C6 Docs → C7 Diagnose → C8 Showcase
 
-Challenge 4 is announced as a surprise midway through the event.
+    Challenge 4 is announced as a surprise midway through the event.
 
-</details>
+!!! note
 
-> Challenge 4 is announced as a surprise midway through the event — simulating real-world requirement changes.
-{: .note }
+    Challenge 4 is announced as a surprise midway through the event — simulating real-world requirement changes.

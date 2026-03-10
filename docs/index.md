@@ -1,29 +1,27 @@
 ---
-layout: default
 title: Home
-nav_order: 1
 description: "Agentic InfraOps MicroHack — 1-day hands-on hackathon: Design, deploy, and present Azure infrastructure using AI agents and GitHub Copilot"
-permalink: /
 ---
 
-<div class="hero-section" markdown="1">
+<div class="hero-section" markdown>
 
 # Agentic InfraOps MicroHack
 
-{: .hero-tagline }
-Transform how you deliver Azure infrastructure using AI-powered agents in this 1-day hands-on hackathon.
+<p class="hero-tagline">Transform how you deliver Azure infrastructure using AI-powered agents in this 1-day hands-on hackathon.</p>
 
-[Get Started](getting-started/){: .hero-cta }
+[Get Started](getting-started/index.md){ .md-button .md-button--primary }
 
 </div>
 
-> **Are you in the right place?** This site contains workshop instructions. To do the challenges, create your own repository from the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator). Do not clone this documentation repository for challenge work.
-{: .warning }
+!!! warning
+
+    **Are you in the right place?** This site contains workshop instructions. To do the challenges, create your own repository from the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator). Do not clone this documentation repository for challenge work.
 
 ## What Is This MicroHack?
 
-> **TL;DR**: Your team uses AI agents to go from business requirements to deployed Azure infrastructure in one day. 8 challenges, 105 base points, a surprise DR curveball midway through.
-{: .tip }
+!!! tip
+
+    **TL;DR**: Your team uses AI agents to go from business requirements to deployed Azure infrastructure in one day. 8 challenges, 105 base points, a surprise DR curveball midway through.
 
 A team-based, 1-day hackathon where you orchestrate **specialized AI agents** to transform business requirements into production-ready Azure infrastructure. Instead of writing Bicep templates line by line, you'll collaborate with agents that understand Azure best practices — from requirements gathering through architecture design, code generation, and deployment.
 
@@ -54,16 +52,13 @@ gantt
         Wrap-up                 :16:50, 10m
 ```
 
-<details markdown="1">
-<summary><strong>Text alternative: Schedule overview</strong></summary>
+??? note "Text alternative: Schedule overview"
 
-**Morning**: Intro & Setup (09:00–10:00) → C1 Requirements (10:00–11:00) → C2 Architecture (11:00–12:00) → Lunch (12:00–12:45)
+    **Morning**: Intro & Setup (09:00–10:00) → C1 Requirements (10:00–11:00) → C2 Architecture (11:00–12:00) → Lunch (12:00–12:45)
 
-**Afternoon**: C3 Bicep & Deploy (12:45–13:30) → C4 DR Curveball (13:30–14:15) → Checkpoint (14:15–14:30) → C5 Load Testing (14:30–15:00) → Break (15:00–15:15) → C6 Documentation (15:15–15:30) → C7 Diagnostics (15:30–15:35) → Presentation Prep (15:35–15:50)
+    **Afternoon**: C3 Bicep & Deploy (12:45–13:30) → C4 DR Curveball (13:30–14:15) → Checkpoint (14:15–14:30) → C5 Load Testing (14:30–15:00) → Break (15:00–15:15) → C6 Documentation (15:15–15:30) → C7 Diagnostics (15:30–15:35) → Presentation Prep (15:35–15:50)
 
-**Showcase**: C8 Partner Showcase (15:50–16:50) → Wrap-up (16:50–17:00)
-
-</details>
+    **Showcase**: C8 Partner Showcase (15:50–16:50) → Wrap-up (16:50–17:00)
 
 ## Key Facts
 
@@ -107,31 +102,46 @@ A Stockholm-based farm-to-table delivery company needs modern cloud infrastructu
 | **Fix something broken** | [Troubleshooting](reference/troubleshooting.md) |
 | **Clean up after the event** | [Post-Event Cleanup](getting-started/setup.md#post-event-cleanup) |
 
-<div class="nav-card-grid">
+<div class="grid cards" markdown>
 
-<a href="getting-started/" class="nav-card">
-  <div class="nav-card-title">Getting Started</div>
-  <div class="nav-card-desc">Set up your environment, check prerequisites, and learn the scenario</div>
-</a>
+- :material-rocket-launch: **Getting Started**
 
-<a href="challenges/" class="nav-card">
-  <div class="nav-card-title">Challenges</div>
-  <div class="nav-card-desc">8 challenges — from requirements capture to partner showcase</div>
-</a>
+    ---
 
-<a href="guides/" class="nav-card">
-  <div class="nav-card-title">Guides</div>
-  <div class="nav-card-desc">Copilot guide, hints & tips, and a printable quick-reference card</div>
-</a>
+    Set up your environment, check prerequisites, and learn the scenario
 
-<a href="reference/" class="nav-card">
-  <div class="nav-card-title">Reference</div>
-  <div class="nav-card-desc">Glossary, troubleshooting, and governance scripts</div>
-</a>
+    [:octicons-arrow-right-24: Get started](getting-started/index.md)
 
-<a href="about/" class="nav-card">
-  <div class="nav-card-title">About</div>
-  <div class="nav-card-desc">Agenda, event details, and feedback</div>
-</a>
+- :material-trophy: **Challenges**
+
+    ---
+
+    8 challenges — from requirements capture to partner showcase
+
+    [:octicons-arrow-right-24: View challenges](challenges/index.md)
+
+- :material-book-open-variant: **Guides**
+
+    ---
+
+    Copilot guide, hints & tips, and a printable quick-reference card
+
+    [:octicons-arrow-right-24: Read guides](guides/index.md)
+
+- :material-bookshelf: **Reference**
+
+    ---
+
+    Glossary, troubleshooting, and governance scripts
+
+    [:octicons-arrow-right-24: Browse reference](reference/index.md)
+
+- :material-information: **About**
+
+    ---
+
+    Agenda, event details, and feedback
+
+    [:octicons-arrow-right-24: Learn more](about/index.md)
 
 </div>

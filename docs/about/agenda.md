@@ -1,8 +1,5 @@
 ---
-layout: default
 title: Agenda
-parent: About
-nav_order: 1
 description: "Detailed 1-day hackathon agenda with timing, activities, and facilitator notes"
 ---
 
@@ -42,7 +39,9 @@ description: "Detailed 1-day hackathon agenda with timing, activities, and facil
 
 ## Challenge Summary
 
-> **Block duration vs. task duration**: Each schedule block includes time for coaching check-ins, transitions, and buffer. The \"Duration\" below is the recommended active working time for the challenge task itself. The remaining block time is for facilitator check-ins, setup, and transitions.\n{: .note }
+!!! note
+
+    **Block duration vs. task duration**: Each schedule block includes time for coaching check-ins, transitions, and buffer. The "Duration" below is the recommended active working time for the challenge task itself. The remaining block time is for facilitator check-ins, setup, and transitions.
 
 | #   | Challenge                     | Duration | Points | Agent(s)                             |
 | --- | ----------------------------- | -------- | ------ | ------------------------------------ |
@@ -57,9 +56,10 @@ description: "Detailed 1-day hackathon agenda with timing, activities, and facil
 
 **Total Points**: 105 base + 25 bonus
 
-> **Coaches**: Use the facilitator guide distributed with your workshop materials for Challenge 4 details.
-> Challenge 8 focuses on professional communication and presentation skills.
-{: .note }
+!!! note
+
+    **Coaches**: Use the facilitator guide distributed with your workshop materials for Challenge 4 details.
+    Challenge 8 focuses on professional communication and presentation skills.
 
 ---
 
@@ -171,6 +171,6 @@ Teams prepare their Partner Showcase presentations (4-min pitch + 2-min Q&A form
 
 - **Template Repo**: [github.com/jonathan-vella/azure-agentic-infraops-accelerator](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)
 - **Workshop Docs**: [jonathan-vella.github.io/azure-agentic-infraops/](https://jonathan-vella.github.io/azure-agentic-infraops/)
-- **Challenges**: [microhack/challenges/](../challenges/)
+- **Challenges**: [microhack/challenges/](../challenges/index.md)
 - **Facilitator Guide**: Shared separately with coaches
 - **Pre-Work**: [Getting Started](../getting-started/setup.md)

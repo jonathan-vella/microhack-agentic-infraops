@@ -1,17 +1,10 @@
 ---
-layout: default
 title: "C7: Diagnostics"
-parent: Challenges
-nav_order: 8
 description: "Create a quick-reference troubleshooting card for on-call engineers responding to FreshConnect incidents."
 ---
 
-{% include challenge_header.html
-   duration="5 min"
-   points="5"
-   agents=""
-   outputs="07-diagnostics-quick-card.md"
-%}
+!!! abstract "Challenge Info"
+    :material-clock-outline: **5 min** · :material-trophy-outline: **5 pts** · :material-file-document-outline: 07-diagnostics-quick-card.md
 
 # Challenge 7: Troubleshooting & Diagnostics
 

@@ -1,0 +1,109 @@
+site_name: "Agentic InfraOps MicroHack"
+site_url: https://jonathan-vella.github.io/microhack-agentic-infraops/
+repo_url: https://github.com/jonathan-vella/microhack-agentic-infraops
+repo_name: jonathan-vella/microhack-agentic-infraops
+edit_uri: edit/main/docs/
+copyright: "&copy; 2025 Jonathan Vella. Distributed under the MIT License."
+
+theme:
+  name: material
+  logo: assets/images/logo.svg
+  favicon: assets/images/favicon.svg
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.path
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+
+markdown_extensions:
+  - admonition
+  - tables
+  - attr_list
+  - md_in_html
+  - def_list
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - getting-started/index.md
+      - Setup Guide: getting-started/setup.md
+      - Workshop Prep: getting-started/workshop-prep.md
+  - Challenges:
+      - challenges/index.md
+      - "C1: Requirements": challenges/challenge-1-requirements.md
+      - "C2: Architecture": challenges/challenge-2-architecture.md
+      - "C3: Implementation": challenges/challenge-3-implementation.md
+      - "C4: DR Curveball": challenges/challenge-4-dr-curveball.md
+      - "C5: Load Testing": challenges/challenge-5-load-testing.md
+      - "C6: Documentation": challenges/challenge-6-documentation.md
+      - "C7: Diagnostics": challenges/challenge-7-diagnostics.md
+      - "C8: Partner Showcase": challenges/challenge-8-partner-showcase.md
+  - Guides:
+      - guides/index.md
+      - Copilot & Agents: guides/copilot-guide.md
+      - Hints & Tips: guides/hints-and-tips.md
+      - Quick Reference Card: guides/quick-reference-card.md
+  - Reference:
+      - reference/index.md
+      - Glossary: reference/glossary.md
+      - Governance Scripts: reference/governance-scripts.md
+      - Troubleshooting: reference/troubleshooting.md
+  - About:
+      - about/index.md
+      - Agenda: about/agenda.md
+      - Invitation: about/invitation.md
+      - Feedback: about/feedback.md

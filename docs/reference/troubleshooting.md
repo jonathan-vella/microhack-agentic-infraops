@@ -1,8 +1,5 @@
 ---
-layout: default
 title: Troubleshooting
-parent: Reference
-nav_order: 2
 description: "Common issues and solutions for environment setup, Azure deployments, and agent interactions"
 ---
 
@@ -12,7 +9,9 @@ Common issues and fixes for Agentic InfraOps.
 
 ## Quick Diagnosis
 
-> **Start here.** Identify your failure type, then follow the link to the relevant section.\n{: .tip }
+!!! tip
+
+    **Start here.** Identify your failure type, then follow the link to the relevant section.
 
 | Symptom | Likely category | Go to |
 |---|---|---|
@@ -203,7 +202,9 @@ For remaining issues, check `.markdownlint-cli2.jsonc` for the rule that fired.
 3. If status is `Unknown`, wait 10 minutes and re-check
 4. If still not active after 30 minutes, ask facilitator to re-run `Setup-GovernancePolicies.ps1`
 
-> Even if policies haven't propagated yet, add the required tags and security settings to your Bicep — they are part of the success criteria.\n{: .tip }
+!!! tip
+
+    Even if policies haven't propagated yet, add the required tags and security settings to your Bicep — they are part of the success criteria.
 
 ### Escalation
 

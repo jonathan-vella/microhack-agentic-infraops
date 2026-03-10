@@ -1,9 +1,5 @@
 ---
-layout: default
 title: Guides
-nav_order: 4
-has_children: true
-has_toc: false
 description: "Copilot guides, hints, and quick reference for the workshop"
 ---
 

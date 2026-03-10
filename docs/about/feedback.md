@@ -1,8 +1,5 @@
 ---
-layout: default
 title: Feedback Form
-parent: About
-nav_order: 3
 description: "Workshop feedback form — help us improve future events"
 ---
 
@@ -10,10 +7,12 @@ description: "Workshop feedback form — help us improve future events"
 
 > **Thank you for participating!** Your feedback helps us improve future events.
 
-> This form is a markdown template. For live events, convert it to
-> [Microsoft Forms](https://forms.office.com) or print it as a handout.
-> Checkbox items (☐) are for pen-and-paper or digital-form use.
-{: .tip }
+!!! tip
+
+    This form is a markdown template. For live events, convert it to
+    [Microsoft Forms](https://forms.office.com) or print it as a handout.
+    Checkbox items (☐) are for pen-and-paper or digital-form use.
+
 
 ## Event Details
 

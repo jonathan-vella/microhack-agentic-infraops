@@ -1,9 +1,5 @@
 ---
-layout: default
 title: Getting Started
-nav_order: 2
-has_children: true
-has_toc: false
 description: "Set up your environment and learn the workshop scenario"
 ---
 
@@ -33,7 +29,7 @@ Choose your entry point based on where you are in the workshop journey:
 
 | Need | Where |
 |---|---|
-| Challenge instructions | [Challenges](../challenges/) |
+| Challenge instructions | [Challenges](../challenges/index.md) |
 | Agent and prompting help | [Copilot Guide](../guides/copilot-guide.md) |
 | Quick command reference | [Quick Reference Card](../guides/quick-reference-card.md) |
 | Something broke | [Troubleshooting](../reference/troubleshooting.md) |

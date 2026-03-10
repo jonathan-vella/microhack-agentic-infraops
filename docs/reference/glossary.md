@@ -1,8 +1,5 @@
 ---
-layout: default
 title: Glossary
-parent: Reference
-nav_order: 1
 description: "Definitions of key terms used throughout the workshop"
 ---
 
@@ -10,7 +7,9 @@ description: "Definitions of key terms used throughout the workshop"
 
 Key terms and definitions for Agentic InfraOps.
 
-> **Canonical vocabulary**: The terms below are the agreed names used throughout all participant-facing docs, facilitator guides, and scripts. Use these exact terms when writing or updating workshop content.\n{: .note }
+!!! note
+
+    **Canonical vocabulary**: The terms below are the agreed names used throughout all participant-facing docs, facilitator guides, and scripts. Use these exact terms when writing or updating workshop content.
 
 ## Naming Conventions
 
@@ -143,7 +142,7 @@ profile, and submit scores for their own team. Compare with **Admin**.
 
 **Persona** — A named character assigned to each agent for easy recognition.
 For example, the Requirements agent is 📜 Scribe and the Architect agent is
-🏛️ Oracle. See the [agent overview]({{ site.baseurl }}/).
+🏤 Oracle. See the [agent overview](../index.md).
 
 ## S
 

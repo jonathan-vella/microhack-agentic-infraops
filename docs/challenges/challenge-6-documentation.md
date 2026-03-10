@@ -1,17 +1,10 @@
 ---
-layout: default
 title: "C6: Workload Documentation"
-parent: Challenges
-nav_order: 7
 description: "Use the design agent to generate professional operational documentation for the FreshConnect platform."
 ---
 
-{% include challenge_header.html
-   duration="15 min"
-   points="5"
-   agents="design"
-   outputs="07-ab-operations-guide.md (min 2 docs)"
-%}
+!!! abstract "Challenge Info"
+    :material-clock-outline: **15 min** · :material-trophy-outline: **5 pts** · :material-robot-outline: design · :material-file-document-outline: 07-ab-operations-guide.md (min 2 docs)
 
 # Challenge 6: Workload Documentation
 

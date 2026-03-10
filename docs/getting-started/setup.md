@@ -1,8 +1,5 @@
 ---
-layout: default
 title: Setup Guide
-parent: Getting Started
-nav_order: 1
 description: "Complete environment setup: Azure subscription, GitHub Codespace, VS Code extensions, and verification"
 ---
 
@@ -30,7 +27,9 @@ description: "Complete environment setup: Azure subscription, GitHub Codespace, 
 
 ## Readiness Gate
 
-> Run through this quick checklist to confirm you can participate. **Every item marked "Blocks participation" must pass before the event starts.** Items marked "Optional" enhance the experience but won't stop you.\n{: .important }
+!!! important
+
+    Run through this quick checklist to confirm you can participate. **Every item marked "Blocks participation" must pass before the event starts.** Items marked "Optional" enhance the experience but won't stop you.
 
 | # | Check | How to verify | Blocks participation? |
 |---|---|---|---|
@@ -45,8 +44,9 @@ description: "Complete environment setup: Azure subscription, GitHub Codespace, 
 | 9 | Docker Desktop running | `docker --version` | **Yes** — required for Dev Container |
 | 10 | Network access to Azure and GitHub | Can reach `portal.azure.com` and `github.com` | **Yes** — required throughout |
 
-> If any "Blocks participation" item fails, resolve it before the event or contact your facilitator immediately. Do not wait until event day.
-{: .warning }
+!!! warning
+
+    If any "Blocks participation" item fails, resolve it before the event or contact your facilitator immediately. Do not wait until event day.
 
 ---
 
@@ -57,15 +57,17 @@ description: "Complete environment setup: Azure subscription, GitHub Codespace, 
 - **Self-guided learners**: Follow the same steps to explore the agentic workflow
   at your own pace.
 
-> **Important**: Your working repository is created from the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator), not from this documentation repository. If you cloned this repo directly, you have the wrong starting point.
-{: .warning }
+!!! warning
+
+    **Important**: Your working repository is created from the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator), not from this documentation repository. If you cloned this repo directly, you have the wrong starting point.
 
 ---
 
 ## What to Expect
 
-> **TL;DR**: 8 challenges in one day. You use AI agents to capture requirements, design architecture, generate Bicep, deploy to Azure, and present your solution. A DR curveball hits midway through.
-{: .tip }
+!!! tip
+
+    **TL;DR**: 8 challenges in one day. You use AI agents to capture requirements, design architecture, generate Bicep, deploy to Azure, and present your solution. A DR curveball hits midway through.
 
 ### The Microhack in 60 Seconds
 
@@ -90,8 +92,9 @@ Bicep Infrastructure as Code.
 | Challenges 5-7 (50 min) | Load test, document, and diagnose                           |
 | Challenge 8 (60 min)    | Present your solution to the group                          |
 
-> See the full schedule in [AGENDA.md](../about/agenda.md).
-{: .tip }
+!!! tip
+
+    See the full schedule in [AGENDA.md](../about/agenda.md).
 
 ### Mindset Tips
 
@@ -106,16 +109,18 @@ Bicep Infrastructure as Code.
 
 ## Prerequisites
 
-> All items in this section are **mandatory**. The microhack cannot proceed without every
-> prerequisite in place. Complete the [Pre-Event Day Checklist](#pre-event-checklist) to confirm
-> readiness before the event.
-{: .warning }
+!!! warning
+
+    All items in this section are **mandatory**. The microhack cannot proceed without every
+    prerequisite in place. Complete the [Pre-Event Day Checklist](#pre-event-checklist) to confirm
+    readiness before the event.
 
 ### Pre-Event Checklist
 
-> Complete every item below **before the event day**. Arrive ready — there is no setup
-> time built into the agenda.
-{: .important }
+!!! important
+
+    Complete every item below **before the event day**. Arrive ready — there is no setup
+    time built into the agenda.
 
 - [ ] **Docker Desktop** installed and running
 - [ ] **VS Code** 1.100+ with Dev Containers and GitHub Copilot Chat extensions
@@ -131,206 +136,198 @@ Bicep Infrastructure as Code.
 - [ ] **Network access** verified (no proxy issues)
 - [ ] **Quota verified** for Sweden Central
 
-<details markdown="1">
-<summary><strong>Software Requirements</strong></summary>
+??? note "Software Requirements"
 
-#### Docker Desktop
+    #### Docker Desktop
 
-GitHub Copilot custom agents run inside a Dev Container. You need Docker.
+    GitHub Copilot custom agents run inside a Dev Container. You need Docker.
 
-<details markdown="1">
-<summary><strong>Installation Instructions</strong></summary>
+    ??? note "Installation Instructions"
 
-**Install:**
+        **Install:**
 
-- **Windows/Mac**: [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-- **Linux**: [Docker Engine](https://docs.docker.com/engine/install/)
+        - **Windows/Mac**: [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+        - **Linux**: [Docker Engine](https://docs.docker.com/engine/install/)
 
-**Verify:**
+        **Verify:**
 
-```bash
-docker --version
-# Expected: Docker version 24.x or newer
-```
+        ```bash
+        docker --version
+        # Expected: Docker version 24.x or newer
+        ```
 
-**Alternatives** (if Docker Desktop licensing is an issue):
+        **Alternatives** (if Docker Desktop licensing is an issue):
 
-- [Rancher Desktop](https://rancherdesktop.io/)
-- [Podman Desktop](https://podman-desktop.io/)
-- [Colima](https://github.com/abiosoft/colima) (macOS/Linux)
+        - [Rancher Desktop](https://rancherdesktop.io/)
+        - [Podman Desktop](https://podman-desktop.io/)
+        - [Colima](https://github.com/abiosoft/colima) (macOS/Linux)
 
-</details>
+    #### Visual Studio Code
 
-#### Visual Studio Code
+    **Install:** [VS Code](https://code.visualstudio.com/) (version 1.100+)
 
-**Install:** [VS Code](https://code.visualstudio.com/) (version 1.100+)
+    The Dev Container auto-installs most extensions when it starts. You only need to install
+    the following on your **host machine** before opening the container:
 
-The Dev Container auto-installs most extensions when it starts. You only need to install
-the following on your **host machine** before opening the container:
+    | Extension           | ID                                   | Why host-only?                                                                    |
+    | ------------------- | ------------------------------------ | --------------------------------------------------------------------------------- |
+    | Dev Containers      | `ms-vscode-remote.remote-containers` | Required to open any Dev Container at all                                         |
+    | GitHub Copilot Chat | `github.copilot-chat`                | Licensing and sign-in happen on the host; automatically installs `github.copilot` |
 
-| Extension           | ID                                   | Why host-only?                                                                    |
-| ------------------- | ------------------------------------ | --------------------------------------------------------------------------------- |
-| Dev Containers      | `ms-vscode-remote.remote-containers` | Required to open any Dev Container at all                                         |
-| GitHub Copilot Chat | `github.copilot-chat`                | Licensing and sign-in happen on the host; automatically installs `github.copilot` |
+    **Install all at once:**
 
-**Install all at once:**
+    ```bash
+    code --install-extension ms-vscode-remote.remote-containers
+    code --install-extension github.copilot-chat
+    ```
 
-```bash
-code --install-extension ms-vscode-remote.remote-containers
-code --install-extension github.copilot-chat
-```
+    !!! note
 
-> Extensions such as Bicep, Azure CLI Tools, PowerShell, and Azure Resource Groups are
-> declared in `.devcontainer/devcontainer.json` and are installed automatically when the
-> Dev Container image is built. No manual action needed for those.
-{: .note }
+        Extensions such as Bicep, Azure CLI Tools, PowerShell, and Azure Resource Groups are
+        declared in `.devcontainer/devcontainer.json` and are installed automatically when the
+        Dev Container image is built. No manual action needed for those.
 
-#### Azure CLI
+    #### Azure CLI
 
-Required for authenticating to Azure, managing resources, running quota checks, and
-executing deployment scripts throughout the microhack.
+    Required for authenticating to Azure, managing resources, running quota checks, and
+    executing deployment scripts throughout the microhack.
 
-<details markdown="1">
-<summary><strong>Installation Instructions</strong></summary>
+    ??? note "Installation Instructions"
 
-**Install:**
+        **Install:**
 
-- **Windows**: [Azure CLI installer](https://learn.microsoft.com/cli/azure/install-azure-cli-windows)
-- **Mac**: `brew install azure-cli`
-- **Linux**: `curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash`
+        - **Windows**: [Azure CLI installer](https://learn.microsoft.com/cli/azure/install-azure-cli-windows)
+        - **Mac**: `brew install azure-cli`
+        - **Linux**: `curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash`
 
-**Verify:**
+        **Verify:**
 
-```bash
-az version
-# Expected: azure-cli 2.50.0 or newer
-```
+        ```bash
+        az version
+        # Expected: azure-cli 2.50.0 or newer
+        ```
 
-> The Dev Container ships with the latest Azure CLI pre-installed.
-> Install it locally only if you plan to use the CLI outside the container.
-{: .note }
+        !!! note
 
-</details>
+            The Dev Container ships with the latest Azure CLI pre-installed.
+            Install it locally only if you plan to use the CLI outside the container.
 
-#### PowerShell 7
+    #### PowerShell 7
 
-Required for deployment scripts, the prerequisite check script, and microhack cleanup.
-PowerShell 7 (pwsh) is distinct from Windows PowerShell 5.1 and must be installed separately.
+    Required for deployment scripts, the prerequisite check script, and microhack cleanup.
+    PowerShell 7 (pwsh) is distinct from Windows PowerShell 5.1 and must be installed separately.
 
-<details markdown="1">
-<summary><strong>Installation Instructions</strong></summary>
+    ??? note "Installation Instructions"
 
-**Install:**
+        **Install:**
 
-- **Windows**: [PowerShell 7 installer](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-windows)
-- **Mac**: `brew install --cask powershell`
-- **Linux**: `sudo apt-get install -y powershell`
-  (see [Linux install docs](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-linux))
+        - **Windows**: [PowerShell 7 installer](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-windows)
+        - **Mac**: `brew install --cask powershell`
+        - **Linux**: `sudo apt-get install -y powershell`
+          (see [Linux install docs](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-linux))
 
-**Verify:**
+        **Verify:**
 
-```bash
-pwsh --version
-# Expected: PowerShell 7.4 or newer
-```
+        ```bash
+        pwsh --version
+        # Expected: PowerShell 7.4 or newer
+        ```
 
-> The Dev Container ships with PowerShell 7 pre-installed. Install it locally only if
-> you plan to run scripts outside the container.
-{: .note }
+        !!! note
 
-</details>
+            The Dev Container ships with PowerShell 7 pre-installed. Install it locally only if
+            you plan to run scripts outside the container.
 
-#### Git
+    #### Git
 
-<details markdown="1">
-<summary><strong>Installation Instructions</strong></summary>
+    ??? note "Installation Instructions"
 
-**Install:**
+        **Install:**
 
-- **Windows**: [Git for Windows](https://gitforwindows.org/)
-- **Mac**: `brew install git` or Xcode Command Line Tools
-- **Linux**: `sudo apt install git` or equivalent
+        - **Windows**: [Git for Windows](https://gitforwindows.org/)
+        - **Mac**: `brew install git` or Xcode Command Line Tools
+        - **Linux**: `sudo apt install git` or equivalent
 
-**Verify:**
+        **Verify:**
 
-```bash
-git --version
-# Expected: git version 2.40 or newer
-```
+        ```bash
+        git --version
+        # Expected: git version 2.40 or newer
+        ```
 
-</details>
+??? note "Account Requirements"
 
-</details>
+    #### GitHub with Copilot Pro+ or Enterprise
 
-<details markdown="1">
-<summary><strong>Account Requirements</strong></summary>
+    !!! warning
 
-#### GitHub with Copilot Pro+ or Enterprise
+        This microhack requires **GitHub Copilot Pro+** or **GitHub Copilot Enterprise**.
+        Custom agents are **NOT available** on Copilot Free, Copilot Pro, or Copilot Business.
 
-> This microhack requires **GitHub Copilot Pro+** or **GitHub Copilot Enterprise**.
-> Custom agents are **NOT available** on Copilot Free, Copilot Pro, or Copilot Business.
-{: .warning }
 
-| Plan                   | Custom Agents | Compatible |
-| ---------------------- | ------------- | ---------- |
-| Copilot Free           | No            | No         |
-| Copilot Pro            | No            | No         |
-| Copilot Business       | No            | No         |
-| **Copilot Pro+**       | **Yes**       | **Yes**    |
-| **Copilot Enterprise** | **Yes**       | **Yes**    |
+    | Plan                   | Custom Agents | Compatible |
+    | ---------------------- | ------------- | ---------- |
+    | Copilot Free           | No            | No         |
+    | Copilot Pro            | No            | No         |
+    | Copilot Business       | No            | No         |
+    | **Copilot Pro+**       | **Yes**       | **Yes**    |
+    | **Copilot Enterprise** | **Yes**       | **Yes**    |
 
-Compare plans: [GitHub Copilot Plans](https://github.com/features/copilot/plans)
+    Compare plans: [GitHub Copilot Plans](https://github.com/features/copilot/plans)
 
-> GitHub Copilot can be billed directly through your Azure subscription.
-> See [Copilot Azure billing][copilot-azure-billing] for setup instructions.
-{: .tip }
+    !!! tip
 
-**Verify:**
+        GitHub Copilot can be billed directly through your Azure subscription.
+        See [Copilot Azure billing][copilot-azure-billing] for setup instructions.
 
-1. Go to [github.com/settings/copilot](https://github.com/settings/copilot)
-2. Confirm your subscription shows **Pro+** or **Enterprise**
-3. Ensure "Copilot Chat in the IDE" is enabled
 
-Setup guide: [VS Code Copilot Setup](https://code.visualstudio.com/docs/copilot/setup)
+    **Verify:**
 
-#### Azure Subscription
+    1. Go to [github.com/settings/copilot](https://github.com/settings/copilot)
+    2. Confirm your subscription shows **Pro+** or **Enterprise**
+    3. Ensure "Copilot Chat in the IDE" is enabled
 
-> This is a **Bring-Your-Own-Subscription** event. No Azure subscriptions
-> will be provided.
-{: .warning }
+    Setup guide: [VS Code Copilot Setup](https://code.visualstudio.com/docs/copilot/setup)
 
-**Compatible subscription types:**
+    #### Azure Subscription
 
-| Subscription Type                     | Compatible |
-| ------------------------------------- | ---------- |
-| Azure in CSP                          | Yes        |
-| Enterprise Agreement (EA)             | Yes        |
-| Pay As You Go                         | Yes        |
-| Visual Studio subscription            | Yes        |
-| Azure Free Account (with Credit Card) | Yes        |
-| **Azure Pass**                        | **No**     |
+    !!! warning
 
-**Requirements:**
+        This is a **Bring-Your-Own-Subscription** event. No Azure subscriptions
+        will be provided.
 
-- **One Azure subscription per team** — this is the only supported model. Shared subscriptions cause naming collisions, RBAC confusion, and accidental cross-team interference. Do not share a subscription across teams.
-- **Owner** role on the subscription is required so that facilitators can deploy Azure Policy assignments for the governance challenges. If your organisation restricts Owner, the minimum alternative is **Contributor** plus **Resource Policy Contributor** — but Owner is strongly recommended.
-- Sufficient quota — see [Azure Quota Requirements](#azure-quota-requirements) below
 
-**Verify:**
+    **Compatible subscription types:**
 
-```bash
-az login
-az account list --output table
-```
+    | Subscription Type                     | Compatible |
+    | ------------------------------------- | ---------- |
+    | Azure in CSP                          | Yes        |
+    | Enterprise Agreement (EA)             | Yes        |
+    | Pay As You Go                         | Yes        |
+    | Visual Studio subscription            | Yes        |
+    | Azure Free Account (with Credit Card) | Yes        |
+    | **Azure Pass**                        | **No**     |
 
-</details>
+    **Requirements:**
+
+    - **One Azure subscription per team** — this is the only supported model. Shared subscriptions cause naming collisions, RBAC confusion, and accidental cross-team interference. Do not share a subscription across teams.
+    - **Owner** role on the subscription is required so that facilitators can deploy Azure Policy assignments for the governance challenges. If your organisation restricts Owner, the minimum alternative is **Contributor** plus **Resource Policy Contributor** — but Owner is strongly recommended.
+    - Sufficient quota — see [Azure Quota Requirements](#azure-quota-requirements) below
+
+    **Verify:**
+
+    ```bash
+    az login
+    az account list --output table
+    ```
 
 ---
 
 ## Post-Event Cleanup
 
-> **The team lead is responsible for cleanup.** Before leaving the event, the team lead must delete all team resources and confirm cleanup is complete. Do not leave resources running overnight.
-{: .warning }
+!!! warning
+
+    **The team lead is responsible for cleanup.** Before leaving the event, the team lead must delete all team resources and confirm cleanup is complete. Do not leave resources running overnight.
 
 **Cleanup steps:**
 
@@ -361,8 +358,9 @@ az account list --output table
 
 ## Handling Secrets Safely
 
-> Throughout the microhack you will work with Azure credentials, connection strings, and API keys. Follow these rules to prevent accidental leakage.
-{: .warning }
+!!! warning
+
+    Throughout the microhack you will work with Azure credentials, connection strings, and API keys. Follow these rules to prevent accidental leakage.
 
 - **Never paste** real passwords, connection strings, access keys, or tokens into Copilot Chat prompts.
 - **Never commit** secrets to your repository. Use placeholders like `<your-connection-string>` in code and documentation.
@@ -374,325 +372,278 @@ az account list --output table
 
 ## Dev Container
 
-> **Pull and build the Dev Container image before the event day.** The first build
-> downloads ~1–2 GB of layers and takes 3–5 minutes. Doing this on-site wastes time
-> and strains shared Wi-Fi. Complete [Setup Steps](#setup-steps) in advance.
-{: .important }
+!!! important
+
+    **Pull and build the Dev Container image before the event day.** The first build
+    downloads ~1–2 GB of layers and takes 3–5 minutes. Doing this on-site wastes time
+    and strains shared Wi-Fi. Complete [Setup Steps](#setup-steps) in advance.
 
 The repo includes a Dev Container with all tools pre-installed. It works with
 **VS Code Dev Containers** (local Docker) and **GitHub Codespaces** (cloud).
 
-<details markdown="1">
-<summary><strong>Tools Included</strong></summary>
+??? note "Tools Included"
 
-| Tool              | Version | Purpose                        |
-| ----------------- | ------- | ------------------------------ |
-| Azure CLI (`az`)  | Latest  | Azure resource management      |
-| Bicep CLI         | Latest  | Infrastructure as Code         |
-| GitHub CLI (`gh`) | Latest  | Repository and PR management   |
-| Node.js + npm     | 20.x    | Linting, validation scripts    |
-| Python 3 + pip    | 3.12+   | Diagram generation, MCP server |
-| PowerShell        | 7.x     | Microhack scripts, deployment  |
-| Git               | Latest  | Version control                |
+    | Tool              | Version | Purpose                        |
+    | ----------------- | ------- | ------------------------------ |
+    | Azure CLI (`az`)  | Latest  | Azure resource management      |
+    | Bicep CLI         | Latest  | Infrastructure as Code         |
+    | GitHub CLI (`gh`) | Latest  | Repository and PR management   |
+    | Node.js + npm     | 20.x    | Linting, validation scripts    |
+    | Python 3 + pip    | 3.12+   | Diagram generation, MCP server |
+    | PowerShell        | 7.x     | Microhack scripts, deployment  |
+    | Git               | Latest  | Version control                |
 
-</details>
+??? note "Configuration Files"
 
-<details markdown="1">
-<summary><strong>Configuration Files</strong></summary>
+    | File                              | Purpose                                   |
+    | --------------------------------- | ----------------------------------------- |
+    | `.devcontainer/devcontainer.json` | Container definition and VS Code settings |
+    | `.vscode/extensions.json`         | Recommended VS Code extensions            |
 
-| File                              | Purpose                                   |
-| --------------------------------- | ----------------------------------------- |
-| `.devcontainer/devcontainer.json` | Container definition and VS Code settings |
-| `.vscode/extensions.json`         | Recommended VS Code extensions            |
+??? note "Customization"
 
-</details>
+    **Add a VS Code extension** — append to `.vscode/extensions.json`:
 
-<details markdown="1">
-<summary><strong>Customization</strong></summary>
+    ```jsonc
+    {
+      "recommendations": ["your-publisher.your-extension"],
+    }
+    ```
 
-**Add a VS Code extension** — append to `.vscode/extensions.json`:
+    **Install additional tools** — add to `postCreateCommand` in `devcontainer.json`:
 
-```jsonc
-{
-  "recommendations": ["your-publisher.your-extension"],
-}
-```
+    ```jsonc
+    {
+      "postCreateCommand": "npm install && pip install -r requirements.txt",
+    }
+    ```
 
-**Install additional tools** — add to `postCreateCommand` in `devcontainer.json`:
+    **Pass environment variables:**
 
-```jsonc
-{
-  "postCreateCommand": "npm install && pip install -r requirements.txt",
-}
-```
+    ```jsonc
+    {
+      "remoteEnv": {
+        "AZURE_SUBSCRIPTION_ID": "${localEnv:AZURE_SUBSCRIPTION_ID}",
+      },
+    }
+    ```
 
-**Pass environment variables:**
+??? note "GitHub Codespaces"
 
-```jsonc
-{
-  "remoteEnv": {
-    "AZURE_SUBSCRIPTION_ID": "${localEnv:AZURE_SUBSCRIPTION_ID}",
-  },
-}
-```
-
-</details>
-
-<details markdown="1">
-<summary><strong>GitHub Codespaces</strong></summary>
-
-1. Create your own repository from the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)
-2. Open your new repository on GitHub
-3. Click **Code** → **Codespaces** → **Create codespace on main**
-4. Wait for the container to build (first time takes 2-3 minutes)
-
-</details>
+    1. Create your own repository from the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)
+    2. Open your new repository on GitHub
+    3. Click **Code** → **Codespaces** → **Create codespace on main**
+    4. Wait for the container to build (first time takes 2-3 minutes)
 
 ---
 
 ## Setup Steps
 
-> Complete **all steps below before the event day**. Steps 1 and 2 pull and build the
-> Dev Container image (~1–2 GB download). Do not leave this for the morning of the event.
-{: .important }
+!!! important
 
-<details markdown="1">
-<summary><strong>1. Create Your Repo and Open It</strong></summary>
+    Complete **all steps below before the event day**. Steps 1 and 2 pull and build the
+    Dev Container image (~1–2 GB download). Do not leave this for the morning of the event.
 
-1. Go to the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)
-2. Click **Use this template** → **Create a new repository**
-3. Clone your new repository and open it in VS Code:
+??? note "1. Create Your Repo and Open It"
 
-```bash
-git clone https://github.com/<your-org-or-user>/<your-new-repo>.git
-cd <your-new-repo>
-code .
-```
+    1. Go to the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)
+    2. Click **Use this template** → **Create a new repository**
+    3. Clone your new repository and open it in VS Code:
 
-1. If the repository still contains template placeholders, run `npm run init:template` from the repo root. If you do not have Node.js locally, run it after reopening in the dev container.
+    ```bash
+    git clone https://github.com/<your-org-or-user>/<your-new-repo>.git
+    cd <your-new-repo>
+    code .
+    ```
 
-When VS Code opens, accept the **"Reopen in Container"** prompt.
+    1. If the repository still contains template placeholders, run `npm run init:template` from the repo root. If you do not have Node.js locally, run it after reopening in the dev container.
 
-</details>
+    When VS Code opens, accept the **"Reopen in Container"** prompt.
 
-<details markdown="1">
-<summary><strong>2. Pull and Build the Dev Container</strong></summary>
+??? note "2. Pull and Build the Dev Container"
 
-> **Do this before the event.** The initial image pull and build takes 3–5 minutes and
-> requires a reliable internet connection. On the event day, skip straight to step 3.
-{: .warning }
+    !!! warning
 
-1. Press `F1` → type "Dev Containers: Reopen in Container"
-2. Wait for the container to build (watch progress in the terminal)
-3. Once complete, verify tools:
+        **Do this before the event.** The initial image pull and build takes 3–5 minutes and
+        requires a reliable internet connection. On the event day, skip straight to step 3.
 
-```bash
-az version        # Expected: 2.50+
-bicep --version   # Expected: 0.20+
-pwsh --version    # Expected: 7+
-```
 
-</details>
+    1. Press `F1` → type "Dev Containers: Reopen in Container"
+    2. Wait for the container to build (watch progress in the terminal)
+    3. Once complete, verify tools:
 
-<details markdown="1">
-<summary><strong>3. Authenticate with Azure</strong></summary>
+    ```bash
+    az version        # Expected: 2.50+
+    bicep --version   # Expected: 0.20+
+    pwsh --version    # Expected: 7+
+    ```
 
-```bash
-az login
-az account set --subscription "<your-subscription-id>"
-az account show --query "{Name:name, SubscriptionId:id, TenantId:tenantId}" -o table
-```
+??? note "3. Authenticate with Azure"
 
-</details>
+    ```bash
+    az login
+    az account set --subscription "<your-subscription-id>"
+    az account show --query "{Name:name, SubscriptionId:id, TenantId:tenantId}" -o table
+    ```
 
-<details markdown="1">
-<summary><strong>4. Enable Custom Agents</strong></summary>
+??? note "4. Enable Custom Agents"
 
-Open VS Code Settings (`Ctrl+,`) and add:
+    Open VS Code Settings (`Ctrl+,`) and add:
 
-```json
-{
-  "github.copilot.chat": {
-    "customAgentInSubagent": {
-      "enabled": true
+    ```json
+    {
+      "github.copilot.chat": {
+        "customAgentInSubagent": {
+          "enabled": true
+        }
+      }
     }
-  }
-}
-```
+    ```
 
-</details>
+??? note "5. Verify Prerequisites - skip this step"
 
-<details markdown="1">
-<summary><strong>5. Verify Prerequisites - skip this step</strong></summary>
+    Verify the core tools manually:
 
-Verify the core tools manually:
+    ```powershell
+    az version
+    bicep --version
+    node --version
+    npm --version
+    gh --version
+    ```
 
-```powershell
-az version
-bicep --version
-node --version
-npm --version
-gh --version
-```
+??? note "6. Start the Workflow"
 
-</details>
+    Open Copilot Chat (`Ctrl+Shift+I`) and select **InfraOps Conductor**:
 
-<details markdown="1">
-<summary><strong>6. Start the Workflow</strong></summary>
+    ```text
+    Describe the Azure infrastructure project you want to build.
+    ```
 
-Open Copilot Chat (`Ctrl+Shift+I`) and select **InfraOps Conductor**:
+    The Conductor guides you through all 7 steps with approval gates:
 
-```text
-Describe the Azure infrastructure project you want to build.
-```
+    1. **Requirements** — capture what you need
+    2. **Architecture** — WAF assessment and cost estimate
+    3. **Design** — diagrams and ADRs (optional)
+    4. **Planning** — Bicep implementation plan with governance
+    5. **Code** — AVM-first Bicep templates
+    6. **Deploy** — Azure provisioning with what-if preview
+    7. **Documentation** — as-built suite
 
-The Conductor guides you through all 7 steps with approval gates:
+    Explore complete sample artifacts in the `agent-output/_sample/` directory (created during the workshop).
 
-1. **Requirements** — capture what you need
-2. **Architecture** — WAF assessment and cost estimate
-3. **Design** — diagrams and ADRs (optional)
-4. **Planning** — Bicep implementation plan with governance
-5. **Code** — AVM-first Bicep templates
-6. **Deploy** — Azure provisioning with what-if preview
-7. **Documentation** — as-built suite
+    ??? note "Network Requirements"
 
-Explore complete sample artifacts in the `agent-output/_sample/` directory (created during the workshop).
+        Ensure your network allows outbound HTTPS to:
 
-<details markdown="1">
-<summary><strong>Network Requirements</strong></summary>
-
-Ensure your network allows outbound HTTPS to:
-
-| Service        | Domains                                                       |
-| -------------- | ------------------------------------------------------------- |
-| GitHub         | `github.com`, `api.github.com`                                |
-| GitHub Copilot | `copilot.github.com`, `*.githubusercontent.com`               |
-| Azure          | `*.azure.com`, `*.microsoft.com`, `login.microsoftonline.com` |
-| Docker         | `docker.io`, `registry-1.docker.io`                           |
-
-</details>
-
-</details>
+        | Service        | Domains                                                       |
+        | -------------- | ------------------------------------------------------------- |
+        | GitHub         | `github.com`, `api.github.com`                                |
+        | GitHub Copilot | `copilot.github.com`, `*.githubusercontent.com`               |
+        | Azure          | `*.azure.com`, `*.microsoft.com`, `login.microsoftonline.com` |
+        | Docker         | `docker.io`, `registry-1.docker.io`                           |
 
 ---
 
 ## Azure Quota Requirements
 
-> **Verify your subscription has sufficient quota BEFORE the microhack.**
-{: .warning }
+!!! warning
 
-<details markdown="1">
-<summary><strong>Per-Team Resource Requirements</strong></summary>
+    **Verify your subscription has sufficient quota BEFORE the microhack.**
 
-| Resource Type           | Quantity | SKU/Tier     | Region         |
-| ----------------------- | -------- | ------------ | -------------- |
-| Resource Groups         | 1-2      | N/A          | Sweden Central |
-| App Service Plans       | 1        | P1v4 or S1   | Sweden Central |
-| App Services (Web Apps) | 1-2      | N/A          | Sweden Central |
-| Azure SQL Server        | 1        | N/A          | Sweden Central |
-| Azure SQL Database      | 1        | S0 or Basic  | Sweden Central |
-| Storage Accounts        | 1-2      | Standard_LRS | Sweden Central |
-| Key Vault               | 1        | Standard     | Sweden Central |
-| Application Insights    | 1        | N/A          | Sweden Central |
-| Log Analytics Workspace | 1        | Per-GB       | Sweden Central |
+??? note "Per-Team Resource Requirements"
 
-</details>
+    | Resource Type           | Quantity | SKU/Tier     | Region         |
+    | ----------------------- | -------- | ------------ | -------------- |
+    | Resource Groups         | 1-2      | N/A          | Sweden Central |
+    | App Service Plans       | 1        | P1v4 or S1   | Sweden Central |
+    | App Services (Web Apps) | 1-2      | N/A          | Sweden Central |
+    | Azure SQL Server        | 1        | N/A          | Sweden Central |
+    | Azure SQL Database      | 1        | S0 or Basic  | Sweden Central |
+    | Storage Accounts        | 1-2      | Standard_LRS | Sweden Central |
+    | Key Vault               | 1        | Standard     | Sweden Central |
+    | Application Insights    | 1        | N/A          | Sweden Central |
+    | Log Analytics Workspace | 1        | Per-GB       | Sweden Central |
 
-<details markdown="1">
-<summary><strong>Optional Advanced Resources</strong></summary>
+??? note "Optional Advanced Resources"
 
-| Resource Type                  | Quantity | SKU/Tier              | Region         |
-| ------------------------------ | -------- | --------------------- | -------------- |
-| Azure Front Door               | 1        | Standard or Premium   | Global         |
-| Application Gateway            | 1        | Standard_v2 or WAF_v2 | Sweden Central |
-| Web Application Firewall (WAF) | 1        | N/A (part of AppGW)   | Sweden Central |
-| Traffic Manager                | 1        | N/A                   | Global         |
-| Azure Container Registry       | 1        | Basic or Standard     | Sweden Central |
+    | Resource Type                  | Quantity | SKU/Tier              | Region         |
+    | ------------------------------ | -------- | --------------------- | -------------- |
+    | Azure Front Door               | 1        | Standard or Premium   | Global         |
+    | Application Gateway            | 1        | Standard_v2 or WAF_v2 | Sweden Central |
+    | Web Application Firewall (WAF) | 1        | N/A (part of AppGW)   | Sweden Central |
+    | Traffic Manager                | 1        | N/A                   | Global         |
+    | Azure Container Registry       | 1        | Basic or Standard     | Sweden Central |
 
-</details>
+??? note "Challenge 4 — DR Additional Resources"
 
-<details markdown="1">
-<summary><strong>Challenge 4 — DR Additional Resources</strong></summary>
+    | Resource Type                | Quantity | SKU/Tier     | Region               |
+    | ---------------------------- | -------- | ------------ | -------------------- |
+    | Resource Groups              | 1        | N/A          | Germany West Central |
+    | App Service Plans            | 1        | P1v4 or S1   | Germany West Central |
+    | App Services (Web Apps)      | 1        | N/A          | Germany West Central |
+    | Azure SQL Database (replica) | 1        | S0 or Basic  | Germany West Central |
+    | Storage Accounts (GRS)       | 1        | Standard_GRS | Sweden Central       |
 
-| Resource Type                | Quantity | SKU/Tier     | Region               |
-| ---------------------------- | -------- | ------------ | -------------------- |
-| Resource Groups              | 1        | N/A          | Germany West Central |
-| App Service Plans            | 1        | P1v4 or S1   | Germany West Central |
-| App Services (Web Apps)      | 1        | N/A          | Germany West Central |
-| Azure SQL Database (replica) | 1        | S0 or Basic  | Germany West Central |
-| Storage Accounts (GRS)       | 1        | Standard_GRS | Sweden Central       |
+??? note "Multi-Team Shared Subscription (4 teams)"
 
-</details>
+    | Resource Type            | Total |
+    | ------------------------ | ----- |
+    | Resource Groups          | 8-12  |
+    | App Service Plans        | 8     |
+    | App Services (Web Apps)  | 8-12  |
+    | Azure SQL Servers        | 4     |
+    | Azure SQL Databases      | 8     |
+    | Storage Accounts         | 8-12  |
+    | Key Vaults               | 4     |
+    | Application Insights     | 4     |
+    | Log Analytics Workspaces | 4     |
 
-<details markdown="1">
-<summary><strong>Multi-Team Shared Subscription (4 teams)</strong></summary>
+??? note "Checking and Increasing Quotas"
 
-| Resource Type            | Total |
-| ------------------------ | ----- |
-| Resource Groups          | 8-12  |
-| App Service Plans        | 8     |
-| App Services (Web Apps)  | 8-12  |
-| Azure SQL Servers        | 4     |
-| Azure SQL Databases      | 8     |
-| Storage Accounts         | 8-12  |
-| Key Vaults               | 4     |
-| Application Insights     | 4     |
-| Log Analytics Workspaces | 4     |
+    **Azure Portal**: Search "Quotas" → filter by region → review per resource type.
 
-</details>
+    **Azure CLI:**
 
-<details markdown="1">
-<summary><strong>Checking and Increasing Quotas</strong></summary>
+    ```bash
+    az vm list-usage --location swedencentral --output table
+    az storage account list --query "length(@)"
+    ```
 
-**Azure Portal**: Search "Quotas" → filter by region → review per resource type.
+    **Common issues:**
 
-**Azure CLI:**
+    | Issue                         | Solution                                         |
+    | ----------------------------- | ------------------------------------------------ |
+    | "Subscription not registered" | `az provider register --namespace Microsoft.Web` |
+    | "Quota exceeded"              | Request increase via Azure Portal → Quotas       |
+    | "Region not available"        | Use alternative region or request access         |
+    | "SKU not available in region" | Try a different SKU tier                         |
 
-```bash
-az vm list-usage --location swedencentral --output table
-az storage account list --query "length(@)"
-```
+    !!! warning
 
-**Common issues:**
+        **Request quota increases at least 1 week before the microhack** to ensure approval.
 
-| Issue                         | Solution                                         |
-| ----------------------------- | ------------------------------------------------ |
-| "Subscription not registered" | `az provider register --namespace Microsoft.Web` |
-| "Quota exceeded"              | Request increase via Azure Portal → Quotas       |
-| "Region not available"        | Use alternative region or request access         |
-| "SKU not available in region" | Try a different SKU tier                         |
+??? note "Estimated Event Costs"
 
-> **Request quota increases at least 1 week before the microhack** to ensure approval.
-{: .warning }
+    | Configuration         | Estimated Cost (~8 hours) |
+    | --------------------- | ------------------------- |
+    | Single team (basic)   | €5-10                     |
+    | Single team (with DR) | €10-20                    |
+    | 4 teams (shared sub)  | €30-50                    |
 
-</details>
+    !!! important
 
-<details markdown="1">
-<summary><strong>Estimated Event Costs</strong></summary>
+        Delete all resources immediately after the microhack.
+        Delete the resource groups created for the event, or use your own cleanup automation if your workshop fork includes it.
 
-| Configuration         | Estimated Cost (~8 hours) |
-| --------------------- | ------------------------- |
-| Single team (basic)   | €5-10                     |
-| Single team (with DR) | €10-20                    |
-| 4 teams (shared sub)  | €30-50                    |
+??? note "Pre-Microhack Verification"
 
-> Delete all resources immediately after the microhack.
-> Delete the resource groups created for the event, or use your own cleanup automation if your workshop fork includes it.
-{: .important }
-
-</details>
-
-<details markdown="1">
-<summary><strong>Pre-Microhack Verification</strong></summary>
-
-```powershell
-az login
-az account set --subscription "<your-subscription-id>"
-az group create --name rg-quota-test --location swedencentral
-az group delete --name rg-quota-test --yes --no-wait
-```
-
-</details>
+    ```powershell
+    az login
+    az account set --subscription "<your-subscription-id>"
+    az group create --name rg-quota-test --location swedencentral
+    az group delete --name rg-quota-test --yes --no-wait
+    ```
 
 ---
 
@@ -726,5 +677,3 @@ See [Troubleshooting](../reference/troubleshooting.md) for a complete reference.
 - [Workshop Prep](workshop-prep.md) — scenario brief and team role cards
 - [Hints & Tips](../guides/hints-and-tips.md) — challenge-specific guidance
 - [Troubleshooting](../reference/troubleshooting.md) — common issues and fixes
-
-[copilot-azure-billing]: https://docs.github.com/en/copilot/reference/copilot-billing/azure-billing

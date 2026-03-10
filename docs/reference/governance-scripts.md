@@ -1,16 +1,14 @@
 ---
-layout: default
 title: Governance Scripts
-parent: Reference
-nav_order: 3
 description: "Azure Policy governance scripts for workshop environment setup"
 ---
 
 Three PowerShell scripts manage the Azure Policy lifecycle for the microhack event.
 All require the **Azure CLI** (`az`) and **PowerShell 7+** (`pwsh`), both pre-installed in the dev container.
 
-> These scripts are **for facilitators only**. Participants do not need to run them.
-{: .note }
+!!! note
+
+    These scripts are **for facilitators only**. Participants do not need to run them.
 
 ---
 
@@ -31,14 +29,15 @@ az account show --query "{Name:name, Id:id}" -o table
 
 You need **Owner** or **Resource Policy Contributor** role on the subscription to create and delete policy assignments.
 
-> **One subscription per team** is the only supported model. Do not share a subscription across teams — it causes naming collisions and cross-team policy interference.
-{: .warning }
+!!! warning
+
+    **One subscription per team** is the only supported model. Do not share a subscription across teams — it causes naming collisions and cross-team policy interference.
 
 ---
 
 ## Running the Scripts
 
-Scripts are located in the `scripts/` folder of the repository you create from the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator).
+Scripts are located in the [`scripts/`](https://github.com/jonathan-vella/microhack-agentic-infraops/tree/main/scripts) folder of this repository.
 
 Run from the **repository root**:
 
@@ -59,7 +58,7 @@ pwsh -File ./Setup-GovernancePolicies.ps1 -Subscription "<subscription-name-or-i
 
 ### 1. Setup-GovernancePolicies.ps1
 
-[View source on GitHub](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator/blob/main/scripts/Setup-GovernancePolicies.ps1)
+[View source on GitHub](https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/scripts/Setup-GovernancePolicies.ps1)
 
 **When to use:** Before the event starts, to deploy governance constraints that teams must work around.
 
@@ -116,16 +115,17 @@ Failed         : 0
 TotalPolicies  : 8
 ```
 
-> Policies take **5–15 minutes** to become effective after deployment. Teams may not see errors immediately.
-> Facilitators should deploy policies at least 30 minutes before Challenge 3 begins and verify activation
-> using `Get-GovernanceStatus.ps1 -MicrohackOnly`. If the `State` column shows `Unknown`, wait and re-run.
-{: .warning }
+!!! warning
+
+    Policies take **5–15 minutes** to become effective after deployment. Teams may not see errors immediately.
+    Facilitators should deploy policies at least 30 minutes before Challenge 3 begins and verify activation
+    using `Get-GovernanceStatus.ps1 -MicrohackOnly`. If the `State` column shows `Unknown`, wait and re-run.
 
 ---
 
 ### 2. Get-GovernanceStatus.ps1
 
-[View source on GitHub](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator/blob/main/scripts/Get-GovernanceStatus.ps1)
+[View source on GitHub](https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/scripts/Get-GovernanceStatus.ps1)
 
 **When to use:** Anytime — before, during, or after the event — to verify which policies are active
 and their compliance state.
@@ -163,14 +163,15 @@ microhack-re... Microhack: Require Environment tag Default         NonCompliant 
 ...
 ```
 
-> If `State` shows `Unknown`, compliance data is still being collected. Wait a few minutes and re-run.
-{: .tip }
+!!! tip
+
+    If `State` shows `Unknown`, compliance data is still being collected. Wait a few minutes and re-run.
 
 ---
 
 ### 3. Remove-GovernancePolicies.ps1
 
-[View source on GitHub](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator/blob/main/scripts/Remove-GovernancePolicies.ps1)
+[View source on GitHub](https://github.com/jonathan-vella/microhack-agentic-infraops/blob/main/scripts/Remove-GovernancePolicies.ps1)
 
 **When to use:** After the event ends, to restore the subscription to its pre-event state.
 

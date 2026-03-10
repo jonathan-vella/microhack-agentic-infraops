@@ -1,17 +1,10 @@
 ---
-layout: default
 title: "C3: Bicep Implementation"
-parent: Challenges
-nav_order: 4
 description: "Generate Bicep templates, deploy infrastructure to Azure, and demonstrate understanding of the agent-driven deployment workflow."
 ---
 
-{% include challenge_header.html
-   duration="45 min"
-   points="25"
-   agents="bicep-plan, bicep-code, deploy"
-   outputs="main.bicep, main.bicepparam, deploy.ps1"
-%}
+!!! abstract "Challenge Info"
+    :material-clock-outline: **45 min** · :material-trophy-outline: **25 pts** · :material-robot-outline: bicep-plan, bicep-code, deploy · :material-file-document-outline: main.bicep, main.bicepparam, deploy.ps1
 
 # Challenge 3: Bicep Implementation, Deployment & Workflow Understanding
 
@@ -21,8 +14,9 @@ If your facilitator has deployed Azure Policies for the event, your Bicep templa
 comply with governance constraints (required tags, HTTPS-only, TLS 1.2, etc.).
 See the [Governance Scripts](../reference/governance-scripts.md) reference for details.
 
-> **Policy propagation timing**: Azure Policies take 5–15 minutes to become effective after deployment. If your deployment succeeds but you expected a policy denial, the policy may not have propagated yet. Ask your facilitator to verify with `Get-GovernanceStatus.ps1 -MicrohackOnly`. Even if policies are delayed, include the required tags and security settings in your Bicep — they are part of the success criteria.
-{: .note }
+!!! note
+
+    **Policy propagation timing**: Azure Policies take 5–15 minutes to become effective after deployment. If your deployment succeeds but you expected a policy denial, the policy may not have propagated yet. Ask your facilitator to verify with `Get-GovernanceStatus.ps1 -MicrohackOnly`. Even if policies are delayed, include the required tags and security settings in your Bicep — they are part of the success criteria.
 
 ## The Business Challenge
 
@@ -144,8 +138,9 @@ Challenge 4 (DR Curveball) builds directly on your Challenge 3 deployment. Your 
 | **Partial deployment** (some resources created) | Extend what deployed; document what you would change for failed resources in your ADR |
 | **Deployment failed** (no resources created) | Pivot to the **paper exercise**: design the DR architecture on paper (ADR + diagram) without deploying |
 
-> **If your deployment failed**: You still complete Challenge 4. Design the DR architecture as an ADR and diagram, explaining what you _would_ deploy and why. This preserves the learning objective. No pre-built reference deployment is provided.
-{: .note }
+!!! note
+
+    **If your deployment failed**: You still complete Challenge 4. Design the DR architecture as an ADR and diagram, explaining what you _would_ deploy and why. This preserves the learning objective. No pre-built reference deployment is provided.
 
 **Output from this challenge that feeds Challenge 4:**
 

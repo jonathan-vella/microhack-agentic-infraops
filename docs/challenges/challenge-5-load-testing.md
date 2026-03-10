@@ -1,17 +1,10 @@
 ---
-layout: default
 title: "C5: Load Testing"
-parent: Challenges
-nav_order: 6
 description: "Validate that your deployed FreshConnect infrastructure meets performance targets using k6 or Azure Load Testing."
 ---
 
-{% include challenge_header.html
-   duration="30 min"
-   points="5"
-   agents=""
-   outputs="05-load-test-results.md"
-%}
+!!! abstract "Challenge Info"
+    :material-clock-outline: **30 min** · :material-trophy-outline: **5 pts** · :material-file-document-outline: 05-load-test-results.md
 
 # Challenge 5: Load Testing & Performance Validation
 
@@ -210,5 +203,6 @@ If your load test fails or you cannot reach your deployed endpoint, see [Trouble
 | **Your output** | `agent-output/freshconnect/05-load-test-results.md` |
 | **Next step** | [Challenge 6: Workload Documentation](challenge-6-documentation.md) — generate operational documentation |
 
-> Final scoring uses the criteria in the scoring rubric, which is the single source of truth for all point values. Scoring rubric available from your facilitator.
-{: .note }
+!!! note
+
+    Final scoring uses the criteria in the scoring rubric, which is the single source of truth for all point values. Scoring rubric available from your facilitator.

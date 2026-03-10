@@ -1,9 +1,5 @@
 ---
-layout: default
 title: Reference
-nav_order: 5
-has_children: true
-has_toc: false
 description: "Glossary, troubleshooting, and governance scripts reference"
 ---
 

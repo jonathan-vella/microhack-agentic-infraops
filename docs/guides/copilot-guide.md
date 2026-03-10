@@ -1,8 +1,5 @@
 ---
-layout: default
 title: Copilot & Agents Guide
-parent: Guides
-nav_order: 1
 description: "How to use GitHub Copilot and AI agents effectively during the workshop"
 ---
 
@@ -78,16 +75,20 @@ the primary mode for this microhack.**
 - "Generate Bicep templates for the FreshConnect architecture"
 - "Deploy the infrastructure to Azure and summarize the results"
 
-> Use **Agent mode** for most challenges. It can invoke custom agents, read templates,
-> run Azure CLI commands, and generate documentation — all in a single conversation.
-{: .tip }
+!!! tip
+
+    Use **Agent mode** for most challenges. It can invoke custom agents, read templates,
+    run Azure CLI commands, and generate documentation — all in a single conversation.
+
 
 ---
 
 ## Handling Secrets in Copilot Chat
 
-> AI agents may echo terminal output, including secrets. Follow these rules to avoid accidental leakage.
-{: .warning }
+!!! warning
+
+    AI agents may echo terminal output, including secrets. Follow these rules to avoid accidental leakage.
+
 
 | Do | Don't |
 |---|---|

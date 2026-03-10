@@ -1,17 +1,10 @@
 ---
-layout: default
 title: "C1: Requirements Gathering"
-parent: Challenges
-nav_order: 2
 description: "Use the requirements agent to capture comprehensive Azure infrastructure requirements for the FreshConnect platform."
 ---
 
-{% include challenge_header.html
-   duration="30 min"
-   points="20"
-   agents="requirements"
-   outputs="01-requirements.md"
-%}
+!!! abstract "Challenge Info"
+    :material-clock-outline: **30 min** · :material-trophy-outline: **20 pts** · :material-robot-outline: requirements · :material-file-document-outline: 01-requirements.md
 
 # Challenge 1: Requirements Gathering
 

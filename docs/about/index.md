@@ -1,9 +1,5 @@
 ---
-layout: default
 title: About
-nav_order: 6
-has_children: true
-has_toc: false
 description: "Agenda, event details, and feedback"
 ---
 
