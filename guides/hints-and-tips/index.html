@@ -1,0 +1,2600 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Practical hints, tips, and role-specific guidance for each challenge">
+      
+      
+      
+        <link rel="canonical" href="https://jonathan-vella.github.io/microhack-agentic-infraops/guides/hints-and-tips/">
+      
+      
+        <link rel="prev" href="../copilot-guide/">
+      
+      
+        <link rel="next" href="../quick-reference-card/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Hints & Tips - Agentic InfraOps MicroHack</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hints-tips" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Agentic InfraOps MicroHack" class="md-header__button md-logo" aria-label="Agentic InfraOps MicroHack" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Agentic InfraOps MicroHack
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hints & Tips
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/jonathan-vella/microhack-agentic-infraops" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    jonathan-vella/microhack-agentic-infraops
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../challenges/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Challenges
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reference/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../about/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Agentic InfraOps MicroHack" class="md-nav__button md-logo" aria-label="Agentic InfraOps MicroHack" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.svg" alt="logo">
+
+    </a>
+    Agentic InfraOps MicroHack
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/jonathan-vella/microhack-agentic-infraops" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    jonathan-vella/microhack-agentic-infraops
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../getting-started/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/workshop-prep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workshop Prep
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/learning-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learning Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../challenges/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Challenges
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Challenges
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/challenge-1-requirements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C1: Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/challenge-2-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C2: Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/challenge-3-implementation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C3: Implementation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/challenge-4-dr-curveball/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C4: DR Curveball
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/challenge-5-load-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C5: Load Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/challenge-6-documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C6: Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/challenge-7-diagnostics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C7: Diagnostics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../challenges/challenge-8-partner-showcase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C8: Partner Showcase
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../copilot-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copilot & Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hints & Tips
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hints & Tips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#something-broken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Something Broken?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-agent-output-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Agent Output Templates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Agent Output Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#templatized-agent-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Templatized Agent Outputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-templates-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Templates Matter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-this-means-for-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Means for You
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploring-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exploring Templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Hints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes-to-avoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Mistakes to Avoid
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-specific-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent-Specific Tips
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agent-Specific Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requirements-agent-challenge-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements Agent (Challenge 1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architect-agent-challenge-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architect Agent (Challenge 2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bicep-plan-agent-challenge-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bicep Plan Agent (Challenge 3)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bicep-code-agent-challenge-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bicep Code Agent (Challenge 3)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-agent-challenges-5-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Agent (Challenges 5-7)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#still-stuck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Still Stuck?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-reference-card/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference Card
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../reference/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/governance-scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance Scripts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../about/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/agenda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agenda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/invitation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Invitation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/feedback/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feedback
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#something-broken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Something Broken?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-agent-output-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Agent Output Templates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding Agent Output Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#templatized-agent-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Templatized Agent Outputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-templates-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Templates Matter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-this-means-for-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Means for You
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploring-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exploring Templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-hints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Hints
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes-to-avoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Mistakes to Avoid
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-specific-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent-Specific Tips
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Agent-Specific Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requirements-agent-challenge-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements Agent (Challenge 1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architect-agent-challenge-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architect Agent (Challenge 2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bicep-plan-agent-challenge-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bicep Plan Agent (Challenge 3)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bicep-code-agent-challenge-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bicep Code Agent (Challenge 3)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-agent-challenges-5-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design Agent (Challenges 5-7)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#still-stuck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Still Stuck?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Guides
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="hints-tips">Hints &amp; Tips<a class="headerlink" href="#hints-tips" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Coaching approach</strong>: These hints use questions to guide your thinking.
+The best solutions come from understanding <em>why</em>, not just copying <em>what</em>.</p>
+</blockquote>
+<h2 id="something-broken">Something Broken?<a class="headerlink" href="#something-broken" title="Permanent link">&para;</a></h2>
+<p>If you're stuck on an error rather than a design question, go to <a href="../../reference/troubleshooting/">Troubleshooting</a> first. The Quick Diagnosis table at the top will route you to the right fix.</p>
+<h2 id="understanding-agent-output-templates">Understanding Agent Output Templates<a class="headerlink" href="#understanding-agent-output-templates" title="Permanent link">&para;</a></h2>
+<details class="note">
+<summary>📄 How Agent Outputs Work (click to reveal)</summary>
+<h3 id="templatized-agent-outputs">Templatized Agent Outputs<a class="headerlink" href="#templatized-agent-outputs" title="Permanent link">&para;</a></h3>
+<p>The agents in this microhack use <strong>templates</strong> to generate consistent, structured documentation.
+These templates are located in <code>.github/skills/azure-artifacts/templates/</code> and include:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>.github/skills/azure-artifacts/templates/
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── 01-requirements.template.md
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── 02-architecture-assessment.template.md
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── 03-des-cost-estimate.template.md
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>├── 04-implementation-plan.template.md
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>├── 06-deployment-summary.template.md
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── 07-operations-runbook.template.md
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>└── ... (and more)
+</code></pre></div>
+<h3 id="why-templates-matter">Why Templates Matter<a class="headerlink" href="#why-templates-matter" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Deterministic Behavior</strong>: Templates make agent outputs more predictable and consistent.
+   The agent fills in the template structure with your specific requirements.</p>
+</li>
+<li>
+<p><strong>Quality Assurance</strong>: Templates ensure all critical sections are covered — the agent
+   won't forget important aspects like security considerations or cost breakdowns.</p>
+</li>
+<li>
+<p><strong>Professional Standards</strong>: The output follows industry best practices for documentation
+   format and content organization.</p>
+</li>
+</ol>
+<h3 id="what-this-means-for-you">What This Means for You<a class="headerlink" href="#what-this-means-for-you" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Expect structured output</strong>: Agent responses follow a predictable format</li>
+<li><strong>Focus on content, not format</strong>: The template handles structure; you focus on requirements</li>
+<li><strong>Understand the patterns</strong>: Reviewing templates helps you understand what the agent will produce</li>
+</ul>
+<h3 id="exploring-templates">Exploring Templates<a class="headerlink" href="#exploring-templates" title="Permanent link">&para;</a></h3>
+<p>Take a moment to browse <code>.github/skills/azure-artifacts/templates/</code> to understand:</p>
+<ul>
+<li>What sections each template includes</li>
+<li>What information the agent needs from you to fill them in</li>
+<li>How your prompts influence the content (not the structure)</li>
+</ul>
+<p>💡 <strong>Key insight</strong>: GenAI with templates is more predictable than "pure" generation.
+This is intentional — infrastructure documentation needs consistency!</p>
+</details>
+<h2 id="architecture-hints">Architecture Hints<a class="headerlink" href="#architecture-hints" title="Permanent link">&para;</a></h2>
+<details class="note">
+<summary>💡 Service Selection (click to reveal)</summary>
+<p>Before asking the <code>architect</code> agent, consider these questions:</p>
+<p><strong>Understanding the Requirements:</strong></p>
+<ul>
+<li>What are the key capabilities FreshConnect needs? (web portal, API, database, file storage, secrets, monitoring)</li>
+<li>How many concurrent users need to be supported at peak?</li>
+<li>What's the growth trajectory? (seasonal spikes, planned expansion)</li>
+</ul>
+<p><strong>Evaluating Service Options:</strong></p>
+<ul>
+<li>For the web portal: What Azure compute services support web hosting?</li>
+<li>What are the trade-offs between App Service, Container Apps, and AKS for this workload?</li>
+<li>Does the team have container expertise, or would PaaS be more appropriate?</li>
+<li>For the database: What data characteristics matter most?</li>
+<li>Relational vs. NoSQL — what does the order/customer/inventory data structure suggest?</li>
+<li>What availability SLA is required?</li>
+<li>
+<p>How can you optimize costs for dev/test vs. production?</p>
+</li>
+<li>
+<p>For cost optimization: What resources could share infrastructure?</p>
+</li>
+<li>Could web and API run on the same App Service Plan?</li>
+<li>What's the cost difference between separate plans vs. deployment slots?</li>
+</ul>
+<p><strong>Prompt the architect agent with business context:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&quot;Design Azure architecture for FreshConnect: farm-to-table delivery platform
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>serving 500 concurrent users, with order management, inventory tracking,
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>and delivery scheduling. Budget: €500/month. GDPR compliant (EU region).
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Small team needs managed services.&quot;
+</code></pre></div>
+<p>💡 <strong>Coaching tip</strong>: Services aren't "recommended" — they're <em>chosen</em> based on requirements.
+What requirements drive your service selection?</p>
+</details>
+<details class="note">
+<summary>💰 Cost Optimization (click to reveal)</summary>
+<p><strong>Guiding Questions:</strong></p>
+<p>Before asking for cost estimates, ask yourself:</p>
+<ol>
+<li><strong>Resource Sharing</strong>: What services could share infrastructure?</li>
+<li>Can web and API applications run on the same App Service Plan?</li>
+<li>What's the cost impact of deployment slots vs. separate App Services?</li>
+<li>
+<p>Could you use serverless for intermittent workloads?</p>
+</li>
+<li>
+<p><strong>Right-Sizing</strong>: How do you match SKU to requirements?</p>
+</li>
+<li>What SLA do you actually need? (99.9% vs. 99.95% cost difference?)</li>
+<li>What's the minimum tier for zone redundancy?</li>
+<li>
+<p>Could dev/test environments use lower SKUs or serverless?</p>
+</li>
+<li>
+<p><strong>Cost Discovery</strong>: How would you get actual pricing data?</p>
+</li>
+<li>What information does the Azure Pricing MCP need?</li>
+<li>How do you compare SKU costs within a service family?</li>
+<li>What region affects pricing?</li>
+</ol>
+<p><strong>Example Prompt for Azure Pricing MCP:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&quot;Compare costs for App Service plans in swedencentral:
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>- P1v3 (production)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>- S1 (staging)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>What features justify the price difference?&quot;
+</code></pre></div>
+<p>💡 <strong>Coaching tip</strong>: Cost optimization isn't about picking the cheapest option —
+it's about matching cost to value. What does each €10/month buy you?</p>
+<p><strong>Estimated Budget Breakdown to Discuss:</strong></p>
+<p>Consider these categories for your €500/month budget:</p>
+<ul>
+<li>Compute (App Service): What percentage?</li>
+<li>Data (SQL, Storage): What percentage?</li>
+<li>Networking (if any): What percentage?</li>
+<li>Observability (App Insights, Log Analytics): What percentage?</li>
+<li>Security (Key Vault): What percentage?</li>
+</ul>
+<p>Where is most of your budget going? Does that align with business priorities?</p>
+</details>
+<details class="note">
+<summary>🔒 Security &amp; Compliance (click to reveal)</summary>
+<p><strong>Discovery Questions:</strong></p>
+<p><strong>GDPR Compliance:</strong></p>
+<ul>
+<li>How would you discover what GDPR requires for customer PII?</li>
+<li>What Azure documentation or tools help identify GDPR requirements?</li>
+<li>Which Azure regions qualify as "EU data residency"?</li>
+<li>
+<p>What logging is required for audit trails?</p>
+</li>
+<li>
+<p>What technical controls implement GDPR principles?</p>
+</li>
+<li>How do you ensure data stays in EU region? (service configuration?)</li>
+<li>What authentication method protects customer data access?</li>
+<li>How do you enable audit trails for compliance teams?</li>
+</ul>
+<p><strong>Security Architecture:</strong></p>
+<ul>
+<li>What security defaults should <em>every</em> Azure resource have?</li>
+<li>HTTPS enforcement? TLS version? Public access settings?</li>
+<li>How do you avoid storing secrets in code or templates?</li>
+<li>What's the difference between connection strings and managed identities?</li>
+</ul>
+<p><strong>Prompt Engineering for Security:</strong></p>
+<p>Instead of asking "make it secure," try:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>&quot;Review my architecture for GDPR compliance. Data residency must be EU.
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Customer PII includes: names, emails, delivery addresses, order history.
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Identify gaps and recommend controls.&quot;
+</code></pre></div>
+<p>💡 <strong>Coaching tip</strong>: Security isn't a checklist — it's about understanding <em>what</em>
+you're protecting and <em>why</em>. What data does FreshConnect store?
+What's the impact if it's compromised?</p>
+<p><strong>Example Bicep Security Pattern:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>// Storage Account - what does each setting protect against?
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>resource storageAccount &#39;Microsoft.Storage/storageAccounts@2023-01-01&#39; = {
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  properties: {
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    supportsHttpsTrafficOnly: true    // Why is HTTP blocked?
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    minimumTlsVersion: &#39;TLS1_2&#39;       // What vulnerability does this mitigate?
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    allowBlobPublicAccess: false      // When would you ever want this true?
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  }
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  identity: {
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    type: &#39;SystemAssigned&#39;            // How does this improve security?
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>  }
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>}
+</code></pre></div>
+<p>Ask yourself: What attack does each setting prevent?</p>
+</details>
+<details class="note">
+<summary>🔒 Governance Policy Errors (click to reveal)</summary>
+<p><strong>Common Policy Errors &amp; Fixes:</strong></p>
+<p>If Azure Policies are enabled, you may see deployment errors like:</p>
+<table>
+<thead>
+<tr>
+<th>Error Message</th>
+<th>Cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RequestDisallowedByPolicy</code> (location)</td>
+<td>Resource outside allowed regions</td>
+<td>Use <code>swedencentral</code> or <code>germanywestcentral</code></td>
+</tr>
+<tr>
+<td><code>RequestDisallowedByPolicy</code> (tag)</td>
+<td>Missing required tag</td>
+<td>Add <code>Environment</code> and <code>Project</code> tags</td>
+</tr>
+<tr>
+<td><code>RequestDisallowedByPolicy</code> (SQL auth)</td>
+<td>SQL password auth attempted</td>
+<td>Set <code>azureADOnlyAuthentication: true</code></td>
+</tr>
+<tr>
+<td><code>RequestDisallowedByPolicy</code> (HTTPS)</td>
+<td>HTTPS not enabled</td>
+<td>Set <code>supportsHttpsTrafficOnly: true</code></td>
+</tr>
+<tr>
+<td><code>RequestDisallowedByPolicy</code> (TLS)</td>
+<td>TLS version too low</td>
+<td>Set <code>minimumTlsVersion: 'TLS1_2'</code></td>
+</tr>
+<tr>
+<td><code>RequestDisallowedByPolicy</code> (public blob)</td>
+<td>Public blob access enabled</td>
+<td>Set <code>allowBlobPublicAccess: false</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Required Bicep Settings:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>// Storage Account - all required for policy compliance
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>resource storageAccount &#39;Microsoft.Storage/storageAccounts@2023-01-01&#39; = {
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  name: storageAccountName
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  location: location
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  tags: tags  // Must include Environment and Project!
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  properties: {
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    supportsHttpsTrafficOnly: true
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    minimumTlsVersion: &#39;TLS1_2&#39;
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    allowBlobPublicAccess: false
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>  }
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>}
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>// SQL Server - Azure AD only
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>resource sqlServer &#39;Microsoft.Sql/servers@2023-05-01-preview&#39; = {
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>  name: sqlServerName
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>  location: location
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>  tags: tags
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>  properties: {
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>    azureADOnlyAuthentication: true
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>    administrators: {
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>      administratorType: &#39;ActiveDirectory&#39;
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>      // ... AD admin config
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>    }
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>  }
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>}
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>// App Service - HTTPS only
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>resource webApp &#39;Microsoft.Web/sites@2023-01-01&#39; = {
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>  name: appName
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>  location: location
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>  tags: tags
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>  properties: {
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>    httpsOnly: true
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>    siteConfig: {
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>      minTlsVersion: &#39;1.2&#39;
+<a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>    }
+<a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>  }
+<a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>}
+</code></pre></div>
+</details>
+<details class="note">
+<summary>🏗️ Bicep Patterns (click to reveal)</summary>
+<p><strong>UniqueString Pattern:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>// main.bicep - Generate ONCE, pass everywhere
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>var uniqueSuffix = uniqueString(resourceGroup().id)
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>// In modules, receive as parameter
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>param uniqueSuffix string
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>// Use in resource names
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>var kvName = &#39;kv-${take(projectName, 8)}-${environment}-${take(uniqueSuffix, 6)}&#39;
+</code></pre></div>
+<p><strong>Naming Constraints:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Max Length</th>
+<th>Allowed Chars</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Key Vault</td>
+<td>24</td>
+<td>alphanumeric, hyphens</td>
+</tr>
+<tr>
+<td>Storage Account</td>
+<td>24</td>
+<td>lowercase, numbers only</td>
+</tr>
+<tr>
+<td>SQL Server</td>
+<td>63</td>
+<td>lowercase, numbers, hyphens</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Required Tags:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>var tags = {
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  Environment: environment      // dev, staging, prod
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  ManagedBy: &#39;Bicep&#39;
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  Project: projectName
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>  Owner: owner
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>}
+</code></pre></div>
+</details>
+<details class="note">
+<summary>🌍 Multi-Region DR (Challenge 4)</summary>
+<p><strong>Discovery Questions:</strong></p>
+<p>When the DR curveball hits, instead of looking for "the answer," ask:</p>
+<ol>
+<li><strong>Business Impact</strong>: What does "disaster recovery" mean for FreshConnect?</li>
+<li>If swedencentral goes down, what business operations must continue?</li>
+<li>What's the cost of 1 hour of downtime? 4 hours? 24 hours?</li>
+<li>Which data can you afford to lose? (RPO question)</li>
+<li><strong>Technical Options</strong>: What Azure services support multi-region?</li>
+<li>Can App Services fail over automatically, or do you need Traffic Manager?</li>
+<li>What's the difference between SQL geo-replication and failover groups?</li>
+<li>Does storage need to be in both regions, or can you use GRS?</li>
+<li>
+<p>How do secrets (Key Vault) work across regions?</p>
+</li>
+<li>
+<p><strong>Cost Trade-offs</strong>: What does HA/DR cost?</p>
+</li>
+<li>Budget increases from €500 → €700. What does that extra €200 buy?</li>
+<li>Which components are most expensive to replicate?</li>
+<li>
+<p>Could you do active-passive instead of active-active?</p>
+</li>
+<li>
+<p><strong>Architecture Documentation</strong>: How do you communicate the change?</p>
+</li>
+<li>What format best shows before/after architecture?</li>
+<li>Should you document this as an ADR (Architecture Decision Record)?</li>
+<li>What context does your team need to understand <em>why</em> you chose this approach?</li>
+</ol>
+<p><strong>Prompt Engineering for DR:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>&quot;Update FreshConnect architecture for disaster recovery:
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>- Primary: swedencentral
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>- Secondary: germanywestcentral
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>- RTO: 4 hours, RPO: 1 hour
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>- Budget increased to €700/month
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>Recommend services and configuration changes.
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>Create ADR documenting decision.&quot;
+</code></pre></div>
+<p>💡 <strong>Coaching tip</strong>: DR isn't about copying everything twice —
+it's about identifying what <em>must</em> survive and what recovery time the business can accept.</p>
+</details>
+<details class="note">
+<summary>🔥 Load Testing (Challenge 5)</summary>
+<p><strong>Understanding Load Testing:</strong></p>
+<p>Before running tests, ask:</p>
+<ol>
+<li><strong>What are you testing?</strong></li>
+<li>Endpoint availability? Response time? Error rate under load?</li>
+<li>
+<p>Are you testing a single API endpoint or the whole application flow?</p>
+</li>
+<li>
+<p><strong>What's "success"?</strong></p>
+</li>
+<li>What P95 response time is acceptable for users? (2 seconds? 5 seconds?)</li>
+<li>What error rate is tolerable? (1%? 0.1%?)</li>
+<li>
+<p>How many concurrent users represent "peak load"?</p>
+</li>
+<li>
+<p><strong>What does failure tell you?</strong></p>
+</li>
+<li>If response time degrades, what's the bottleneck? (database? compute? network?)</li>
+<li>If errors spike, what's failing? (connections? timeouts? application logic?)</li>
+<li>What would you change in the architecture to handle more load?</li>
+</ol>
+<p><strong>k6 Tool (Installed in Dev Container):</strong></p>
+<p>k6 is a modern load testing tool. Basic structure:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">http</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;k6/http&quot;</span><span class="p">;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">check</span><span class="p">,</span><span class="w"> </span><span class="nx">sleep</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;k6&quot;</span><span class="p">;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="nx">stages</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">duration</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1m&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// What does this stage test?</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">duration</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2m&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="mf">500</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// What does this stage test?</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">duration</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1m&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// Why ramp down?</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="nx">thresholds</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="nx">http_req_duration</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;p(95)&lt;2000&quot;</span><span class="p">],</span><span class="w"> </span><span class="c1">// Why P95? Why 2000ms?</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="nx">http_req_failed</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;rate&lt;0.01&quot;</span><span class="p">],</span><span class="w"> </span><span class="c1">// Why 1%?</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="p">};</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;https://your-app.azurewebsites.net/api/health&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">  </span><span class="nx">check</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;status is 200&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">200</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">  </span><span class="nx">sleep</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Analyzing Results:</strong></p>
+<p>After running k6, ask:</p>
+<ul>
+<li>Did you meet your thresholds? If not, why not?</li>
+<li>What Azure Monitor metrics correlate with load test results?</li>
+<li>Would scaling up (bigger SKU) or out (more instances) help?</li>
+</ul>
+<p>💡 <strong>Coaching tip</strong>: Load testing isn't pass/fail — it's discovering your system's limits so you can make informed decisions.</p>
+</details>
+<details class="note">
+<summary>📚 Documentation (Challenge 6)</summary>
+<p><strong>The Documentation Question:</strong></p>
+<p>The infrastructure works today. Will your team understand it tomorrow?</p>
+<p><strong>Discovery Questions:</strong></p>
+<ol>
+<li><strong>Who's the audience?</strong></li>
+<li>Operations team troubleshooting at 2 AM?</li>
+<li>New developer joining the team?</li>
+<li>Compliance auditor asking for DR procedures?</li>
+<li>
+<p>CFO asking why costs increased?</p>
+</li>
+<li>
+<p><strong>What questions does documentation answer?</strong></p>
+</li>
+<li>"How do I fix it?" → Operational runbook</li>
+<li>"How does it work?" → Architecture overview</li>
+<li>"What does it cost?" → Cost breakdown</li>
+<li>"Is it compliant?" → Security/compliance docs</li>
+<li>
+<p>"How do I deploy changes?" → Deployment guide</p>
+</li>
+<li>
+<p><strong>What makes documentation useful?</strong></p>
+</li>
+<li>Step-by-step procedures vs. conceptual overviews?</li>
+<li>Diagrams vs. text descriptions?</li>
+<li>Troubleshooting decision trees?</li>
+<li>Links to Azure Portal resources?</li>
+</ol>
+<p><strong>Prompt Engineering for Documentation:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>&quot;Generate operational runbook for FreshConnect targeted at on-call engineers.
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>Context:
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>- Deployed in swedencentral with DR in germanywestcentral
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>- Using App Service, Azure SQL, Storage Account, Key Vault
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>- Common scenarios: high latency, connection errors, storage throttling
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>Include:
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>- Initial assessment checklist (first 60 seconds)
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>- Diagnostic steps for common scenarios
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>- Azure CLI commands for health checks
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>- Escalation criteria&quot;
+</code></pre></div>
+<p>💡 <strong>Coaching tip</strong>: The <code>design</code> agent can generate multiple document types.
+Which documents provide the most value for FreshConnect's specific needs?</p>
+<p><strong>Document Types to Consider:</strong></p>
+<ul>
+<li>Operations runbook (troubleshooting)</li>
+<li>Architecture documentation (system understanding)</li>
+<li>Cost estimate with optimization guide</li>
+<li>Disaster recovery procedures</li>
+<li>Deployment guide with rollback steps</li>
+<li>Security and compliance documentation</li>
+</ul>
+</details>
+<details class="note">
+<summary>🔍 Diagnostics (Challenge 7)</summary>
+<p><strong>The 2 AM Question:</strong></p>
+<p>Your pager goes off. FreshConnect API is slow. Error rate climbing. You have 10 minutes before customers notice.</p>
+<p>What do you check first?</p>
+<p><strong>Building a Diagnostic Strategy:</strong></p>
+<ol>
+<li><strong>What are the likely failure modes?</strong></li>
+<li>Database connection pool exhausted?</li>
+<li>App Service out of memory?</li>
+<li>Storage account throttling?</li>
+<li>Network connectivity to dependencies?</li>
+<li>
+<p>External API timeout (payment gateway?)?</p>
+</li>
+<li>
+<p><strong>What's the diagnostic sequence?</strong></p>
+</li>
+<li>Start with application health endpoint or infrastructure metrics?</li>
+<li>Check current state or compare to historical baseline?</li>
+<li>
+<p>Look at logs or metrics first?</p>
+</li>
+<li>
+<p><strong>What tools exist in Azure?</strong></p>
+</li>
+<li>Azure Portal health dashboards</li>
+<li>Application Insights queries (Kusto/KQL)</li>
+<li>Azure Monitor metrics and alerts</li>
+<li>Kudu console for App Service diagnostics</li>
+<li>
+<p>Azure CLI diagnostic commands</p>
+</li>
+<li>
+<p><strong>Quick fix vs. escalation?</strong></p>
+</li>
+<li>What can on-call engineer safely restart?</li>
+<li>When do you wake up the architect?</li>
+<li>What changes need approval vs. immediate action?</li>
+</ol>
+<p><strong>Prompt for Diagnostic Runbook:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>&quot;Create troubleshooting runbook for FreshConnect production incidents.
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>Scenarios:
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>- High API latency (P95 &gt; 5 seconds)
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>- Database connection errors
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>- Storage 503 errors (throttling)
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>For each scenario provide:
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>1. Likely root causes
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>2. Diagnostic commands (Azure CLI, KQL queries)
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>3. Remediation steps
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>4. Escalation criteria&quot;
+</code></pre></div>
+<p>💡 <strong>Coaching tip</strong>: Good diagnostic documentation includes the <em>why</em> not just the <em>what</em>.
+Why check database DTU before App Service CPU? What's the reasoning?</p>
+<p><strong>Example Diagnostic Flow:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>1. Initial Assessment (60 seconds)
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>   → Check Azure Status page (is it a platform issue?)
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>   → Check Application Insights overview (which component is failing?)
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>   → Check recent deployments (did something change?)
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>2. If High Latency Detected
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>   → Query: What&#39;s the P95 latency by dependency?
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>   → Check: Database DTU utilization
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>   → Check: App Service CPU/Memory
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>   → Decision: Scale up, scale out, or investigate query?
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>3. If Connection Errors
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>   → Check: Connection string configuration
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>   → Check: Managed identity permissions
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>   → Check: Network security groups / firewall rules
+</code></pre></div>
+</details>
+<h2 id="common-mistakes-to-avoid">Common Mistakes to Avoid<a class="headerlink" href="#common-mistakes-to-avoid" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Mistake</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Key Vault name too long</td>
+<td>Use <code>kv-${take(name, 8)}-${env}-${take(suffix, 6)}</code></td>
+</tr>
+<tr>
+<td>Storage account with hyphens</td>
+<td>Use lowercase letters and numbers only</td>
+</tr>
+<tr>
+<td>Missing uniqueSuffix</td>
+<td>Generate once in main.bicep, pass to all modules</td>
+</tr>
+<tr>
+<td>Hardcoded secrets</td>
+<td>Use Key Vault references or managed identity</td>
+</tr>
+<tr>
+<td>Over-engineering MVP</td>
+<td>Keep it simple — you have one day.</td>
+</tr>
+<tr>
+<td>Forgetting to deploy</td>
+<td>Run <code>bicep build</code> often, deploy incrementally</td>
+</tr>
+</tbody>
+</table>
+<h2 id="agent-specific-tips">Agent-Specific Tips<a class="headerlink" href="#agent-specific-tips" title="Permanent link">&para;</a></h2>
+<h3 id="requirements-agent-challenge-1">Requirements Agent (Challenge 1)<a class="headerlink" href="#requirements-agent-challenge-1" title="Permanent link">&para;</a></h3>
+<p><strong>Instead of asking "what should I do?"</strong>, ask:</p>
+<ul>
+<li>"What NFRs should I capture for a farm-to-table delivery platform?"</li>
+<li>"How do I translate 'peak season = 3x volume' into technical requirements?"</li>
+<li>"What questions help uncover hidden requirements?"</li>
+</ul>
+<p>💡 Be specific about business context, not just technical features.</p>
+<h3 id="architect-agent-challenge-2">Architect Agent (Challenge 2)<a class="headerlink" href="#architect-agent-challenge-2" title="Permanent link">&para;</a></h3>
+<p><strong>Instead of "design my architecture"</strong>, try:</p>
+<ul>
+<li>"What are the trade-offs between App Service and Container Apps for this workload?"</li>
+<li>"How does the €500/month budget constraint affect service selection?"</li>
+<li>"What WAF pillar is most at risk with this approach?"</li>
+</ul>
+<p>💡 Question recommendations — ask "why this service?" not just "what service?"</p>
+<h3 id="bicep-plan-agent-challenge-3">Bicep Plan Agent (Challenge 3)<a class="headerlink" href="#bicep-plan-agent-challenge-3" title="Permanent link">&para;</a></h3>
+<p><strong>Instead of "write Bicep"</strong>, ask:</p>
+<ul>
+<li>"What's the dependency order for deploying these resources?"</li>
+<li>"Should Key Vault be in a separate module or main.bicep?"</li>
+<li>"How do I structure modules for reusability?"</li>
+</ul>
+<p>💡 Review the module structure before generating code.</p>
+<h3 id="bicep-code-agent-challenge-3">Bicep Code Agent (Challenge 3)<a class="headerlink" href="#bicep-code-agent-challenge-3" title="Permanent link">&para;</a></h3>
+<p><strong>Instead of "generate all the code"</strong>, try:</p>
+<ul>
+<li>"Generate Key Vault module with name validation and uniqueSuffix parameter"</li>
+<li>Start with one module, validate it works, then expand</li>
+<li>Run <code>bicep build</code> after each major change</li>
+</ul>
+<p>💡 Iterate incrementally — don't generate everything at once.</p>
+<h3 id="design-agent-challenges-5-7">Design Agent (Challenges 5-7)<a class="headerlink" href="#design-agent-challenges-5-7" title="Permanent link">&para;</a></h3>
+<p><strong>Instead of "document everything"</strong>, ask:</p>
+<ul>
+<li>"Who is the audience for this documentation?"</li>
+<li>"What specific problem does this document solve?"</li>
+<li>"Generate [document type] for [audience] covering [scenarios]"</li>
+</ul>
+<p>💡 Good documentation answers questions before they're asked.</p>
+<hr />
+<h2 id="still-stuck">Still Stuck?<a class="headerlink" href="#still-stuck" title="Permanent link">&para;</a></h2>
+<p>Ask yourself: "What question would help me discover the answer?"</p>
+<p>If still blocked, raise your hand — facilitators are here to coach, not solve! 🙋</p>
+<p><strong>Remember</strong>: This microhack has 8 challenges total, not all will be completed by all teams.
+Focus on learning the workflow and prompt engineering skills!</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2025 Jonathan Vella. Distributed under the MIT License.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tracking", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.path", "toc.follow", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
