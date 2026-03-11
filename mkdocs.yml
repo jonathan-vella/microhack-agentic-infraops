@@ -82,6 +82,7 @@ nav:
       - getting-started/index.md
       - Setup Guide: getting-started/setup.md
       - Workshop Prep: getting-started/workshop-prep.md
+      - Learning Resources: getting-started/learning-resources.md
   - Challenges:
       - challenges/index.md
       - "C1: Requirements": challenges/challenge-1-requirements.md
