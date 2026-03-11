@@ -90,8 +90,8 @@ Complete this checklist before the event, on the morning of, and at wrap-up.
 
 ### Subscription Model
 
+> [!WARNING]
 > **One Azure subscription per team is the only supported model.** Shared subscriptions are not supported. Sharing causes naming collisions, RBAC conflicts, and accidental cross-team interference. Verify that every team has a dedicated subscription before the event begins.
-{: .warning }
 
 Each team needs **Owner** access on their subscription (required for Azure Policy deployment). If Owner is restricted, the minimum alternative is **Contributor** plus **Resource Policy Contributor**.
 
@@ -141,8 +141,8 @@ pwsh -File scripts/Get-GovernanceStatus.ps1 -Subscription "<sub-id>" -MicrohackO
 - If the `State` column shows **Unknown**, compliance data is still propagating. Wait 5–10 minutes and re-run.
 - If no assignments appear, re-run `Setup-GovernancePolicies.ps1`.
 
+> [!TIP]
 > **If policies are still not active when Challenge 3 begins**: Inform teams that policy enforcement is delayed. Teams should add the required tags and security settings to their Bicep anyway — the policies will catch violations once propagation completes. Do not skip the governance requirements.
-{: .tip }
 
 ---
 
@@ -241,8 +241,8 @@ Before announcing the curveball, quickly assess each team's Challenge 3 outcome:
 | **Partial deployment** | Encourage extending what deployed; document gaps in ADR |
 | **Failed deployment** | Direct to **paper exercise**: ADR + architecture diagram without deploying. No pre-built reference deployment is provided. |
 
+> [!TIP]
 > Teams on the paper-exercise path can still earn full ADR and diagram points. Adjust scoring expectations using the rubric — the paper-exercise variant is explicitly accounted for.
-{: .tip }
 
 #### 📢 Announcement Script (13:30)
 

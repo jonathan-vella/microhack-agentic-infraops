@@ -40,8 +40,8 @@
 | **Bonus Points**        | +25     | Manual: verify in Azure Portal/CLI |
 | **Max Total**           | **130** |               |
 
+> [!NOTE]
 > All scoring is performed manually by facilitators using this rubric. If your event package includes optional tooling (e.g., HackerBoard), use it to _record_ rubric-based totals — it does not calculate scores automatically.
-{: .note }
 
 ---
 
@@ -94,8 +94,8 @@
 | Core resources running | 2      | Paper-exercise teams: score 0 |
 | Summary documented     | 2      | Paper-exercise teams: can earn this for documenting what they _would_ deploy |
 
+> [!NOTE]
 > **Paper-exercise variant (Challenge 3 deployment failed)**: Teams that pivoted to the paper exercise cannot earn What-If, deployment, or running-resources points. They can still earn the Summary documented point by describing their intended deployment. All other categories (Requirements, Architecture, Implementation quality, DR ADR, Showcase) are scored normally.
-{: .note }
 
 ### 5. Load Testing (5 pts)
 

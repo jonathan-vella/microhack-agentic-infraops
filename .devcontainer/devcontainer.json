@@ -1,6 +1,6 @@
 {
   "name": "Agentic InfraOps MicroHack",
-  "image": "mcr.microsoft.com/devcontainers/jekyll:2-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "version": "lts"
@@ -27,7 +27,9 @@
     // Value is empty string if not set — gh CLI falls back to its normal auth flow.
     "GH_TOKEN": "${localEnv:GH_TOKEN}"
   },
-  "forwardPorts": [4000],
+  "forwardPorts": [
+    8000
+  ],
   "postCreateCommand": "sh .devcontainer/post-create.sh",
   "customizations": {
     "vscode": {
@@ -45,8 +47,7 @@
         "redhat.vscode-yaml",
         // Formatting
         "EditorConfig.EditorConfig",
-        "esbenp.prettier-vscode",
-        "sissel.shopify-liquid"
+        "esbenp.prettier-vscode"
       ],
       "settings": {
         "editor.formatOnSave": true,

@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - "docs/**"
+      - "mkdocs.yml"
+      - "requirements-docs.txt"
       - ".github/workflows/validate-docs.yml"
 
 permissions:
@@ -17,30 +19,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          ruby-version: "3.3"
-          bundler-cache: true
-          working-directory: docs
+          python-version: "3.12"
 
-      - name: Build Jekyll site
-        run: bundle exec jekyll build
-        working-directory: docs
-        env:
-          JEKYLL_ENV: production
+      - name: Install dependencies
+        run: pip install -r requirements-docs.txt
 
-      - name: Validate HTML (internal links, images, structure)
-        run: |
-          bundle exec htmlproofer _site \
-            --ignore-urls "/^http:/" \
-            --ignore-status-codes "999,429" \
-            --no-enforce-https \
-            --ignore-missing-alt \
-            --allow-missing-href \
-            --disable-external
-        working-directory: docs
+      - name: Build MkDocs site (strict mode)
+        run: mkdocs build --strict
 
       - name: Lint Markdown
-        run: npx markdownlint-cli2 "**/*.md" --config .markdownlint-cli2.jsonc
-        working-directory: docs
+        run: npx markdownlint-cli2 "docs/**/*.md"

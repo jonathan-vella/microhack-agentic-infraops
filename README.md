@@ -55,7 +55,7 @@ A Stockholm-based farm-to-table delivery company needs cloud infrastructure. You
 ## Repository Structure
 
 ```text
-docs/                   # GitHub Pages site (just-the-docs theme)
+docs/                   # GitHub Pages site (Material for MkDocs)
 facilitator/            # Facilitator guide, scoring rubric, solution reference
 scripts/                # Governance PowerShell scripts
 ```

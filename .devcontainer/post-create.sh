@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
 
-# Jekyll setup (provided by base image)
-sh /usr/local/post-create.sh
+# MkDocs documentation dependencies
+pip install -r requirements-docs.txt
 
 # npm globals
 npm install -g markdownlint-cli2
