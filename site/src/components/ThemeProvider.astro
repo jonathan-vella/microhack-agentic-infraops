@@ -1,0 +1,26 @@
+<script is:inline>
+  window.StarlightThemeProvider = (() => {
+    const storageKey = "starlight-theme";
+    const storedTheme =
+      typeof localStorage !== "undefined" && localStorage.getItem(storageKey);
+
+    if (typeof localStorage !== "undefined" && !storedTheme) {
+      localStorage.setItem(storageKey, "dark");
+    }
+
+    const theme = storedTheme || "dark";
+    document.documentElement.dataset.theme =
+      theme === "light" ? "light" : "dark";
+
+    return {
+      updatePickers(themeName = theme) {
+        document
+          .querySelectorAll("starlight-theme-select")
+          .forEach((picker) => {
+            const select = picker.querySelector("select");
+            if (select) select.value = themeName;
+          });
+      },
+    };
+  })();
+</script>
