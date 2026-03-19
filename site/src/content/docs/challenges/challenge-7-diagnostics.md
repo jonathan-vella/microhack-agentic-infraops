@@ -98,6 +98,6 @@ If you're unsure what the most likely failure modes are, review your deployed re
 
 | Item | Value |
 |---|---|
-| **Input from** | Deployed infrastructure, prior artifacts (architecture, Bicep, ADR) |
+| **Input from** | Deployed infrastructure, prior artifacts (architecture, IaC templates, ADR) |
 | **Your output** | `agent-output/freshconnect/07-diagnostics-quick-card.md` (required), optionally `07-ab-diagnostics-runbook.md` |
 | **Next step** | [Challenge 8: Partner Showcase](challenge-8-partner-showcase/) — present your FreshConnect solution |

@@ -26,7 +26,7 @@ season.
 ## What You'll Do
 
 - Capture requirements and turn them into an Azure architecture
-- Generate Bicep and supporting documentation with AI agents
+- Generate IaC templates and supporting documentation with AI agents
 - Respond to a surprise disaster recovery requirement
 - Test, review, and present your solution as a team
 
@@ -49,7 +49,7 @@ season.
 
 Workshop site: <https://jonathan-vella.github.io/microhack-agentic-infraops/>
 
-Setup guide: <https://jonathan-vella.github.io/microhack-agentic-infraops/getting-started/setup.html>
+Setup guide: <https://jonathan-vella.github.io/microhack-agentic-infraops/getting-started/setup/>
 
 ---
 

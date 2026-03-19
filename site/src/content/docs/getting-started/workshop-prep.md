@@ -123,7 +123,7 @@ Design and deploy the Azure infrastructure for the **FreshConnect MVP** (Minimum
 
 1. **Requirements** — Capture business needs using the Requirements agent
 2. **Architecture** — Design Azure solution aligned with Well-Architected Framework
-3. **Implementation** — Generate Bicep templates for deployment
+3. **Implementation** — Generate IaC templates for deployment
 4. **DR Curveball** — Adapt to multi-region disaster recovery requirements
 5. **Load Testing** — Validate performance under stress
 6. **Documentation** — Create operational guides and runbooks

@@ -178,6 +178,6 @@ If the `design` agent produces incomplete or overly verbose output, try breaking
 
 | Item | Value |
 |---|---|
-| **Input from** | All prior artifacts (requirements, architecture, Bicep, ADR, load test results) |
+| **Input from** | All prior artifacts (requirements, architecture, IaC templates, ADR, load test results) |
 | **Your output** | `agent-output/freshconnect/07-ab-operations-guide.md` and at least one additional doc |
 | **Next step** | [Challenge 7: Diagnostics](challenge-7-diagnostics/) — create a quick-reference troubleshooting card |

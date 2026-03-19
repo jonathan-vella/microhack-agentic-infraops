@@ -15,7 +15,7 @@ sidebar:
 
 | Aspect          | Details                  |
 | --------------- | ------------------------ |
-| Team Size       | 3-6 members per team     |
+| Team Size       | Up to 5 members per team     |
 | Number of Teams | Flexible based on cohort |
 
 ---
@@ -28,7 +28,7 @@ sidebar:
 | 10:00-11:00 | **Challenge 1** | 60 min   | Requirements Capture              |
 | 11:00-12:00 | **Challenge 2** | 60 min   | Architecture Design               |
 | 12:00-12:45 | 🍽️ **Lunch**    | 45 min   | Break                             |
-| 12:45-13:30 | **Challenge 3** | 45 min   | Bicep Implementation & Deployment |
+| 12:45-13:30 | **Challenge 3** | 45 min   | IaC Implementation & Deployment |
 | 13:30-14:15 | **Challenge 4** | 45 min   | DR Curveball & Deployment         |
 | 14:15-14:30 | **Checkpoint**  | 15 min   | Facilitator check-in and reset    |
 | 14:30-15:00 | **Challenge 5** | 30 min   | Load Testing                      |
@@ -53,7 +53,7 @@ sidebar:
 | --- | ----------------------------- | -------- | ------ | ------------------------------------ |
 | 1   | Requirements Capture          | 30 min   | 20     | `requirements`                       |
 | 2   | Architecture Design           | 30 min   | 25     | `architect`                          |
-| 3   | Bicep Implementation & Deploy | 45 min   | 25     | `bicep-plan`, `bicep-code`, `deploy` |
+| 3   | IaC Implementation & Deploy | 45 min   | 25     | `bicep-plan`/`terraform-plan`, `bicep-code`/`terraform-code`, `deploy` |
 | 4   | DR Curveball & Deploy         | 45 min   | 10     | `bicep-plan`, `bicep-code`, `deploy` |
 | 5   | Load Testing                  | 30 min   | 5      | (k6 scripts)                         |
 | 6   | Documentation                 | 15 min   | 5      | `design`                             |
@@ -110,10 +110,10 @@ Challenge 8 focuses on professional communication and presentation skills.
 
 | Time  | Activity                                |
 | ----- | --------------------------------------- |
-| 12:45 | Start — **bicep-plan** agent            |
+| 12:45 | Start — IaC planning agent            |
 | 12:55 | Plan — implementation plan ready?       |
-| 13:05 | Code — **bicep-code** agent             |
-| 13:20 | Validate — `bicep build` + `bicep lint` |
+| 13:05 | Code — IaC code generation agent         |
+| 13:20 | Validate — compile + lint |
 | 13:25 | Deploy — **deploy** agent               |
 | 13:30 | Complete — move to Challenge 4          |
 
@@ -178,7 +178,7 @@ Teams prepare their Partner Showcase presentations (4-min pitch + 2-min Q&A form
 ## Quick Reference
 
 - **Template Repo**: [github.com/jonathan-vella/azure-agentic-infraops-accelerator](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)
-- **Workshop Docs**: [jonathan-vella.github.io/azure-agentic-infraops/](https://jonathan-vella.github.io/azure-agentic-infraops/)
+- **Workshop Docs**: [jonathan-vella.github.io/microhack-agentic-infraops/](https://jonathan-vella.github.io/microhack-agentic-infraops/)
 - **Challenges**: [microhack/challenges/](../challenges/index/)
 - **Facilitator Guide**: Shared separately with coaches
 - **Pre-Work**: [Getting Started](../getting-started/setup/)

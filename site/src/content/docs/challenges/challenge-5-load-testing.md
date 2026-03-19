@@ -167,7 +167,7 @@ Context:
 
 **How to improve**:
 
-- What would you change in your Bicep?
+- What would you change in your IaC templates?
 - How would you prompt the `bicep-code` agent to scale up?
 - What's the cost impact of scaling?
 

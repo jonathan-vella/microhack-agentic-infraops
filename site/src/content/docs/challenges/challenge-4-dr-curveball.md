@@ -57,8 +57,8 @@ Your Challenge 4 path depends on Challenge 3 outcome:
 
 | Challenge 3 Outcome | Your Challenge 4 Tasks |
 |---|---|
-| **Deployment succeeded** | Design DR strategy → Update Bicep → Deploy DR infrastructure → Update diagram |
-| **Partial deployment** | Design DR strategy → Update Bicep for what works → Document remaining gaps in ADR → Update diagram |
+| **Deployment succeeded** | Design DR strategy → Update IaC templates → Deploy DR infrastructure → Update diagram |
+| **Partial deployment** | Design DR strategy → Update templates for what works → Document remaining gaps in ADR → Update diagram |
 | **Deployment failed** | Design DR strategy → **Paper exercise**: Write ADR + architecture diagram without deploying |
 
 :::tip
@@ -120,11 +120,11 @@ Your ADR must document:
 - Why not the other options?
 - What would make you reconsider?
 
-### 2. Updated Bicep (Parameterized)
+### 2. Updated IaC Templates (Parameterized)
 
-Add a parameter to your `main.bicep` that enables HA/DR:
+Add a parameter to your templates that enables HA/DR:
 
-**Concept**:
+**Bicep Concept**:
 
 ```bicep
 param haStrategy string = 'single-region' // 'single-region' or 'multi-region'
@@ -132,16 +132,32 @@ param primaryLocation string = 'swedencentral'
 param secondaryLocation string = 'germanywestcentral'
 ```
 
+**Terraform Concept**:
+
+```hcl
+variable "ha_strategy" {
+  default = "single-region" # "single-region" or "multi-region"
+}
+variable "primary_location" {
+  default = "swedencentral"
+}
+variable "secondary_location" {
+  default = "germanywestcentral"
+}
+```
+
 **Questions to Explore**:
 
-- How do you prompt the `bicep-code` agent to add this capability?
+- How do you prompt the IaC agent to add this capability?
 - Which modules need to change?
 - What resources must exist in both regions?
 - How do you handle data replication?
 
 ### 3. Deploy DR Infrastructure ⭐ REQUIRED
 
-After updating your Bicep templates, deploy the DR infrastructure:
+After updating your IaC templates, deploy the DR infrastructure:
+
+**Bicep**:
 
 ```powershell
 # Preview changes first
@@ -157,6 +173,13 @@ az deployment group create \
   --template-file main.bicep \
   --parameters main.bicepparam \
   --parameters haStrategy='multi-region'
+```
+
+**Terraform**:
+
+```bash
+terraform plan -var="ha_strategy=multi-region" -out=tfplan
+terraform apply tfplan
 ```
 
 **Deployment Questions**:
@@ -195,7 +218,7 @@ to show HA/DR configuration based on agent-output/freshconnect/04-adr-ha-dr-stra
 | ----------------------------------- | ------ | ------------------- |
 | ADR documented with clear rationale | 2      | Full points available |
 | HA/DR approach chosen and justified | 2      | Full points available |
-| Bicep parameterized for HA strategy | 2      | Score based on written design |
+| IaC parameterized for HA strategy | 2      | Score based on written design |
 | **DR infrastructure deployed**      | 2      | Not available (0 pts) |
 | Updated architecture diagram        | 2      | Full points available |
 | **Total**                           | **10** | **Max 8 pts** |
@@ -209,7 +232,7 @@ Teams on the paper-exercise path (Challenge 3 deployment failed) can earn up to 
 ## Time Management Tips
 
 💡 **10 minutes**: Architecture Decision Record
-💡 **15 minutes**: Prompt the `bicep-code` agent and update templates
+💡 **15 minutes**: Prompt the IaC agent and update templates
 💡 **10 minutes**: Deploy DR infrastructure
 💡 **5 minutes**: Update architecture diagram
 💡 **5 minutes**: Verify deployment and update cost estimate
@@ -236,6 +259,6 @@ Final scoring uses the criteria in the scoring rubric, which is the single sourc
 
 | Item | Value |
 |---|---|
-| **Input from** | `infra/bicep/freshconnect/main.bicep` + modules (Challenge 3), or your implementation plan if deployment failed |
-| **Your output** | `agent-output/freshconnect/04-adr-ha-dr-strategy.md`, updated Bicep with DR parameters (or paper-exercise ADR + diagram) |
+| **Input from** | IaC templates + modules (Challenge 3), or your implementation plan if deployment failed |
+| **Your output** | `agent-output/freshconnect/04-adr-ha-dr-strategy.md`, updated IaC with DR parameters (or paper-exercise ADR + diagram) |
 | **Next step** | [Challenge 5: Load Testing](challenge-5-load-testing/) — validate your deployed infrastructure under load |

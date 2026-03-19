@@ -19,7 +19,7 @@ Each challenge names its **input artifact** (what you need from the previous ste
 |---|---|---|---|
 | 1 | [Requirements Capture](challenge-1-requirements/) | 30 min | 20 |
 | 2 | [Architecture Design](challenge-2-architecture/) | 30 min | 25 |
-| 3 | [Bicep Implementation & Deploy](challenge-3-implementation/) | 45 min | 25 |
+| 3 | [IaC Implementation & Deploy](challenge-3-implementation/) | 45 min | 25 |
 | 4 | [DR Curveball & Deploy](challenge-4-dr-curveball/) | 45 min | 10 |
 | 5 | [Load Testing](challenge-5-load-testing/) | 30 min | 5 |
 | 6 | [Workload Documentation](challenge-6-documentation/) | 15 min | 5 |
@@ -34,7 +34,7 @@ Each challenge names its **input artifact** (what you need from the previous ste
 %%{init: {'theme':'neutral'}}%%
 graph LR
     C1[C1: Requirements] --> C2[C2: Architecture]
-    C2 --> C3[C3: Bicep]
+    C2 --> C3[C3: IaC]
     C3 --> CB[⚡ CURVEBALL ⚡]
     CB --> C4[C4: DR]
     C4 --> C5[C5: Load Test]
@@ -50,7 +50,7 @@ graph LR
 <summary>Text alternative: Challenge flow</summary>
 
 
-C1 Requirements → C2 Architecture → C3 Bicep Implementation → ⚡ CURVEBALL ⚡ → C4 DR → C5 Load Test → C6 Docs → C7 Diagnose → C8 Showcase
+C1 Requirements → C2 Architecture → C3 IaC Implementation → ⚡ CURVEBALL ⚡ → C4 DR → C5 Load Test → C6 Docs → C7 Diagnose → C8 Showcase
 
 Challenge 4 is announced as a surprise midway through the event.
 

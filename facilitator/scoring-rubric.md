@@ -17,7 +17,7 @@
 > If your event package includes HackerBoard or other facilitator tooling, enter the same rubric-based totals
 > there after review. The tooling records scores — it does not calculate them.
 
-1. Review each team's deliverables under `agent-output/{team}/` and `infra/bicep/{team}/`.
+1. Review each team's deliverables under `agent-output/{team}/` and `infra/bicep/{team}/` or `infra/terraform/{team}/`.
 2. Validate deployment and bonus criteria using the Azure portal or CLI where needed.
 3. Record the Partner Showcase score during the presentation.
 4. Keep the final totals in your chosen leaderboard tool or facilitator worksheet.
@@ -30,7 +30,7 @@
 | ----------------------- | ------- | ------------- |
 | Requirements & Planning | 20      | Manual: review artifact |
 | Architecture Design     | 25      | Manual: review artifact |
-| Implementation Quality  | 25      | Manual: review Bicep files |
+| Implementation Quality  | 25      | Manual: review IaC files |
 | Deployment Success      | 10      | Manual: verify in Azure Portal/CLI |
 | Load Testing            | 5       | Manual: review artifact |
 | Documentation           | 5       | Manual: review artifact |
@@ -73,12 +73,12 @@
 
 ### 3. Implementation (25 pts)
 
-**Files**: `infra/bicep/{team}/`
+**Files**: `infra/bicep/{team}/` or `infra/terraform/{team}/`
 
 | Criterion          | Points |
 | ------------------ | ------ |
-| Bicep compiles     | 5      |
-| Bicep lints clean  | 5      |
+| IaC compiles       | 5      |
+| IaC lints clean    | 5      |
 | Naming conventions | 5      |
 | Security hardened  | 5      |
 | Modular structure  | 5      |
@@ -146,7 +146,7 @@ or `agent-output/{team}/07-ab-diagnostics-runbook.md` (bonus depth)
 
 | Enhancement        | Points | Verification                          |
 | ------------------ | ------ | ------------------------------------- |
-| Zone Redundancy    | +5     | P1v3+ SKU, `zoneRedundant: true`      |
+| Zone Redundancy    | +5     | P1v3+ SKU, `zoneRedundant: true` (or Terraform equivalent) |
 | Private Endpoints  | +5     | PE resources in Bicep                 |
 | Multi-Region DR    | +10    | Resources in 2+ regions               |
 | Managed Identities | +5     | SystemAssigned, no connection strings |

@@ -161,7 +161,7 @@ Your architecture assessment should capture:
 |---|---|
 | **Input from** | `agent-output/freshconnect/01-requirements.md` (Challenge 1) |
 | **Your output** | `agent-output/freshconnect/02-architecture-assessment.md`, `agent-output/freshconnect/03-des-architecture-diagram.md` |
-| **Next step** | [Challenge 3: Bicep Implementation](challenge-3-implementation/) — the `bicep-plan` agent reads your architecture assessment |
+| **Next step** | [Challenge 3: IaC Implementation](challenge-3-implementation/) — the IaC planning agent reads your architecture assessment |
 
 ## Reflection Questions
 

@@ -11,20 +11,6 @@ sidebar:
 
 > Mandatory requirements and setup steps for Agentic InfraOps
 
-## 📑 Table of Contents
-
-- [Who This Is For](#who-this-is-for)
-- [Prerequisites](#prerequisites)
-- [Readiness Gate](#readiness-gate)
-- [Setup Steps](#setup-steps)
-- [🐳 Dev Container](#dev-container)
-- [Handling Secrets Safely](#handling-secrets-safely)
-- [⚖️ Azure Quota Requirements](#azure-quota-requirements)
-- [Post-Event Cleanup](#post-event-cleanup)
-- [Pre-Event Checklist](#pre-event-checklist)
-- [First 10 Minutes on Event Day](#first-10-minutes-on-event-day)
-- [Next Steps](#next-steps)
-
 ---
 
 ## Who This Is For
@@ -56,31 +42,29 @@ readiness before the event.
 <summary>Software Requirements</summary>
 
 
-#### Docker Desktop
+### Docker Desktop
 
 GitHub Copilot custom agents run inside a Dev Container. You need Docker.
 
-??? note "Installation Instructions"
+**Install:**
 
-    **Install:**
+- **Windows/Mac**: [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- **Linux**: [Docker Engine](https://docs.docker.com/engine/install/)
 
-    - **Windows/Mac**: [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-    - **Linux**: [Docker Engine](https://docs.docker.com/engine/install/)
+**Verify:**
 
-    **Verify:**
+```bash
+docker --version
+# Expected: Docker version 24.x or newer
+```
 
-    ```bash
-    docker --version
-    # Expected: Docker version 24.x or newer
-    ```
+**Alternatives** (if Docker Desktop licensing is an issue):
 
-    **Alternatives** (if Docker Desktop licensing is an issue):
+- [Rancher Desktop](https://rancherdesktop.io/)
+- [Podman Desktop](https://podman-desktop.io/)
+- [Colima](https://github.com/abiosoft/colima) (macOS/Linux)
 
-    - [Rancher Desktop](https://rancherdesktop.io/)
-    - [Podman Desktop](https://podman-desktop.io/)
-    - [Colima](https://github.com/abiosoft/colima) (macOS/Linux)
-
-#### Visual Studio Code
+### Visual Studio Code
 
 **Install:** [VS Code](https://code.visualstudio.com/) (version 1.100+)
 
@@ -107,73 +91,71 @@ Dev Container image is built. No manual action needed for those.
 
 :::
 
-#### Azure CLI
+### Azure CLI
 
 Required for authenticating to Azure, managing resources, running quota checks, and
 executing deployment scripts throughout the microhack.
 
-??? note "Installation Instructions"
+**Install:**
 
-    **Install:**
+- **Windows**: [Azure CLI installer](https://learn.microsoft.com/cli/azure/install-azure-cli-windows)
+- **Mac**: `brew install azure-cli`
+- **Linux**: `curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash`
 
-    - **Windows**: [Azure CLI installer](https://learn.microsoft.com/cli/azure/install-azure-cli-windows)
-    - **Mac**: `brew install azure-cli`
-    - **Linux**: `curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash`
+**Verify:**
 
-    **Verify:**
+```bash
+az version
+# Expected: azure-cli 2.50.0 or newer
+```
 
-    ```bash
-    az version
-    # Expected: azure-cli 2.50.0 or newer
-    ```
+:::note
 
-    !!! note
+The Dev Container ships with the latest Azure CLI pre-installed.
+Install it locally only if you plan to use the CLI outside the container.
 
-        The Dev Container ships with the latest Azure CLI pre-installed.
-        Install it locally only if you plan to use the CLI outside the container.
+:::
 
-#### PowerShell 7
+### PowerShell 7
 
 Required for deployment scripts, the prerequisite check script, and microhack cleanup.
 PowerShell 7 (pwsh) is distinct from Windows PowerShell 5.1 and must be installed separately.
 
-??? note "Installation Instructions"
+**Install:**
 
-    **Install:**
+- **Windows**: [PowerShell 7 installer](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-windows)
+- **Mac**: `brew install --cask powershell`
+- **Linux**: `sudo apt-get install -y powershell`
+  (see [Linux install docs](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-linux))
 
-    - **Windows**: [PowerShell 7 installer](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-windows)
-    - **Mac**: `brew install --cask powershell`
-    - **Linux**: `sudo apt-get install -y powershell`
-      (see [Linux install docs](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-linux))
+**Verify:**
 
-    **Verify:**
+```bash
+pwsh --version
+# Expected: PowerShell 7.4 or newer
+```
 
-    ```bash
-    pwsh --version
-    # Expected: PowerShell 7.4 or newer
-    ```
+:::note
 
-    !!! note
+The Dev Container ships with PowerShell 7 pre-installed. Install it locally only if
+you plan to run scripts outside the container.
 
-        The Dev Container ships with PowerShell 7 pre-installed. Install it locally only if
-        you plan to run scripts outside the container.
+:::
 
-#### Git
+### Git
 
-??? note "Installation Instructions"
+**Install:**
 
-    **Install:**
+- **Windows**: [Git for Windows](https://gitforwindows.org/)
+- **Mac**: `brew install git` or Xcode Command Line Tools
+- **Linux**: `sudo apt install git` or equivalent
 
-    - **Windows**: [Git for Windows](https://gitforwindows.org/)
-    - **Mac**: `brew install git` or Xcode Command Line Tools
-    - **Linux**: `sudo apt install git` or equivalent
+**Verify:**
 
-    **Verify:**
-
-    ```bash
-    git --version
-    # Expected: git version 2.40 or newer
-    ```
+```bash
+git --version
+# Expected: git version 2.40 or newer
+```
 
 
 </details>
@@ -182,7 +164,7 @@ PowerShell 7 (pwsh) is distinct from Windows PowerShell 5.1 and must be installe
 <summary>Account Requirements</summary>
 
 
-#### GitHub with Copilot Pro+ or Enterprise
+### GitHub with Copilot Pro+ or Enterprise
 
 :::caution
 
@@ -205,7 +187,7 @@ Compare plans: [GitHub Copilot Plans](https://github.com/features/copilot/plans)
 :::tip
 
 GitHub Copilot can be billed directly through your Azure subscription.
-See [Copilot Azure billing][copilot-azure-billing] for setup instructions.
+See [GitHub Copilot billing](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-copilot) for setup instructions.
 
 
 :::
@@ -218,7 +200,7 @@ See [Copilot Azure billing][copilot-azure-billing] for setup instructions.
 
 Setup guide: [VS Code Copilot Setup](https://code.visualstudio.com/docs/copilot/setup)
 
-#### Azure Subscription
+### Azure Subscription
 
 :::caution
 
@@ -309,7 +291,7 @@ cd <your-new-repo>
 code .
 ```
 
-1. If the repository still contains template placeholders, run `npm run init:template` from the repo root. If you do not have Node.js locally, run it after reopening in the dev container.
+4. If the repository still contains template placeholders, run `npm run init:template` from the repo root. If you do not have Node.js locally, run it after reopening in the dev container.
 
 When VS Code opens, accept the **"Reopen in Container"** prompt.
 
@@ -374,7 +356,7 @@ Open VS Code Settings (`Ctrl+,`) and add:
 </details>
 
 <details>
-<summary>5. Verify Prerequisites - skip this step</summary>
+<summary>5. Verify Prerequisites</summary>
 
 
 Verify the core tools manually:
@@ -394,7 +376,7 @@ gh --version
 <summary>6. Start the Workflow</summary>
 
 
-Open Copilot Chat (`Ctrl+Shift+I`) and select **InfraOps Conductor**:
+Open Copilot Chat (`Ctrl+Alt+I`) and select **InfraOps Conductor**:
 
 ```text
 Describe the Azure infrastructure project you want to build.
@@ -412,16 +394,18 @@ The Conductor guides you through all 7 steps with approval gates:
 
 Explore complete sample artifacts in the `agent-output/_sample/` directory (created during the workshop).
 
-??? note "Network Requirements"
+:::note[Network Requirements]
 
-    Ensure your network allows outbound HTTPS to:
+Ensure your network allows outbound HTTPS to:
 
-    | Service        | Domains                                                       |
-    | -------------- | ------------------------------------------------------------- |
-    | GitHub         | `github.com`, `api.github.com`                                |
-    | GitHub Copilot | `copilot.github.com`, `*.githubusercontent.com`               |
-    | Azure          | `*.azure.com`, `*.microsoft.com`, `login.microsoftonline.com` |
-    | Docker         | `docker.io`, `registry-1.docker.io`                           |
+| Service        | Domains                                                       |
+| -------------- | ------------------------------------------------------------- |
+| GitHub         | `github.com`, `api.github.com`                                |
+| GitHub Copilot | `copilot.github.com`, `*.githubusercontent.com`               |
+| Azure          | `*.azure.com`, `*.microsoft.com`, `login.microsoftonline.com` |
+| Docker         | `docker.io`, `registry-1.docker.io`                           |
+
+:::
 
 
 </details>

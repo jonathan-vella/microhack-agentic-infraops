@@ -290,7 +290,7 @@ Pick 2-3 questions that are relevant to their presentation.
 - Be confident — you built something real!
 - Admit what you didn't finish (honesty wins respect)
 - Explain trade-offs, not just decisions
-- Use your artifacts (diagrams, Bicep, cost estimates)
+- Use your artifacts (diagrams, IaC templates, cost estimates)
 - Thank the customer for their questions
 
 ❌ **DON'T:**

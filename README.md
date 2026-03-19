@@ -18,7 +18,7 @@ Participants should create their own repository from the [azure-agentic-infraops
 **What you'll experience:**
 
 - AI-assisted requirements gathering and architecture design
-- Automated Bicep code generation from natural language
+- Automated IaC code generation (Bicep or Terraform) from natural language
 - Cost estimation using Azure Pricing MCP
 - Real deployment to your Azure subscription
 - A mid-event "curveball" that tests your adaptability
@@ -26,7 +26,7 @@ Participants should create their own repository from the [azure-agentic-infraops
 ## Learning Objectives
 
 1. **Understand agentic workflows** for Infrastructure as Code
-2. **Generate production-ready Bicep** using AI agents
+2. **Generate production-ready IaC** (Bicep or Terraform) using AI agents
 3. **Apply WAF principles** (Reliability, Security, Cost, Operations, Performance)
 
 ## The Scenario: Nordic Fresh Foods

@@ -131,8 +131,8 @@ az group list --query "[?starts_with(name, 'rg-freshconnect')]" -o table
 | --------- | -------------- | --------------------------------------------------- | ----------- |
 | 1         | Scenario brief | `agent-output/{team}/01-requirements.md`            | C2: Architecture |
 | 2         | C1 requirements | `agent-output/{team}/02-architecture-assessment.md` | C3: Bicep |
-| 3         | C2 architecture | `infra/bicep/{team}/main.bicep` + modules           | C4: DR Curveball |
-| 4         | C3 Bicep (or design docs) | Updated Bicep with DR + ADR document      | C5: Load Test |
+| 3         | C2 architecture | IaC templates + modules                         | C4: DR Curveball |
+| 4         | C3 IaC (or design docs) | Updated IaC with DR + ADR document      | C5: Load Test |
 | 5         | Deployed infra | `agent-output/{team}/05-load-test-results.md`       | C6: Docs |
 | 6         | All prior artifacts | `agent-output/{team}/07-ab-*.md` (documentation) | C7: Diagnostics |
 | 7         | Deployed infra | `agent-output/{team}/07-diagnostics-quick-card.md`  | C8: Showcase |

@@ -19,6 +19,7 @@ agent-output/freshconnect/
 ├── 07-diagnostics-quick-card.md (Challenge 7 required)
 └── 07-ab-diagnostics-runbook.md (Challenge 7 optional bonus depth)
 
+# Bicep path
 infra/bicep/freshconnect/
 ├── main.bicep
 ├── main.bicepparam
@@ -29,6 +30,20 @@ infra/bicep/freshconnect/
     ├── storage.bicep
     ├── key-vault.bicep
     └── monitoring.bicep
+
+# Terraform path (alternative)
+infra/terraform/freshconnect/
+├── main.tf
+├── variables.tf
+├── outputs.tf
+├── providers.tf
+├── deploy.ps1
+└── modules/
+    ├── app-service/
+    ├── sql-database/
+    ├── storage/
+    ├── key-vault/
+    └── monitoring/
 ```
 
 ---

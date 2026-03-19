@@ -24,7 +24,7 @@ Key terms and definitions for Agentic InfraOps.
 | The surprise DR requirement | **Curveball** (Challenge 4) | twist, surprise, pivot |
 | The fictional company | **Nordic Fresh Foods** | NFF, the customer (reserve "customer" for the C8 role) |
 | The platform being built | **FreshConnect** | the app, the project (when referring to the scenario) |
-| Azure deployment language | **Bicep** | ARM templates (unless comparing) |
+| Azure deployment language | **Bicep** or **Terraform** | ARM templates (unless comparing) |
 | AI assistant | **GitHub Copilot** | Copilot (alone is acceptable), AI, the agent (when referring to the product) |
 | Specific AI persona | **Agent** (e.g., `requirements` agent) | bot, assistant |
 | Scoring document | **Scoring rubric** | rubric, scorecard |
@@ -144,7 +144,7 @@ profile, and submit scores for their own team. Compare with **Admin**.
 
 **Persona** — A named character assigned to each agent for easy recognition.
 For example, the Requirements agent is 📜 Scribe and the Architect agent is
-🏤 Oracle. See the [agent overview](../index/).
+🏤 Oracle. See the [Copilot Guide](../../guides/copilot-guide/).
 
 ## S
 

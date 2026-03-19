@@ -1,7 +1,7 @@
 ---
-title: 'C3: Bicep Implementation'
-description: Generate Bicep templates, deploy infrastructure to Azure, and demonstrate
-  understanding of the agent-driven deployment workflow.
+title: 'C3: IaC Implementation'
+description: Generate infrastructure-as-code templates (Bicep or Terraform), deploy
+  to Azure, and demonstrate understanding of the agent-driven deployment workflow.
 sidebar:
   order: 3
   badge:
@@ -17,20 +17,35 @@ next:
 
 
 :::note[Challenge Info]
-⏱️ **45 min** · 🏆 **25 pts** · 🤖 bicep-plan, bicep-code, deploy · 📄 main.bicep, main.bicepparam, deploy.ps1
+⏱️ **45 min** · 🏆 **25 pts** · 🤖 bicep-plan/bicep-code or terraform agents, deploy · 📄 IaC templates + deploy script
 
 :::
 
 
+## Choose Your IaC Language
+
+Your team must choose **one** Infrastructure-as-Code language for this challenge:
+
+| Option | Language | Agents | Output Directory |
+|---|---|---|---|
+| **A** | Bicep | `bicep-plan`, `bicep-code`, `deploy` | `infra/bicep/freshconnect/` |
+| **B** | Terraform | `terraform-plan`, `terraform-code`, `deploy` | `infra/terraform/freshconnect/` |
+
+:::tip
+
+Choose the language your team is most comfortable with — or the one you want to learn. Both paths earn equal points. If your accelerator repo includes Terraform agents, use those. Otherwise, use Agent mode with Copilot to generate Terraform directly.
+
+:::
+
 ## Prerequisite: Azure Policy Deployment (Recommended)
 
-If your facilitator has deployed Azure Policies for the event, your Bicep templates will need to
+If your facilitator has deployed Azure Policies for the event, your IaC templates will need to
 comply with governance constraints (required tags, HTTPS-only, TLS 1.2, etc.).
 See the [Governance Scripts](../reference/governance-scripts/) reference for details.
 
 :::note
 
-**Policy propagation timing**: Azure Policies take 5–15 minutes to become effective after deployment. If your deployment succeeds but you expected a policy denial, the policy may not have propagated yet. Ask your facilitator to verify with `Get-GovernanceStatus.ps1 -MicrohackOnly`. Even if policies are delayed, include the required tags and security settings in your Bicep — they are part of the success criteria.
+**Policy propagation timing**: Azure Policies take 5–15 minutes to become effective after deployment. If your deployment succeeds but you expected a policy denial, the policy may not have propagated yet. Ask your facilitator to verify with `Get-GovernanceStatus.ps1 -MicrohackOnly`. Even if policies are delayed, include the required tags and security settings in your templates — they are part of the success criteria.
 
 :::
 
@@ -43,14 +58,17 @@ Nordic Fresh Foods needs production-ready infrastructure code that:
 - Is maintainable by their small DevOps team
 - Follows infrastructure-as-code best practices
 
-Your task: Generate Bicep templates, **deploy them to Azure**, and **demonstrate you understand
+Your task: Generate IaC templates, **deploy them to Azure**, and **demonstrate you understand
 the agent workflow** by explaining it.
 
 ## Your Challenge
 
 ### Part A: Implementation Planning (~10 min)
 
-**Your Task**: Use the `bicep-plan` agent to create an implementation strategy.
+**Your Task**: Use the planning agent to create an implementation strategy.
+
+- **Bicep path**: Use the `bicep-plan` agent
+- **Terraform path**: Use the `terraform-plan` agent (or Agent mode)
 
 **Guiding Questions**:
 
@@ -67,13 +85,17 @@ architecture decisions, not just a file reference.
 
 ### Part B: Code Generation (~15 min)
 
-**Your Task**: Use the `bicep-code` agent to generate Infrastructure as Code.
+**Your Task**: Use the code generation agent to produce Infrastructure as Code.
 
 **Consider**:
 
 - How do you describe what you need to the agent?
 - What module structure makes sense for this workload?
 - How will you handle resource naming to avoid conflicts?
+
+#### Bicep Path
+
+**Agent**: `bicep-code`
 
 **The Agent Will Generate**:
 
@@ -85,7 +107,7 @@ infra/bicep/freshconnect/
 └── modules/                # Modular Bicep files
 ```
 
-**Your Validation Steps**:
+**Validation Steps**:
 
 ```bash
 cd infra/bicep/freshconnect
@@ -93,10 +115,35 @@ bicep build main.bicep      # What does this check?
 bicep lint main.bicep       # What does this validate?
 ```
 
+#### Terraform Path
+
+**Agent**: `terraform-code` (or Agent mode with Copilot)
+
+**The Agent Will Generate**:
+
+```
+infra/terraform/freshconnect/
+├── main.tf                 # Root module
+├── variables.tf            # Input variables
+├── outputs.tf              # Output values
+├── providers.tf            # Provider configuration
+├── deploy.ps1              # Deployment script
+└── modules/                # Reusable modules
+```
+
+**Validation Steps**:
+
+```bash
+cd infra/terraform/freshconnect
+terraform init              # Initialize providers
+terraform validate          # Check configuration syntax
+terraform plan              # Preview what will be created
+```
+
 **Questions to Explore**:
 
-- What happens during `bicep build`? What errors would stop you?
-- What does `bicep lint` check for? Are all warnings critical?
+- What happens during validation? What errors would stop you?
+- What does linting check for? Are all warnings critical?
 - How do Azure Policy constraints affect your deployment?
 
 ---
@@ -104,6 +151,8 @@ bicep lint main.bicep       # What does this validate?
 ### Part C: Deployment (~15 min) ⭐ REQUIRED
 
 **Your Task**: Use the `deploy` agent to deploy your infrastructure to Azure.
+
+#### Bicep Deployment
 
 **Before Deploying**:
 
@@ -115,15 +164,7 @@ az deployment group what-if \
   --parameters main.bicepparam
 ```
 
-**Deployment Questions**:
-
-- Does the What-If output match your expectations?
-- Are there any unexpected changes or deletions?
-- Do you understand what each resource does?
-
 **Deploy Your Infrastructure**:
-
-Use the `deploy` agent or run:
 
 ```powershell
 az deployment group create \
@@ -132,11 +173,26 @@ az deployment group create \
   --parameters main.bicepparam
 ```
 
+#### Terraform Deployment
+
+**Before Deploying**:
+
+```bash
+# Preview what will be created
+terraform plan -out=tfplan
+```
+
+**Deploy Your Infrastructure**:
+
+```bash
+terraform apply tfplan
+```
+
 **If Deployment Fails**:
 
 - Read the error message carefully — what does it tell you?
 - Is it a naming conflict? A policy violation? A missing parameter?
-- How would you prompt the `bicep-code` agent to fix the issue?
+- How would you prompt the agent to fix the issue?
 
 ---
 
@@ -162,15 +218,15 @@ Challenge 4 (DR Curveball) builds directly on your Challenge 3 deployment. Your 
 
 **Output from this challenge that feeds Challenge 4:**
 
-- `infra/bicep/freshconnect/main.bicep` (or your design documents if deployment failed)
+- Your IaC templates (or design documents if deployment failed)
 - `agent-output/freshconnect/04-implementation-plan.md`
 - Your Mermaid deployment workflow diagram
 
 Your flowchart must show:
 
-1. How the `bicep-code` agent generates templates
-2. What happens during validation (`bicep build`)
-3. What linting checks for (`bicep lint`)
+1. How the agent generates templates
+2. What happens during validation
+3. What linting checks for
 4. How the `deploy` agent attempts deployment
 5. Common errors and how agents adjust
 6. The feedback loop when issues are discovered
@@ -184,10 +240,10 @@ demonstrate you understand the process, not just executed commands.
 
 ```mermaid
 graph TD
-    A[bicep-code agent generates templates] --> B[Validation: bicep build]
+    A[Agent generates IaC templates] --> B[Validation]
     B --> C{Syntax Errors?}
     C -->|Yes| D[What types of errors?]
-    C -->|No| E[Linting: bicep lint]
+    C -->|No| E[Linting / Plan]
     E --> F[...]
 
     %% Complete this based on what you observe
@@ -205,15 +261,6 @@ graph TD
 - What's the pattern for Key Vault names? (Hint: 24 char limit)
 - What's the pattern for Storage Account names? (Hint: special rules)
 
-**Snippet for Discovery**:
-
-```bicep
-// Concept: Generate a unique suffix per resource group
-var uniqueSuffix = uniqueString(resourceGroup().id)
-
-// How would you use this for Key Vault? Storage? SQL?
-```
-
 ### Required Tags
 
 **Question**: Why do deployments fail with "RequestDisallowedByPolicy" errors about missing tags?
@@ -221,7 +268,7 @@ var uniqueSuffix = uniqueString(resourceGroup().id)
 **Explore**:
 
 - What tags are required by your subscription's Azure Policies?
-- Where in your Bicep should tags be defined?
+- Where in your IaC should tags be defined?
 - How do you pass tags to modules?
 
 ### Security Baseline
@@ -234,23 +281,12 @@ var uniqueSuffix = uniqueString(resourceGroup().id)
 - SQL: What authentication mode is enforced?
 - App Services: What SSL/TLS requirements exist?
 
-**Snippet for Exploration**:
-
-```bicep
-// What properties must be set to pass Azure Policy?
-properties: {
-  supportsHttpsTrafficOnly: ?
-  minimumTlsVersion: ?
-  allowBlobPublicAccess: ?
-}
-```
-
 ## Artifact Handoff
 
 | Item | Value |
 |---|---|
 | **Input from** | `agent-output/freshconnect/02-architecture-assessment.md` (Challenge 2) |
-| **Your output** | `infra/bicep/freshconnect/main.bicep` + modules, `agent-output/freshconnect/04-implementation-plan.md`, Mermaid workflow diagram |
+| **Your output** | IaC templates + modules, `agent-output/freshconnect/04-implementation-plan.md`, Mermaid workflow diagram |
 | **Next step** | [Challenge 4: DR Curveball](challenge-4-dr-curveball/) — extends your deployed infrastructure (or pivots to paper exercise if deployment failed) |
 
 ## Success Criteria
@@ -258,7 +294,7 @@ properties: {
 | Criterion                                  | Points |
 | ------------------------------------------ | ------ |
 | Implementation plan created                | 5      |
-| Bicep templates generated                  | 5      |
+| IaC templates generated                    | 5      |
 | Templates compile without errors           | 3      |
 | **Infrastructure deployed successfully**   | 7      |
 | **Workflow diagram created and explained** | 5      |
@@ -285,7 +321,7 @@ When you encounter issues, ask yourself:
 
 **Validation vs Deployment**:
 
-- Q: "My Bicep lints clean but deployment fails. Why?"
+- Q: "My templates validate clean but deployment fails. Why?"
 - Consider: What's the difference between syntax validation and runtime deployment?
 
 ## Next Step

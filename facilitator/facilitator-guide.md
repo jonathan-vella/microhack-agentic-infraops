@@ -7,7 +7,7 @@
 | Aspect      | Details                               |
 | ----------- | ------------------------------------- |
 | Duration    | 1 day (09:00 - 17:00)                 |
-| Team Size   | 3-6 members per team                  |
+| Team Size   | Up to 5 members per team              |
 | Teams       | Flexible based on cohort              |
 | Format      | Challenge-based, full 7-step workflow |
 | Skill Level | Azure portal familiar, new to IaC     |
@@ -212,10 +212,11 @@ No common issues — monitor Pricing MCP functionality.
 
 ### Block 4: Challenge 3 - Implementation & Deployment (12:45 - 13:30)
 
-**Duration**: 45 minutes (includes Bicep plan + code + deployment + Mermaid diagram)
+**Duration**: 45 minutes (includes IaC plan + code + deployment + Mermaid diagram)
 
 **Coaching Tips:**
 
+- Teams choose Bicep or Terraform — both are valid paths with equal scoring
 - Ask: "What module structure would make this maintainable?"
 - Prompt: "How does your naming convention ensure uniqueness?"
 - Encourage Mermaid flowchart for deployment workflow visualization
@@ -237,7 +238,7 @@ Before announcing the curveball, quickly assess each team's Challenge 3 outcome:
 
 | Team status | Facilitator action |
 |---|---|
-| **Deployed successfully** | Full Challenge 4 path (design + update Bicep + deploy DR) |
+| **Deployment succeeded** | Full Challenge 4 path (design + update IaC + deploy DR) |
 | **Partial deployment** | Encourage extending what deployed; document gaps in ADR |
 | **Failed deployment** | Direct to **paper exercise**: ADR + architecture diagram without deploying. No pre-built reference deployment is provided. |
 
@@ -460,7 +461,7 @@ Use this table when a team hits a blocking issue. Identify the failure class, ta
 | **Azure quota exceeded** | `QuotaExceeded` error on deployment | Check quota: `az vm list-usage -l swedencentral -o table`. Try a different SKU or region. | If no quota available, reduce scope (fewer resources) or share deployment output with team for learning. |
 | **Deployment failure (naming)** | `NameNotAvailable`, `StorageAccountAlreadyTaken` | Use `uniqueString(resourceGroup().id)` suffix pattern. Check resource name constraints. | If persistent, create a fresh resource group with a different name. |
 | **Deployment failure (auth)** | `AuthorizationFailed`, `AADSTS50076` | Re-run `az login --use-device-code`. Verify subscription access: `az account show`. | If subscription lacks Owner role, check if Contributor + Resource Policy Contributor suffices. |
-| **Deployment failure (Bicep)** | `BCP035`, `BCP037`, template validation errors | Read the error message — it usually names the exact property. Use `bicep build` to validate before deploying. | If team is stuck >5 min, intervene directly with the specific Bicep fix. |
+| **Deployment failure (Bicep/Terraform)** | `BCP035`, `BCP037`, template validation errors, `terraform validate` failures | Read the error message — it usually names the exact property. Use `bicep build` or `terraform validate` to check before deploying. | If team is stuck >5 min, intervene directly with the specific fix. |
 | **MCP tools not responding** | Azure MCP or Pricing MCP errors, tools unavailable | Check `.vscode/mcp.json`. Verify `az login` is active. Reload VS Code window. | If MCP remains broken, teams can use Azure Portal or CLI for pricing info manually. |
 | **Timing compression** | Team is behind schedule by >15 min | Compress: combine remaining work, reduce scope. At >30 min behind, skip non-essential challenges (C5, C6, C7 can be abbreviated). | Ensure C1–C4 and C8 are completed — these carry the most learning value and points. |
 | **Dev Container failure** | Container fails to build, image pull timeout | Check Docker Desktop is running (4 GB RAM). Run `Dev Containers: Rebuild Without Cache`. Check network. | If container cannot build, fall back to GitHub Codespaces. |
