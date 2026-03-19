@@ -1,22 +1,4 @@
 node_modules/
-docs/_site/
 site/dist/
 site/node_modules/
 site/.astro/
-
-# MkDocs build output (site/ root-level HTML, sitemap, search index, stylesheets)
-# The site/ directory is an Astro project; only its src/ and config files should be committed.
-# MkDocs writes compiled HTML and assets directly into site/ — exclude them:
-site/*.html
-site/*.xml
-site/*.xml.gz
-site/search/
-site/stylesheets/
-site/assets/javascripts/
-site/assets/stylesheets/
-site/404/
-site/about/
-site/challenges/
-site/getting-started/
-site/guides/
-site/reference/

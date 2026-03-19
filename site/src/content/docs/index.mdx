@@ -62,117 +62,37 @@ import AgentChat from "../../components/AgentChat.astro";
       </div>
     </div>
 
-    <div class="scenario-flow" aria-hidden="true">
-      <span>Brief</span>
-      <span>Design</span>
-      <span>Build</span>
-      <span>Test</span>
-      <span>Present</span>
-    </div>
-
   </div>
 </section>
 
-<section class="landing-section journey-section not-content">
-  <div class="section-heading section-heading--left">
-    <div class="section-label">Challenge Journey</div>
-    <h2>Eight linked checkpoints from brief to showcase</h2>
-    <p>
-      The workshop is designed as one delivery arc. Each challenge unlocks the
-      next decision, with scoring tied to completeness, resilience, and quality.
-    </p>
-  </div>
-
-<div
-  class="journey-timeline"
-  role="list"
-  aria-label="Challenge journey timeline"
->
-  <div class="journey-step" role="listitem">
-    <span class="journey-step__index">01</span>
-    <h3>Requirements</h3>
-    <p>Extract the business and technical shape of the workload.</p>
-  </div>
-  <div class="journey-step" role="listitem">
-    <span class="journey-step__index">02</span>
-    <h3>Architecture</h3>
-    <p>Design an Azure platform aligned to the Well-Architected pillars.</p>
-  </div>
-  <div class="journey-step" role="listitem">
-    <span class="journey-step__index">03</span>
-    <h3>Bicep</h3>
-    <p>Turn design decisions into reusable infrastructure-as-code assets.</p>
-  </div>
-  <div class="journey-step" role="listitem">
-    <span class="journey-step__index">04</span>
-    <h3>DR</h3>
-    <p>
-      Adapt under pressure when the disaster-recovery brief changes midstream.
-    </p>
-  </div>
-  <div class="journey-step" role="listitem">
-    <span class="journey-step__index">05</span>
-    <h3>Load Test</h3>
-    <p>Stress the platform and close reliability gaps before review.</p>
-  </div>
-  <div class="journey-step" role="listitem">
-    <span class="journey-step__index">06</span>
-    <h3>Docs</h3>
-    <p>Package the operational story so another team can run it confidently.</p>
-  </div>
-  <div class="journey-step" role="listitem">
-    <span class="journey-step__index">07</span>
-    <h3>Diagnostics</h3>
-    <p>Prove observability, governance, and troubleshooting readiness.</p>
-  </div>
-  <div class="journey-step" role="listitem">
-    <span class="journey-step__index">08</span>
-    <h3>Showcase</h3>
-    <p>Present the final architecture, tradeoffs, and outcomes to judges.</p>
-  </div>
-</div>
-
-  <div class="scoreboard-strip" aria-label="Workshop scoring summary">
-    <div>
-      <span class="scoreboard-strip__label">Base score</span>
-      <strong>105 points</strong>
-    </div>
-    <div>
-      <span class="scoreboard-strip__label">Bonus opportunities</span>
-      <strong>+25 points</strong>
-    </div>
-    <div>
-      <span class="scoreboard-strip__label">Judging signal</span>
-      <strong>Speed + quality + resilience</strong>
-    </div>
-  </div>
-</section>
-
-<section class="landing-section explore-section not-content">
-  <div class="section-heading">
+<section class="landing-section scenario-frame explore-section not-content">
+  <div class="scenario-frame__head">
+    <div class="section-label">Quick Links</div>
     <h2>Everything your team needs to move fast</h2>
   </div>
 
-  <CardGrid>
-    <LinkCard
-      title="Getting Started"
-      description="Set up your environment, check prerequisites, and learn the scenario."
-      href="getting-started/"
-    />
-    <LinkCard
-      title="Challenges"
-      description="8 challenges — from requirements capture to partner showcase."
-      href="challenges/"
-    />
-    <LinkCard
-      title="Guides"
-      description="Copilot guide, hints & tips, and a printable quick-reference card."
-      href="guides/"
-    />
-    <LinkCard
-      title="Reference"
-      description="Glossary, troubleshooting, and governance scripts."
-      href="reference/"
-    />
-  </CardGrid>
+  <div class="scenario-frame__body">
+    <CardGrid>
+      <LinkCard
+        title="Getting Started"
+        description="Set up your environment, check prerequisites, and learn the scenario."
+        href="getting-started/"
+      />
+      <LinkCard
+        title="Challenges"
+        description="8 challenges — from requirements capture to partner showcase."
+        href="challenges/"
+      />
+      <LinkCard
+        title="Guides"
+        description="Copilot guide, hints & tips, and a printable quick-reference card."
+        href="guides/"
+      />
+      <LinkCard
+        title="Reference"
+        description="Glossary, troubleshooting, and governance scripts."
+        href="reference/"
+      />
+    </CardGrid>
+  </div>
 </section>

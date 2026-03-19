@@ -744,7 +744,7 @@ body:not(:has(.landing-hero))
 }
 
 .explore-section .card-grid {
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 .explore-section .card {
