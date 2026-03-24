@@ -161,7 +161,7 @@ Your requirements document should capture:
 |---|---|
 | **Input from** | Scenario brief ([Workshop Prep](../../getting-started/workshop-prep/)) |
 | **Your output** | `agent-output/freshconnect/01-requirements.md` |
-| **Next step** | [Challenge 2: Architecture Assessment](challenge-2-architecture/) — the `architect` agent reads your requirements document |
+| **Next step** | [Challenge 2: Architecture Assessment](../challenge-2-architecture/) — the `architect` agent reads your requirements document |
 
 💡 **MVP mindset** — Perfect is the enemy of shipped. What's essential for launch?
 

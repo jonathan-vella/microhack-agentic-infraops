@@ -215,7 +215,7 @@ If your load test fails or you cannot reach your deployed endpoint, see [Trouble
 |---|---|
 | **Input from** | Deployed infrastructure (Challenge 3/4), endpoint URL |
 | **Your output** | `agent-output/freshconnect/05-load-test-results.md` |
-| **Next step** | [Challenge 6: Workload Documentation](challenge-6-documentation/) — generate operational documentation |
+| **Next step** | [Challenge 6: Workload Documentation](../challenge-6-documentation/) — generate operational documentation |
 
 :::note
 

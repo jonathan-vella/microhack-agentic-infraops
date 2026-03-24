@@ -261,4 +261,4 @@ Final scoring uses the criteria in the scoring rubric, which is the single sourc
 |---|---|
 | **Input from** | IaC templates + modules (Challenge 3), or your implementation plan if deployment failed |
 | **Your output** | `agent-output/freshconnect/04-adr-ha-dr-strategy.md`, updated IaC with DR parameters (or paper-exercise ADR + diagram) |
-| **Next step** | [Challenge 5: Load Testing](challenge-5-load-testing/) — validate your deployed infrastructure under load |
+| **Next step** | [Challenge 5: Load Testing](../challenge-5-load-testing/) — validate your deployed infrastructure under load |

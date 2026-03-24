@@ -725,14 +725,14 @@ time built into the agenda.
 1. Open VS Code → Reopen in Container (if not already running)
 2. Verify Azure auth: `az account show`
 3. Open Copilot Chat (`Ctrl+Alt+I`) → confirm agents appear in the dropdown
-4. Read the [Workshop Prep](workshop-prep/) to understand the scenario and team roles
-5. Assign team roles using the role cards in [Workshop Prep](workshop-prep/)
+4. Read the [Workshop Prep](../workshop-prep/) to understand the scenario and team roles
+5. Assign team roles using the role cards in [Workshop Prep](../workshop-prep/)
 
 ---
 
 ## Next Steps
 
 - [Copilot Guide](../../guides/copilot-guide/) — agents, skills, and prompting best practices
-- [Workshop Prep](workshop-prep/) — scenario brief and team role cards
+- [Workshop Prep](../workshop-prep/) — scenario brief and team role cards
 - [Hints & Tips](../../guides/hints-and-tips/) — challenge-specific guidance
 - [Troubleshooting](../../reference/troubleshooting/) — common issues and fixes

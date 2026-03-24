@@ -383,6 +383,6 @@ Generate an architecture diagram for the infrastructure defined in
 ## See Also
 
 - [Getting Started](../../getting-started/setup/) — Setup, dev container, quotas, and first run
-- [Quick Reference Card](quick-reference-card/) — Printable one-page reference
-- [Hints & Tips](hints-and-tips/) — Challenge-specific guidance
+- [Quick Reference Card](../quick-reference-card/) — Printable one-page reference
+- [Hints & Tips](../hints-and-tips/) — Challenge-specific guidance
 - [Troubleshooting](../../reference/troubleshooting/) — Common issues and agent fixes

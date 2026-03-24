@@ -287,7 +287,7 @@ graph TD
 |---|---|
 | **Input from** | `agent-output/freshconnect/02-architecture-assessment.md` (Challenge 2) |
 | **Your output** | IaC templates + modules, `agent-output/freshconnect/04-implementation-plan.md`, Mermaid workflow diagram |
-| **Next step** | [Challenge 4: DR Curveball](challenge-4-dr-curveball/) — extends your deployed infrastructure (or pivots to paper exercise if deployment failed) |
+| **Next step** | [Challenge 4: DR Curveball](../challenge-4-dr-curveball/) — extends your deployed infrastructure (or pivots to paper exercise if deployment failed) |
 
 ## Success Criteria
 
