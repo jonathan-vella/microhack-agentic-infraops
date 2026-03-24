@@ -132,7 +132,7 @@ Design and deploy the Azure infrastructure for the **FreshConnect MVP** (Minimum
 
 Not all teams will complete all challenges — the goal is mastering the agentic workflow.
 
-Begin with [Challenge 1: Requirements](../challenges/challenge-1-requirements/).
+Begin with [Challenge 1: Requirements](../../challenges/challenge-1-requirements/).
 
 ---
 

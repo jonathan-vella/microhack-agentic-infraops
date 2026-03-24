@@ -732,7 +732,7 @@ time built into the agenda.
 
 ## Next Steps
 
-- [Copilot Guide](../guides/copilot-guide/) — agents, skills, and prompting best practices
+- [Copilot Guide](../../guides/copilot-guide/) — agents, skills, and prompting best practices
 - [Workshop Prep](workshop-prep/) — scenario brief and team role cards
-- [Hints & Tips](../guides/hints-and-tips/) — challenge-specific guidance
-- [Troubleshooting](../reference/troubleshooting/) — common issues and fixes
+- [Hints & Tips](../../guides/hints-and-tips/) — challenge-specific guidance
+- [Troubleshooting](../../reference/troubleshooting/) — common issues and fixes

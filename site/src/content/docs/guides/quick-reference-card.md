@@ -11,7 +11,7 @@ sidebar:
 
 ## Key Actions at a Glance
 
-1. **Before the event** → Run the [Readiness Gate](../getting-started/setup/#readiness-gate)
+1. **Before the event** → Run the [Readiness Gate](../../getting-started/setup/#readiness-gate)
 2. **First 10 minutes** → Open Dev Container, `az login`, verify agents
 3. **Each challenge** → Check inputs, produce outputs, hand off to next challenge
 4. **End of day** → Team lead deletes resources and confirms cleanup

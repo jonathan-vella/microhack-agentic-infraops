@@ -207,7 +207,7 @@ Context:
 
 ## Escalation
 
-If your load test fails or you cannot reach your deployed endpoint, see [Troubleshooting](../reference/troubleshooting/). If your Challenge 3 deployment failed and you have no running endpoint, document your _intended_ test plan and expected targets instead.
+If your load test fails or you cannot reach your deployed endpoint, see [Troubleshooting](../../reference/troubleshooting/). If your Challenge 3 deployment failed and you have no running endpoint, document your _intended_ test plan and expected targets instead.
 
 ## Artifact Handoff
 

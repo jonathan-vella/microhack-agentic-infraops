@@ -172,7 +172,7 @@ After generating documentation:
 
 ## Escalation
 
-If the `design` agent produces incomplete or overly verbose output, try breaking your prompt into smaller, more specific requests. See [Troubleshooting → Copilot Agents](../reference/troubleshooting/#copilot-agents) for agent-specific fixes.
+If the `design` agent produces incomplete or overly verbose output, try breaking your prompt into smaller, more specific requests. See [Troubleshooting → Copilot Agents](../../reference/troubleshooting/#copilot-agents) for agent-specific fixes.
 
 ## Artifact Handoff
 

@@ -41,7 +41,7 @@ Choose the language your team is most comfortable with — or the one you want t
 
 If your facilitator has deployed Azure Policies for the event, your IaC templates will need to
 comply with governance constraints (required tags, HTTPS-only, TLS 1.2, etc.).
-See the [Governance Scripts](../reference/governance-scripts/) reference for details.
+See the [Governance Scripts](../../reference/governance-scripts/) reference for details.
 
 :::note
 

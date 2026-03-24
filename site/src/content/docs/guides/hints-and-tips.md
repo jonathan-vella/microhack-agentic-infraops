@@ -10,7 +10,7 @@ sidebar:
 
 ## Something Broken?
 
-If you're stuck on an error rather than a design question, go to [Troubleshooting](../reference/troubleshooting/) first. The Quick Diagnosis table at the top will route you to the right fix.
+If you're stuck on an error rather than a design question, go to [Troubleshooting](../../reference/troubleshooting/) first. The Quick Diagnosis table at the top will route you to the right fix.
 
 ## Understanding Agent Output Templates
 

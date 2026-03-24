@@ -179,6 +179,6 @@ Teams prepare their Partner Showcase presentations (4-min pitch + 2-min Q&A form
 
 - **Template Repo**: [github.com/jonathan-vella/azure-agentic-infraops-accelerator](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)
 - **Workshop Docs**: [jonathan-vella.github.io/microhack-agentic-infraops/](https://jonathan-vella.github.io/microhack-agentic-infraops/)
-- **Challenges**: [microhack/challenges/](../challenges/index/)
+- **Challenges**: [microhack/challenges/](../../challenges/index/)
 - **Facilitator Guide**: Shared separately with coaches
-- **Pre-Work**: [Getting Started](../getting-started/setup/)
+- **Pre-Work**: [Getting Started](../../getting-started/setup/)

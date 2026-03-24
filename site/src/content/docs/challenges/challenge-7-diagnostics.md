@@ -92,7 +92,7 @@ Ask yourself:
 
 ## Escalation
 
-If you're unsure what the most likely failure modes are, review your deployed resources in the Azure Portal and think about which component failing would have the highest business impact. See [Troubleshooting](../reference/troubleshooting/) for common failure patterns.
+If you're unsure what the most likely failure modes are, review your deployed resources in the Azure Portal and think about which component failing would have the highest business impact. See [Troubleshooting](../../reference/troubleshooting/) for common failure patterns.
 
 ## Artifact Handoff
 
