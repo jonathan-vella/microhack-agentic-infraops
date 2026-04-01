@@ -130,7 +130,7 @@ Design and deploy the Azure infrastructure for the **FreshConnect MVP** (Minimum
 7. **Diagnostics** — Build troubleshooting procedures
 8. **Partner Showcase** — Present your solution professionally
 
-Not all teams will complete all challenges — the goal is mastering the agentic workflow.
+Not all teams will complete all challenges — the goal is mastering the platform engineering workflow.
 
 Begin with [Challenge 1: Requirements](../../challenges/challenge-1-requirements/).
 

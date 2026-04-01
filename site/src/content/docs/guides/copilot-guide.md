@@ -31,7 +31,8 @@ get the fully configured environment. See [Getting Started](../../getting-starte
 
 ## GitHub Copilot Overview
 
-GitHub Copilot is an AI coding assistant built into VS Code. This project requires a
+GitHub Copilot is an AI coding assistant built into VS Code. This project uses Copilot to
+accelerate platform engineering practices — from requirements capture to IaC generation. It requires a
 **Copilot Pro**, **Copilot Business**, **Copilot Pro+**, or **Copilot Enterprise** license (verified during
 [pre-event setup](../../getting-started/setup/#github-with-copilot-pro-business-pro-or-enterprise)).
 
@@ -107,7 +108,7 @@ If an agent generates output containing a real secret, **do not commit that file
 
 ## Custom Agents
 
-This workshop includes **8 specialized agents** that understand Azure infrastructure
+This workshop includes **8 purpose-built agents** that understand Azure infrastructure
 patterns, best practices, and the 7-step workflow. Each agent has a focused role.
 
 ### How Agents Work

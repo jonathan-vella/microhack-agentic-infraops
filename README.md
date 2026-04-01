@@ -1,6 +1,6 @@
 # Agentic InfraOps MicroHack
 
-> **1-Day Hackathon**: Transform business requirements into deployed Azure infrastructure using AI agents and GitHub Copilot.
+> **1-Day Hackathon**: Master IaC-driven Azure infrastructure delivery using platform engineering practices — accelerated by GitHub Copilot.
 
 ## Overview
 
@@ -11,27 +11,27 @@
 | **This repo** (`microhack-agentic-infraops`) | Workshop docs, facilitator guides, scoring rubric, governance scripts | Facilitators, content maintainers |
 | **[Template repo](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)** (`azure-agentic-infraops-accelerator`) | Starting point for participant work — contains agents, skills, dev container, and Bicep scaffold | Participants ("Use this template" → create your own) |
 
-Teams use GitHub Copilot custom agents to design, plan, implement, and deploy Azure infrastructure — all guided by AI and aligned with the [Azure Well-Architected Framework](https://learn.microsoft.com/azure/well-architected/).
+Teams apply platform engineering practices using GitHub Copilot to design, plan, implement, and deploy Azure infrastructure — aligned with the [Azure Well-Architected Framework](https://learn.microsoft.com/azure/well-architected/).
 
 Participants should create their own repository from the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator) rather than cloning this repository directly. End-user guidance is published at [jonathan-vella.github.io/azure-agentic-infraops](https://jonathan-vella.github.io/azure-agentic-infraops/).
 
 **What you'll experience:**
 
-- AI-assisted requirements gathering and architecture design
-- Automated IaC code generation (Bicep or Terraform) from natural language
+- Platform engineering-driven requirements gathering and architecture design
+- IaC code generation (Bicep or Terraform) accelerated by GitHub Copilot
 - Cost estimation using Azure Pricing MCP
 - Real deployment to your Azure subscription
 - A mid-event "curveball" that tests your adaptability
 
 ## Learning Objectives
 
-1. **Understand agentic workflows** for Infrastructure as Code
-2. **Generate production-ready IaC** (Bicep or Terraform) using AI agents
+1. **Apply platform engineering practices** to Infrastructure as Code
+2. **Generate production-ready IaC** (Bicep or Terraform) accelerated by GitHub Copilot
 3. **Apply WAF principles** (Reliability, Security, Cost, Operations, Performance)
 
 ## The Scenario: Nordic Fresh Foods
 
-A Stockholm-based farm-to-table delivery company needs cloud infrastructure. Your team will capture requirements, design a WAF-aligned architecture, generate and deploy Bicep templates, and adapt to a surprise multi-region DR requirement mid-event.
+A Stockholm-based farm-to-table delivery company needs a standardised, governance-compliant Azure platform. Your team will capture requirements, design a WAF-aligned architecture, generate and deploy IaC templates, and adapt to a surprise multi-region DR requirement mid-event.
 
 ## Hackathon Day Schedule
 

@@ -6,7 +6,7 @@ sidebar:
   hidden: true
 ---
 
-Practical resources to help you get the most out of GitHub Copilot and the AI agents during the MicroHack.
+Practical resources to help you get the most out of GitHub Copilot and AI-assisted platform engineering workflows during the MicroHack.
 
 **In this section:**
 

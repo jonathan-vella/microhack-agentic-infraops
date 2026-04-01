@@ -7,15 +7,15 @@ sidebar:
 ---
 
 
-**Transform how you deliver Azure infrastructure using AI-powered agents**
+**Master IaC-driven Azure infrastructure delivery using platform engineering practices — accelerated by GitHub Copilot**
 
 ---
 
 ## What Is This?
 
-A **1-day hands-on hackathon** where teams use GitHub Copilot and
-specialized AI agents to design, build, and present Azure
-infrastructure.
+A **1-day hands-on hackathon** where teams apply platform engineering
+practices — accelerated by GitHub Copilot — to design, build, and present
+Azure infrastructure.
 
 **The scenario**: You are helping _Nordic Fresh Foods_, a growing
 farm-to-table delivery company, modernize its platform before peak
@@ -26,7 +26,7 @@ season.
 ## What You'll Do
 
 - Capture requirements and turn them into an Azure architecture
-- Generate IaC templates and supporting documentation with AI agents
+- Generate IaC templates and supporting documentation with GitHub Copilot
 - Respond to a surprise disaster recovery requirement
 - Test, review, and present your solution as a team
 
@@ -34,8 +34,8 @@ season.
 
 ## Who It's For
 
-- **SI Partners** delivering Azure projects, **IT Pros** learning Infrastructure as Code, **Architects** exploring AI-assisted design
-- **Anyone** curious about agentic workflows
+- **Infrastructure specialists** managing Azure environments, **Platform engineers** building standardised delivery paths, **IT architects** designing Well-Architected solutions
+- **Ops teams** adopting AI-assisted platform engineering
 - **Prerequisites**: Basic Azure portal familiarity. No IaC experience required!
 
 ---

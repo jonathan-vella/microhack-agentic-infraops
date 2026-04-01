@@ -118,7 +118,7 @@ configurations. Discovered during Step 4 (Planning) and saved to
 ## H
 
 **Handoff** — The mechanism by which the Conductor agent delegates work to a
-specialized agent and passes context (artifact file paths).
+focused agent and passes context (artifact file paths).
 
 ## I
 
@@ -145,6 +145,12 @@ profile, and submit scores for their own team. Compare with **Admin**.
 **Persona** — A named character assigned to each agent for easy recognition.
 For example, the Requirements agent is 📜 Scribe and the Architect agent is
 🏤 Oracle. See the [Copilot Guide](../../guides/copilot-guide/).
+
+**Platform Engineering** — The discipline of designing and building
+standardised, self-service toolchains and workflows that enable infrastructure
+delivery at scale. In this MicroHack, teams apply platform engineering practices
+— IaC templates, governance policies, and Well-Architected patterns — accelerated
+by GitHub Copilot.
 
 ## S
 

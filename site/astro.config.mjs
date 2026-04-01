@@ -15,7 +15,7 @@ export default defineConfig({
     starlight({
       title: "Agentic InfraOps MicroHack",
       description:
-        "1-day hands-on hackathon: Design, deploy, and present Azure infrastructure using AI agents and GitHub Copilot.",
+        "1-day hands-on hackathon: Master IaC-driven Azure infrastructure delivery using platform engineering practices — accelerated by GitHub Copilot.",
       favicon: "/images/favicon.svg",
       logo: {
         src: "./src/assets/images/logo.svg",

@@ -17,7 +17,7 @@ sidebar:
 
 - **Microhack participants**: Complete the setup checklist and read the prerequisites
   before event day.
-- **Self-guided learners**: Follow the same steps to explore the agentic workflow
+- **Self-guided learners**: Follow the same steps to explore the platform engineering workflow
   at your own pace.
 
 :::caution

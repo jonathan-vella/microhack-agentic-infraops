@@ -5,7 +5,7 @@ sidebar:
   order: 0
 ---
 
-Eight challenges guide you through the full Infrastructure-as-Code lifecycle — from gathering requirements with an AI agent to presenting your solution in a partner showcase.
+Eight challenges guide you through the full Infrastructure-as-Code lifecycle — from gathering requirements to presenting your solution in a partner showcase. Each challenge applies platform engineering practices, accelerated by GitHub Copilot.
 
 :::tip
 

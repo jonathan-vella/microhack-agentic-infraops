@@ -69,7 +69,7 @@ Checkbox items (☐) are for pen-and-paper or digital-form use.
 
 ### 5. What did you learn? (Select all that apply)
 
-☐ Agentic workflow approach
+☐ AI-assisted platform engineering approach
 ☐ GitHub Copilot custom agents
 ☐ Bicep / Infrastructure as Code
 ☐ Azure Well-Architected Framework
