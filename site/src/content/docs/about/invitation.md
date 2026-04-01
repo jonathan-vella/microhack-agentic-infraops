@@ -42,7 +42,7 @@ season.
 
 ## What You'll Need
 
-- Laptop with VS Code, GitHub Copilot license (Pro+ or Enterprise), Azure subscription with Owner access (required for Azure Policy)
+- Laptop with VS Code, GitHub Copilot license (Pro, Business, Pro+, or Enterprise), Azure subscription with Owner access (required for Azure Policy)
 - A repository created from the
   [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)
 - Curiosity and a willingness to experiment

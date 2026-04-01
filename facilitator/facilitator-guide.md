@@ -56,7 +56,7 @@ Complete this checklist before the event, on the morning of, and at wrap-up.
 
 ### Pre-Event (1–2 Days Before)
 
-- [ ] **Licensing confirmed**: Every participant has Copilot Pro+ or Enterprise
+- [ ] **Licensing confirmed**: Every participant has Copilot Pro, Business, Pro+, or Enterprise
 - [ ] **Subscriptions verified**: One dedicated Azure subscription per team, each with Owner access
 - [ ] **Quotas checked**: Each subscription has sufficient quota in `swedencentral` (run `az vm list-usage -l swedencentral -o table`)
 - [ ] **Policies deployed**: `Setup-GovernancePolicies.ps1` run on each subscription
@@ -457,7 +457,7 @@ Use this table when a team hits a blocking issue. Identify the failure class, ta
 | Failure Class | Symptoms | Immediate Action | Escalation |
 |---|---|---|---|
 | **Policy not active** | Deployment succeeds but should have been denied; `Get-GovernanceStatus` shows `Unknown` | Wait 10 min, re-run status script. Tell team to add tags/security settings anyway. | If still inactive after 30 min, re-run `Setup-GovernancePolicies.ps1`. |
-| **Copilot access issue** | Agent picker is empty; "Copilot is not available"; custom agents missing | Verify Copilot Pro+ or Enterprise license. Check `customAgentInSubagent.enabled` setting. Reload VS Code window. | If license is wrong tier, participant cannot use custom agents. Pair with another team member who has access. |
+| **Copilot access issue** | Agent picker is empty; "Copilot is not available"; custom agents missing | Verify Copilot Pro, Business, Pro+, or Enterprise license. Check `customAgentInSubagent.enabled` setting. Reload VS Code window. | If license is wrong tier, participant cannot use custom agents. Pair with another team member who has access. |
 | **Azure quota exceeded** | `QuotaExceeded` error on deployment | Check quota: `az vm list-usage -l swedencentral -o table`. Try a different SKU or region. | If no quota available, reduce scope (fewer resources) or share deployment output with team for learning. |
 | **Deployment failure (naming)** | `NameNotAvailable`, `StorageAccountAlreadyTaken` | Use `uniqueString(resourceGroup().id)` suffix pattern. Check resource name constraints. | If persistent, create a fresh resource group with a different name. |
 | **Deployment failure (auth)** | `AuthorizationFailed`, `AADSTS50076` | Re-run `az login --use-device-code`. Verify subscription access: `az account show`. | If subscription lacks Owner role, check if Contributor + Resource Policy Contributor suffices. |

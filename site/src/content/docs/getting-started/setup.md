@@ -164,12 +164,12 @@ git --version
 <summary>Account Requirements</summary>
 
 
-### GitHub with Copilot Pro+ or Enterprise
+### GitHub with Copilot Pro, Business, Pro+, or Enterprise
 
 :::caution
 
-This microhack requires **GitHub Copilot Pro+** or **GitHub Copilot Enterprise**.
-Custom agents are **NOT available** on Copilot Free, Copilot Pro, or Copilot Business.
+This microhack requires **GitHub Copilot Pro**, **Copilot Business**, **Copilot Pro+**, or **GitHub Copilot Enterprise**.
+Custom agents are **NOT available** on Copilot Free.
 
 
 :::
@@ -177,8 +177,8 @@ Custom agents are **NOT available** on Copilot Free, Copilot Pro, or Copilot Bus
 | Plan                   | Custom Agents | Compatible |
 | ---------------------- | ------------- | ---------- |
 | Copilot Free           | No            | No         |
-| Copilot Pro            | No            | No         |
-| Copilot Business       | No            | No         |
+| **Copilot Pro**        | **Yes**       | **Yes**    |
+| **Copilot Business**   | **Yes**       | **Yes**    |
 | **Copilot Pro+**       | **Yes**       | **Yes**    |
 | **Copilot Enterprise** | **Yes**       | **Yes**    |
 
@@ -195,7 +195,7 @@ See [GitHub Copilot billing](https://docs.github.com/en/billing/managing-billing
 **Verify:**
 
 1. Go to [github.com/settings/copilot](https://github.com/settings/copilot)
-2. Confirm your subscription shows **Pro+** or **Enterprise**
+2. Confirm your subscription shows **Pro**, **Business**, **Pro+**, or **Enterprise**
 3. Ensure "Copilot Chat in the IDE" is enabled
 
 Setup guide: [VS Code Copilot Setup](https://code.visualstudio.com/docs/copilot/setup)
@@ -249,7 +249,7 @@ Run through this quick checklist to confirm you can participate. **Every item ma
 
 | # | Check | How to verify | Blocks participation? |
 |---|---|---|---|
-| 1 | **Copilot Pro+ or Enterprise** license | [github.com/settings/copilot](https://github.com/settings/copilot) → confirms Pro+ or Enterprise | **Yes** — custom agents require this tier |
+| 1 | **Copilot Pro, Business, Pro+, or Enterprise** license | [github.com/settings/copilot](https://github.com/settings/copilot) → confirms Pro, Business, Pro+, or Enterprise | **Yes** — custom agents require a paid plan |
 | 2 | **Azure subscription** with Owner access | `az login && az account show` → shows your subscription | **Yes** — you cannot deploy without it |
 | 3 | **One subscription per team** confirmed | Ask your facilitator | **Yes** — shared subscriptions are not supported |
 | 4 | **Azure quota** in swedencentral | `az vm list-usage -l swedencentral -o table` → sufficient vCPUs | **Yes** — insufficient quota blocks deployment |
@@ -709,7 +709,7 @@ time built into the agenda.
 - [ ] **Azure CLI** 2.50+ installed (`az version`)
 - [ ] **PowerShell 7** installed (`pwsh --version`)
 - [ ] **Git** installed (2.40+)
-- [ ] **GitHub account** with Copilot Pro+ or Enterprise
+- [ ] **GitHub account** with Copilot Pro, Business, Pro+, or Enterprise
 - [ ] **Azure subscription** with Owner access
 - [ ] **Repository cloned** locally
 - [ ] **Dev Container image pulled and built** (F1 → Reopen in Container)

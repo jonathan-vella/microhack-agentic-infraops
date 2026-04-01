@@ -32,8 +32,8 @@ get the fully configured environment. See [Getting Started](../../getting-starte
 ## GitHub Copilot Overview
 
 GitHub Copilot is an AI coding assistant built into VS Code. This project requires a
-**Copilot Pro+** or **Copilot Enterprise** license (verified during
-[pre-event setup](../../getting-started/setup/#github-with-copilot-pro-or-enterprise)).
+**Copilot Pro**, **Copilot Business**, **Copilot Pro+**, or **Copilot Enterprise** license (verified during
+[pre-event setup](../../getting-started/setup/#github-with-copilot-pro-business-pro-or-enterprise)).
 
 Copilot works in three main modes, each suited to different tasks:
 
