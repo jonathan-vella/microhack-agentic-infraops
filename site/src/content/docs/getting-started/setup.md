@@ -9,7 +9,7 @@ sidebar:
 
 <!-- markdownlint-disable MD033 -->
 
-> Mandatory requirements and setup steps for Agentic InfraOps
+> Mandatory requirements and setup steps for APEX
 
 ---
 

@@ -7,7 +7,7 @@ sidebar:
 ---
 
 
-> **Agentic InfraOps Microhack** — 1-day hackathon (09:00 - 17:00)
+> **APEX Microhack** — 1-day hackathon (09:00 - 17:00)
 
 ---
 

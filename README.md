@@ -1,4 +1,4 @@
-# Agentic InfraOps MicroHack
+# APEX MicroHack
 
 > **1-Day Hackathon**: Master IaC-driven Azure infrastructure delivery using platform engineering practices — accelerated by GitHub Copilot.
 

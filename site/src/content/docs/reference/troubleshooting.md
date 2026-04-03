@@ -6,7 +6,7 @@ sidebar:
   order: 3
 ---
 
-Common issues and fixes for Agentic InfraOps.
+Common issues and fixes for APEX.
 
 ## Quick Diagnosis
 

@@ -1,4 +1,4 @@
-# DevContainer — Agentic InfraOps MicroHack
+# DevContainer — APEX MicroHack
 
 This devcontainer provides the complete environment for both running the MicroHack workshop and building the documentation site.
 

@@ -1,5 +1,5 @@
 {
-  "name": "Agentic InfraOps MicroHack",
+  "name": "APEX MicroHack",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:22-bookworm",
   "features": {
     "ghcr.io/devcontainers/features/azure-cli:1": {

@@ -13,7 +13,7 @@ export default defineConfig({
   },
   integrations: [
     starlight({
-      title: "Agentic InfraOps MicroHack",
+      title: "APEX MicroHack",
       description:
         "1-day hands-on hackathon: Master IaC-driven Azure infrastructure delivery using platform engineering practices — accelerated by GitHub Copilot.",
       favicon: "/images/favicon.svg",

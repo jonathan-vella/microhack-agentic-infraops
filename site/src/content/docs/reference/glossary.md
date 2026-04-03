@@ -5,7 +5,7 @@ sidebar:
   order: 1
 ---
 
-Key terms and definitions for Agentic InfraOps.
+Key terms and definitions for APEX.
 
 :::note
 
