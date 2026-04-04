@@ -132,8 +132,6 @@ Design and deploy the Azure infrastructure for the **FreshConnect MVP** (Minimum
 
 Not all teams will complete all challenges — the goal is mastering the platform engineering workflow.
 
-Begin with [Challenge 1: Requirements](../../challenges/challenge-1-requirements/).
-
 ---
 
 ## Team Role Cards

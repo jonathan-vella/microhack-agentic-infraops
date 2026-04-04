@@ -243,7 +243,7 @@ az account list --output table
 
 :::tip
 
-Run through this quick checklist to confirm you can participate. **Every item marked "Blocks participation" must pass before the event starts.** Items marked "Optional" enhance the experience but won't stop you.
+Run through this quick checklist to confirm you can participate. **Every item marked "Blocks participation" must pass before the event starts.**
 
 :::
 
@@ -730,9 +730,7 @@ time built into the agenda.
 
 ---
 
-## Next Steps
+## Preparation Guides
 
 - [Copilot Guide](../../guides/copilot-guide/) — agents, skills, and prompting best practices
-- [Workshop Prep](../workshop-prep/) — scenario brief and team role cards
 - [Hints & Tips](../../guides/hints-and-tips/) — challenge-specific guidance
-- [Troubleshooting](../../reference/troubleshooting/) — common issues and fixes
