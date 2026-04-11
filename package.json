@@ -6,7 +6,7 @@
     "lint:md": "markdownlint-cli2"
   },
   "devDependencies": {
-    "lefthook": "^2.1.4",
+    "lefthook": "^2.1.5",
     "markdownlint-cli2": "^0.22.0"
   },
   "overrides": {
