@@ -280,7 +280,7 @@ Before starting, agree on:
 - [ ] Who plays which role initially
 - [ ] Will we rotate roles? After which challenges?
 - [ ] How do we make decisions when we disagree? (Vote? Discuss? Architect decides?)
-- [ ] Break strategy (together or staggered? Lunch 11:30-12:00, Break 13:30-13:45)
+- [ ] Break strategy (together or staggered? Lunch 12:00-12:45, Break 15:00-15:15)
 - [ ] How do we support each other when stuck?
 
 ---

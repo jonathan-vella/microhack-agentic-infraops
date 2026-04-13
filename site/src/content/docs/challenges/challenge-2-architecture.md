@@ -16,7 +16,7 @@ next:
 ---
 
 :::note[Challenge Info]
-⏱️ **30 min** · 🏆 **25 pts** · 🤖 `architect`, `design` · 📄 `02-architecture-assessment.md`, `03-des-architecture-diagram.md`
+⏱️ **30 min** · 🏆 **25 pts** · 🤖 `03-Architect`, `04-Design` · 📄 `02-architecture-assessment.md`, `03-des-architecture-diagram.md`
 
 :::
 
@@ -44,11 +44,11 @@ must balance capability, cost, and operational complexity.
 
 1. Read the C1 requirements and list the decisions that still need architecture-level
    judgment instead of more discovery.
-2. Use the `architect` agent to assess the workload against the Azure
+2. Use the `03-Architect` agent to assess the workload against the Azure
    Well-Architected Framework and recommend Azure services, SKUs, and risks.
 3. Choose the service set and cost posture you are prepared to defend to both a small
    engineering team and a budget-conscious stakeholder.
-4. Use the `design` agent to create an architecture diagram that matches the written
+4. Use the `04-Design` agent to create an architecture diagram that matches the written
    assessment.
 5. Save both artifacts at the required paths.
 

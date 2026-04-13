@@ -16,7 +16,7 @@ next:
 ---
 
 :::note[Challenge Info]
-⏱️ **45 min** · 🏆 **10 pts** · 🤖 `architect`, `design` · 📄 `04-adr-ha-dr-strategy.md`, updated IaC or paper design, updated diagram
+⏱️ **45 min** · 🏆 **10 pts** · 🤖 `03-Architect`, `04-Design`, `06b-Bicep CodeGen`/`06t-Terraform CodeGen`, `07b-Bicep Deploy`/`07t-Terraform Deploy` · 📄 `agent-output/freshconnect/04-adr-ha-dr-strategy.md`, updated IaC or paper design, updated diagram
 
 :::
 
@@ -46,8 +46,8 @@ You must recommend a resilient path fast, then show how it changes the design.
    clearly in your ADR.
 2. Write `agent-output/freshconnect/04-adr-ha-dr-strategy.md` with context, decision,
    consequences, and rejected alternatives.
-3. Update your IaC or written design so the HA/DR choice is parameterized and the
-   required regional changes are explicit.
+3. Update your Bicep or Terraform IaC, or your written design on the paper path,
+  so the HA/DR choice is parameterized and the required regional changes are explicit.
 4. Update the architecture diagram and revise the cost view to show the new design.
 5. Deploy the DR change if your C3 path supports it; otherwise document the paper
    exercise path cleanly.
@@ -113,6 +113,9 @@ Alternatives -> what you rejected and why
 
 - A paper exercise can still score well, but only if you clearly separate design
   intent from actual deployment evidence.
+- The paper path can still prove your C4 design thinking, but it does not replace
+  missing C3 deployment evidence. Be explicit about what you designed versus what
+  actually ran.
 - Do not pick active-active unless you can explain consistency, failover, and cost.
 - Do not update the diagram without updating the ADR, or vice versa.
 - Keep the €700 ceiling visible; the extra budget is not a license to duplicate

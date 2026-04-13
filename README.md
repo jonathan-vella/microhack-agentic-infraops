@@ -25,8 +25,7 @@ Participants should create their own repository from the [azure-agentic-infraops
 ## Maintainer Commands
 
 - `npm install`
-- `npm run lint:md`
-- `cd site && npm install && npm run build`
+- `cd site && npm install && npm run lint:md && npm run build`
 
 ## Repository Structure
 

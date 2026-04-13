@@ -16,7 +16,7 @@ Common issues and fixes for APEX.
 
 :::
 
-| Symptom | Likely category | Go to |
+| Symptom | Go to | Likely category |
 |---|---|---|
 | Can't log in to Azure, subscription not found | [Azure CLI](#azure-cli) | Auth / subscription issue |
 | `RequestDisallowedByPolicy` error | [Policy Errors](#policy-errors-and-governance) | Azure Policy denial |
@@ -117,7 +117,7 @@ param location string = resourceGroup().location
 
 ### Agent not appearing in Chat
 
-**Symptoms**: Custom agents (e.g., InfraOps Conductor) don't show in the agent picker.
+**Symptoms**: Custom agents (e.g., `01-Orchestrator`) don't show in the agent picker.
 
 **Fixes**:
 
@@ -133,7 +133,7 @@ param location string = resourceGroup().location
 
 1. Break large requests into smaller steps
 2. Provide explicit file paths when referencing artifacts
-3. Use the Conductor agent for multi-step workflows — it manages context handoffs
+3. Use `01-Orchestrator` for multi-step workflows — it manages context handoffs
 
 ### MCP tools not working
 
@@ -146,6 +146,9 @@ param location string = resourceGroup().location
 3. Restart the MCP server: `Developer: Reload Window`
 
 ## Validation and Linting
+
+Run the commands in this section from the root of your working repository created
+from the accelerator template, not from this documentation repo.
 
 ### `npm run lint:md` fails
 
@@ -221,7 +224,7 @@ For remaining issues, check `.markdownlint-cli2.jsonc` for the rule that fired.
 **Fixes**:
 
 1. Azure Policies take 5–15 minutes to propagate after deployment
-2. Run `Get-GovernanceStatus.ps1 -MicrohackOnly` to check activation status
+2. Ask your facilitator to run `pwsh -File scripts/Get-GovernanceStatus.ps1 -Subscription "<subscription-name-or-id>" -MicrohackOnly` to check activation status
 3. If status is `Unknown`, wait 10 minutes and re-check
 4. If still not active after 30 minutes, ask facilitator to re-run `Setup-GovernancePolicies.ps1`
 
@@ -290,62 +293,8 @@ If you cannot resolve a policy error after checking the table above, ask your fa
 **Symptoms**: `Setup-GovernancePolicies.ps1` runs but policies don't appear.
 
 **Fix**: Policy assignments can take up to 30 minutes to propagate.
-Check status with:
+Ask your facilitator to verify policy status with:
 
 ```powershell
-pwsh scripts/Get-GovernanceStatus.ps1
+pwsh -File scripts/Get-GovernanceStatus.ps1 -Subscription "<subscription-name-or-id>" -MicrohackOnly
 ```
-
-### Scoring totals do not match expectations
-
-**Symptoms**: Facilitator totals look lower than expected after reviewing a team's submission.
-
-**Fixes**:
-
-1. Recheck the team artifacts against the criteria in the scoring rubric
-2. Confirm deployment evidence and bonus claims in Azure before awarding those points
-3. Verify that the Team Showcase score was added separately from the base score
-
-## Leaderboard App
-
-This section applies only if your event package includes a separately provided HackerBoard deployment.
-
-### SWA authentication redirect loop
-
-**Symptoms**: Browser keeps redirecting between the app and GitHub login.
-
-**Fixes**:
-
-1. Clear browser cookies for `*.azurestaticapps.net`
-2. Verify `staticwebapp.config.json` routes are correctly configured
-3. Ensure the GitHub OAuth app callback URL matches the SWA hostname
-
-### API returns 403 Forbidden
-
-**Symptoms**: API calls fail with `403` even after login.
-
-**Fixes**:
-
-1. Confirm the user has been assigned the correct role (`admin` or `member`) via SWA role invitations
-2. Check `staticwebapp.config.json` — the route may require a role the user doesn't have
-3. Use `/.auth/me` to inspect the current user's roles in the browser
-
-### Missing Submissions table
-
-**Symptoms**: Score submissions fail with a storage error referencing "Submissions".
-
-**Fix**: The Submissions table must be created manually after infrastructure deployment:
-
-```bash
-az storage table create --name Submissions \
-  --account-name "<your-storage-account>" \
-  --auth-mode login
-```
-
-### Upload rejected — team mismatch
-
-**Symptoms**: JSON upload returns "Team mismatch" error.
-
-**Fix**: The team identifier in the uploaded score payload must match the
-team the signed-in user is registered to. Verify the user's attendee profile
-has the correct team assignment.

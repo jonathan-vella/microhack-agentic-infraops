@@ -292,13 +292,20 @@ gh --version
 <details>
 <summary>6. Start the workflow</summary>
 
-Open Copilot Chat (`Ctrl+Alt+I`) and select **InfraOps Conductor**:
+Open Copilot Chat (`Ctrl+Alt+I`) and choose the entry point that matches your
+working repo:
+
+- If your repository created from the accelerator template includes
+  **01-Orchestrator**, you can start there.
+- If not, go straight to the specific agent named on each challenge page.
+
+To start with the orchestrator, select **01-Orchestrator** and prompt it with:
 
 ```text
 Describe the Azure infrastructure project you want to build.
 ```
 
-The Conductor guides you through all 7 steps with approval gates:
+The accelerator workflow uses 7 steps with approval gates:
 
 1. **Requirements** — capture what you need
 2. **Architecture** — WAF assessment and cost estimate
@@ -307,6 +314,10 @@ The Conductor guides you through all 7 steps with approval gates:
 5. **Code** — AVM-first Bicep templates
 6. **Deploy** — Azure provisioning with what-if preview
 7. **Documentation** — as-built suite
+
+The microhack scores that same work as 8 challenges. Challenge 4 is the DR
+curveball that revisits the delivery path midway through the event, so always
+follow the agent and artifact guidance on the active challenge page.
 
 Explore complete sample artifacts in the `agent-output/_sample/` directory (created during the workshop).
 
@@ -440,11 +451,9 @@ Cleanup steps:
    az group delete -n rg-freshconnect-dev-gwc --yes --no-wait
    ```
 
-2. Ask your facilitator to remove governance policies (or, if you have Owner access):
-
-   ```powershell
-   pwsh -File scripts/Remove-GovernancePolicies.ps1 -Subscription "<subscription-name-or-id>"
-   ```
+2. Ask your facilitator to remove governance policies from the team subscription.
+  If you are running the workshop as a facilitator or self-guided owner, use the
+  [Governance Scripts](../reference/governance-scripts/) reference in this docs repo.
 
 3. Verify cleanup is complete:
 

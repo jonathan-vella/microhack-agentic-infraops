@@ -16,7 +16,7 @@ next:
 ---
 
 :::note[Challenge Info]
-⏱️ **30 min** · 🏆 **20 pts** · 🤖 `requirements` · 📄 `agent-output/freshconnect/01-requirements.md`
+⏱️ **30 min** · 🏆 **20 pts** · 🤖 `02-Requirements` · 📄 `agent-output/freshconnect/01-requirements.md`
 
 :::
 
@@ -44,7 +44,7 @@ needs managed services they can actually operate.
 
 1. Review the scenario and write down the business constraints you cannot ignore:
    scale, budget, timeline, compliance, and team capacity.
-2. Prompt the `requirements` agent with that context and let it surface gaps,
+2. Prompt the `02-Requirements` agent with that context and let it surface gaps,
    trade-offs, and open questions.
 3. Refine the output until the document clearly separates functional requirements,
    non-functional requirements, operational expectations, and compliance needs.

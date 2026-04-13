@@ -103,7 +103,7 @@ This is intentional — infrastructure documentation needs consistency!
 <details>
 <summary>💡 Service Selection (click to reveal)</summary>
 
-Before asking the `architect` agent, consider these questions:
+Before asking the `03-Architect` agent, consider these questions:
 
 **Understanding the Requirements:**
 
@@ -504,7 +504,7 @@ Include:
 - Escalation criteria"
 ```
 
-💡 **Coaching tip**: The `design` agent can generate multiple document types.
+💡 **Coaching tip**: The `04-Design` agent can generate multiple document types.
 Which documents provide the most value for FreshConnect's specific needs?
 
 **Document Types to Consider:**
@@ -610,7 +610,7 @@ Why check database DTU before App Service CPU? What's the reasoning?
 
 ## Agent-Specific Tips
 
-### Requirements Agent (Challenge 1)
+### 02-Requirements (Challenge 1)
 
 **Instead of asking "what should I do?"**, ask:
 
@@ -620,7 +620,7 @@ Why check database DTU before App Service CPU? What's the reasoning?
 
 💡 Be specific about business context, not just technical features.
 
-### Architect Agent (Challenge 2)
+### 03-Architect (Challenge 2)
 
 **Instead of "design my architecture"**, try:
 
@@ -630,7 +630,7 @@ Why check database DTU before App Service CPU? What's the reasoning?
 
 💡 Question recommendations — ask "why this service?" not just "what service?"
 
-### Bicep Plan Agent (Challenge 3)
+### 05-IaC Planner (Challenge 3)
 
 **Instead of "write Bicep"**, ask:
 
@@ -640,7 +640,7 @@ Why check database DTU before App Service CPU? What's the reasoning?
 
 💡 Review the module structure before generating code.
 
-### Bicep Code Agent (Challenge 3)
+### 06b-Bicep CodeGen (Challenge 3)
 
 **Instead of "generate all the code"**, try:
 
@@ -650,7 +650,7 @@ Why check database DTU before App Service CPU? What's the reasoning?
 
 💡 Iterate incrementally — don't generate everything at once.
 
-### Design Agent (Challenges 5-7)
+### 04-Design (Challenges 5-7)
 
 **Instead of "document everything"**, ask:
 

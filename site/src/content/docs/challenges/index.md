@@ -68,7 +68,7 @@ paper exercise and carrying that design evidence into later challenges.
 | --- | --- | --- | --- | --- | --- |
 | [C1 Requirements](challenge-1-requirements/) | 30 min | 20 | Scenario brief | `agent-output/freshconnect/01-requirements.md` | C2 uses the agreed business, operational, and compliance requirements |
 | [C2 Architecture](challenge-2-architecture/) | 30 min | 25 | `01-requirements.md` | `02-architecture-assessment.md`, `03-des-architecture-diagram.md` | C3 uses the chosen services, constraints, and architecture diagram |
-| [C3 Implementation](challenge-3-implementation/) | 45 min | 25 | Architecture assessment and diagram | IaC folder, `04-implementation-plan.md`, workflow diagram, deployment evidence | C4 uses your templates, deployment outcome, and explanation of how the platform is delivered |
+| [C3 Implementation](challenge-3-implementation/) | 45 min | 25 | Architecture assessment and diagram | IaC folder, `04-implementation-plan.md`, `03-des-deployment-workflow.md`, `06-deployment-summary.md` | C4 uses your templates, deployment outcome, and explanation of how the platform is delivered |
 | [C4 DR Curveball](challenge-4-dr-curveball/) | 45 min | 10 | C3 templates and deployment outcome | `04-adr-ha-dr-strategy.md`, updated diagram, updated IaC or paper design | C5 uses the revised platform or, if blocked, your documented intended target |
 | [C5 Load Testing](challenge-5-load-testing/) | 30 min | 5 | Deployed endpoint or documented fallback plan | `05-load-test-results.md` | C6 uses the measured results and recommendations |
 | [C6 Documentation](challenge-6-documentation/) | 15 min | 5 | All prior artifacts | `07-ab-operations-guide.md` plus at least one additional doc | C7 distills the broader docs into a one-page triage aid |
@@ -76,6 +76,8 @@ paper exercise and carrying that design evidence into later challenges.
 | [C8 Team Showcase](challenge-8-partner-showcase/) | 60 min | 10 | All artifacts from C1-C7 | Live presentation and Q&A | Workshop wrap-up |
 
 **Total:** 105 base points + up to 25 bonus points
+
+**Bonus targets:** Zone Redundancy (+5), Private Endpoints (+5), Multi-Region DR (+10), Managed Identities (+5)
 
 ## Optional Deep Guidance
 

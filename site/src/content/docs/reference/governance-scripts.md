@@ -12,6 +12,7 @@ All require the **Azure CLI** (`az`) and **PowerShell 7+** (`pwsh`), both pre-in
 :::note
 
 These scripts are **for facilitators only**. Participants do not need to run them.
+The scripts live in this documentation repository, not in the participant template repo.
 
 :::
 
@@ -125,7 +126,7 @@ TotalPolicies  : 8
 
 Policies take **5–15 minutes** to become effective after deployment. Teams may not see errors immediately.
 Facilitators should deploy policies at least 30 minutes before Challenge 3 begins and verify activation
-using `Get-GovernanceStatus.ps1 -MicrohackOnly`. If the `State` column shows `Unknown`, wait and re-run.
+using `Get-GovernanceStatus.ps1 -Subscription "<subscription-name-or-id>" -MicrohackOnly`. If the `State` column shows `Unknown`, wait and re-run.
 
 :::
 

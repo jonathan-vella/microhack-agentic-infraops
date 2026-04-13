@@ -13,7 +13,7 @@ prev:
 ---
 
 :::note[Challenge Info]
-⏱️ **60 min** · 🏆 **10 pts** · 🤖 optional: `design` · 📄 Live presentation using all prior artifacts
+⏱️ **60 min** · 🏆 **10 pts** · 🤖 optional: `04-Design` · 📄 Live presentation using all prior artifacts
 
 :::
 
@@ -46,6 +46,14 @@ hard questions without hiding trade-offs.
    evidence, DR response, and operational readiness.
 4. Prepare to answer two or three fair stakeholder questions with direct, evidence-based answers.
 5. When you are the stakeholder team, ask questions that test business fit and decision quality.
+
+## What to Present
+
+- The business problem, key constraints, and the Azure decisions those constraints forced.
+- The final architecture and why it fits the workload, budget, security, and DR goals.
+- The delivery path: what you deployed, what stayed on paper, and what the evidence proves.
+- The operational story: load testing, documentation, diagnostics, and what you would improve next.
+- The trade-offs you made deliberately and the risks you still own.
 
 ## Key Decisions
 

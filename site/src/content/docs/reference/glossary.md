@@ -27,7 +27,7 @@ Key terms and definitions for APEX.
 | The platform being built | **FreshConnect** | the app, the project (when referring to the scenario) |
 | Azure deployment language | **Bicep** or **Terraform** | ARM templates (unless comparing) |
 | AI assistant | **GitHub Copilot** | Copilot (alone is acceptable), AI, the agent (when referring to the product) |
-| Specific AI persona | **Agent** (e.g., `requirements` agent) | bot, assistant |
+| Specific AI persona | **Agent** (e.g., `02-Requirements`) | bot, assistant |
 | Scoring document | **Scoring rubric** | rubric, scorecard |
 | Working repository | **Template repo** (`azure-agentic-infraops-accelerator`) | starter repo, base repo |
 | This documentation repo | **Docs repo** (`microhack-agentic-infraops`) | main repo, source repo |
@@ -86,7 +86,7 @@ declaratively. Files use the `.bicep` extension.
 workflow steps. There are 8 challenges progressing from requirements through
 deployment, documentation, diagnostics, and a final showcase.
 
-**Conductor** — The InfraOps Conductor agent (🎼 Maestro). Master orchestrator
+**Conductor** — The `01-Orchestrator` agent. Master orchestrator
 that coordinates all other agents through the 7-step workflow.
 
 **Conventional Commits** — A commit message format (`type: description`) used

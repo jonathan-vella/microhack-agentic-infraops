@@ -9,7 +9,7 @@
 | Duration    | 1 day (09:00 - 17:00)                 |
 | Team Size   | Up to 5 members per team              |
 | Teams       | Flexible based on cohort              |
-| Format      | Challenge-based, full 7-step workflow |
+| Format      | Challenge-based, 8 challenges over a 7-step workflow |
 | Skill Level | Azure portal familiar, new to IaC     |
 
 ## Your Role
@@ -60,7 +60,7 @@ Complete this checklist before the event, on the morning of, and at wrap-up.
 - [ ] **Subscriptions verified**: One dedicated Azure subscription per team, each with Owner access
 - [ ] **Quotas checked**: Each subscription has sufficient quota in `swedencentral` (run `az vm list-usage -l swedencentral -o table`)
 - [ ] **Policies deployed**: `Setup-GovernancePolicies.ps1` run on each subscription
-- [ ] **Policy activation verified**: `Get-GovernanceStatus.ps1 -MicrohackOnly` shows Compliant/NonCompliant (not Unknown) on each subscription
+- [ ] **Policy activation verified**: `Get-GovernanceStatus.ps1 -Subscription "<subscription-name-or-id>" -MicrohackOnly` shows Compliant/NonCompliant (not Unknown) on each subscription
 - [ ] **Template repo accessible**: [azure-agentic-infraops-accelerator](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator) is reachable and up to date
 - [ ] **Room setup**: Projector, timer, whiteboard or shared screen for leaderboard
 - [ ] **Scoring materials ready**: Scoring rubric printed or accessible, facilitator worksheet prepared
@@ -71,7 +71,7 @@ Complete this checklist before the event, on the morning of, and at wrap-up.
 - [ ] **Docker/Codespaces working**: At least one team member per team can open the Dev Container
 - [ ] **Azure CLI authenticated**: Every team can run `az account show` successfully
 - [ ] **Copilot Chat operational**: Custom agents appear in the agent dropdown
-- [ ] **Policies still active**: Quick spot-check with `Get-GovernanceStatus.ps1 -MicrohackOnly`
+- [ ] **Policies still active**: Quick spot-check with `Get-GovernanceStatus.ps1 -Subscription "<subscription-name-or-id>" -MicrohackOnly`
 - [ ] **Timer set**: Visible timer for challenge blocks
 
 > **Go/No-Go rule**: If any team cannot authenticate to Azure or access Copilot custom agents, resolve before starting Challenge 1. Do not proceed with a broken setup.
@@ -101,13 +101,13 @@ Deploy Azure Policies to create realistic governance constraints. Teams will enc
 
 ```powershell
 # Check current governance status
-.\scripts\Get-GovernanceStatus.ps1 -SubscriptionId "<sub-id>"
+.\scripts\Get-GovernanceStatus.ps1 -Subscription "<subscription-name-or-id>"
 
 # Deploy microhack policies (checks for existing before creating)
-.\scripts\Setup-GovernancePolicies.ps1 -SubscriptionId "<sub-id>"
+.\scripts\Setup-GovernancePolicies.ps1 -Subscription "<subscription-name-or-id>"
 
 # After event: Remove policies
-.\scripts\Remove-GovernancePolicies.ps1 -SubscriptionId "<sub-id>"
+.\scripts\Remove-GovernancePolicies.ps1 -Subscription "<subscription-name-or-id>"
 ```
 
 **Policies deployed:**
@@ -148,7 +148,7 @@ pwsh -File scripts/Get-GovernanceStatus.ps1 -Subscription "<sub-id>" -MicrohackO
 
 ## Schedule
 
-📅 **See [docs/about/agenda.md](../docs/about/agenda.md) for the full schedule overview.**
+📅 **See [site/src/content/docs/about/agenda.md](../site/src/content/docs/about/agenda.md) for the full schedule overview.**
 
 > **Event runs 09:00 - 17:00** as a 1-day hackathon with lunch from 12:00 - 12:45 and a 15-minute afternoon break at 15:00
 
@@ -287,7 +287,7 @@ Use this short buffer to confirm teams are ready for load testing, unblock deplo
 
 - Ask: "What metrics validate your SLA?"
 - Prompt: "How would you simulate 500 concurrent users?"
-- Encourage design agent for structured report generation
+- Encourage `04-Design` for structured report generation
 
 ### ☕ Break (15:00 - 15:15)
 
@@ -302,7 +302,7 @@ Use this short buffer to confirm teams are ready for load testing, unblock deplo
 **Coaching Tips:**
 
 - Ask: "What would a new team member need to know?"
-- Prompt: "How does design agent ensure completeness?"
+- Prompt: "How does `08-As-Built` or `04-Design` ensure completeness?"
 - Encourage runbook creation for operational procedures
 
 #### Challenge 7: Diagnostics (15:30 - 15:35)
@@ -317,7 +317,7 @@ Use this short buffer to confirm teams are ready for load testing, unblock deplo
 
 | Issue                    | Solution                         |
 | ------------------------ | -------------------------------- |
-| Design agent too verbose | Prompt: "Create concise runbook" |
+| `04-Design` / `08-As-Built` too verbose | Prompt: "Create concise runbook" |
 | Missing monitoring       | Use Application Insights logs    |
 
 ---
@@ -326,27 +326,25 @@ Use this short buffer to confirm teams are ready for load testing, unblock deplo
 
 **Facilitator Actions:**
 
-- Remind teams of the 4-min pitch + 2-min Q&A format
-- Share the [Presentation Template](../docs/challenges/challenge-8-partner-showcase.md#what-to-present)
-- Assign team pairings (see below)
+- Remind teams that each showcase slot is about 14 minutes total: 4-min pitch, 2-min Q&A, stakeholder questions, facilitator feedback, and transition
+- Share the [What to Present guide](../site/src/content/docs/challenges/challenge-8-partner-showcase.md#what-to-present)
+- Assign team pairings for the default 4-team rotation (see below)
 - Set up presentation area (projector, timer)
 
 ### Block 8: Challenge 8 - Team Showcase 🎤 (15:50 - 16:50)
 
-**Duration**: 60 minutes (up to 6 teams × ~9 min + transitions)
+**Duration**: 60 minutes (default 4-team cohort: ~14 min per team including pitch, Q&A, stakeholder questions, facilitator feedback, and transitions)
 
 #### Presentation Setup
 
-Pair teams for presentations:
+Pair teams for the default 4-team cohort:
 
 | Presenting Team | Stakeholder Team |
 | --------------- | ---------------- |
 | Team 1          | Team 2           |
 | Team 2          | Team 3           |
 | Team 3          | Team 4           |
-| Team 4          | Team 5           |
-| Team 5          | Team 6           |
-| Team 6          | Team 1           |
+| Team 4          | Team 1           |
 
 #### 📢 Announcement Script (15:50)
 
@@ -418,7 +416,7 @@ Fast teams disengage if idle. Offer these stretch activities:
 | Enable **Zone Redundancy** on App Service (bonus +5)                | After C3/C4 |
 | Add **Managed Identities** and remove connection strings (bonus +5) | After C3/C4 |
 | Write a second documentation artifact (e.g., DR runbook)            | After C6    |
-| Explore the `challenger` agent on their own artifacts               | Anytime     |
+| Run `09-Diagnose` on their own deployed resources                   | Anytime     |
 | Prepare extra slides for the Team Showcase                          | After C7    |
 | Help a struggling neighboring team (peer coaching)                  | Anytime     |
 

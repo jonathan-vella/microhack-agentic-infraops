@@ -51,16 +51,18 @@ sidebar:
 
 | #   | Challenge                     | Duration | Points | Agent(s)                             |
 | --- | ----------------------------- | -------- | ------ | ------------------------------------ |
-| 1   | Requirements Capture          | 30 min   | 20     | `requirements`                       |
-| 2   | Architecture Design           | 30 min   | 25     | `architect`                          |
-| 3   | IaC Implementation & Deploy | 45 min   | 25     | `bicep-plan`/`terraform-plan`, `bicep-code`/`terraform-code`, `deploy` |
-| 4   | DR Curveball & Deploy         | 45 min   | 10     | `bicep-plan`, `bicep-code`, `deploy` |
-| 5   | Load Testing                  | 30 min   | 5      | (k6 scripts)                         |
-| 6   | Documentation                 | 15 min   | 5      | `design`                             |
-| 7   | Diagnostics                   | 5 min    | 5      | `diagnose`                           |
+| 1   | Requirements Capture          | 30 min   | 20     | `02-Requirements`                    |
+| 2   | Architecture Design           | 30 min   | 25     | `03-Architect`, `04-Design`          |
+| 3   | IaC Implementation & Deploy | 45 min   | 25     | `05-IaC Planner`, `06b-Bicep CodeGen`/`06t-Terraform CodeGen`, `07b-Bicep Deploy`/`07t-Terraform Deploy` |
+| 4   | DR Curveball & Deploy         | 45 min   | 10     | `03-Architect`, `04-Design`, `06b-Bicep CodeGen`/`06t-Terraform CodeGen`, `07b-Bicep Deploy`/`07t-Terraform Deploy` |
+| 5   | Load Testing                  | 30 min   | 5      | `04-Design` (optional report support), k6 |
+| 6   | Documentation                 | 15 min   | 5      | `08-As-Built` or `04-Design`         |
+| 7   | Diagnostics                   | 5 min    | 5      | `09-Diagnose` or `04-Design`         |
 | 8   | Team Showcase 🎤              | 60 min   | 10     | (presentation)                       |
 
 **Total Points**: 105 base + 25 bonus
+
+**Bonus targets**: Zone Redundancy (+5), Private Endpoints (+5), Multi-Region DR (+10), Managed Identities (+5)
 
 :::note
 
@@ -154,7 +156,8 @@ Use this short buffer to unblock teams, confirm deployments, and reset before th
 
 ### 🎯 Presentation Prep (15:35 - 15:50)
 
-Teams prepare their Team Showcase presentations (4-min pitch + 2-min Q&A format).
+Teams prepare their Team Showcase presentations. Each team slot includes the 4-min
+pitch, 2-min Q&A, stakeholder questions, facilitator feedback, and transition.
 
 ### Block 8: Challenge 8 (15:50 - 16:50)
 

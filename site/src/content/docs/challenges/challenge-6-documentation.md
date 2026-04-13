@@ -1,6 +1,6 @@
 ---
 title: 'C6: Workload Documentation'
-description: Use the design agent to generate professional operational documentation
+description: Use the documentation-focused agents to generate professional operational documentation
   for the FreshConnect platform.
 sidebar:
   order: 6
@@ -16,7 +16,7 @@ next:
 ---
 
 :::note[Challenge Info]
-⏱️ **15 min** · 🏆 **5 pts** · 🤖 `design` · 📄 `07-ab-operations-guide.md` + 1 additional doc
+⏱️ **15 min** · 🏆 **5 pts** · 🤖 `08-As-Built` or `04-Design` · 📄 `07-ab-operations-guide.md` + 1 additional doc
 
 :::
 
@@ -106,7 +106,7 @@ ideas, and keep the output tight enough that another team could use it without c
 ## Watch Out
 
 - Two documents for the same audience usually means you skipped a more valuable gap.
-- Do not let the `design` agent generate generic Azure background that does not help
+- Do not let `08-As-Built` or `04-Design` generate generic Azure background that does not help
   FreshConnect.
 - The required operations guide still needs concrete steps, not just architecture prose.
 - Keep the docs grounded in the artifacts you actually produced, especially if some

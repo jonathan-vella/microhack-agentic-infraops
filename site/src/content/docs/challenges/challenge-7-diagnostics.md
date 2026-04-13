@@ -16,7 +16,7 @@ next:
 ---
 
 :::note[Challenge Info]
-⏱️ **5 min** · 🏆 **5 pts** · 🤖 `diagnose` or `design` · 📄 `agent-output/freshconnect/07-diagnostics-quick-card.md`
+⏱️ **5 min** · 🏆 **5 pts** · 🤖 `09-Diagnose` or `04-Design` · 📄 `agent-output/freshconnect/07-diagnostics-quick-card.md`
 
 :::
 
@@ -58,7 +58,7 @@ to check first, what symptoms mean, and when the problem is bigger than a quick 
 - Top 3 health checks for the first minute of an incident.
 - Two or three symptom-to-action flows.
 - Key commands or queries for diagnosis.
-- Escalation trigger and optional path to `07-ab-diagnostics-runbook.md` if you add bonus depth.
+- Escalation trigger and optional path to `agent-output/freshconnect/07-ab-diagnostics-runbook.md` if you add bonus depth.
 
 ## Success Criteria
 
@@ -92,7 +92,7 @@ Prioritize checks that answer "is it down, slow, or broken by a dependency?" Use
 | Item | Value |
 | --- | --- |
 | **Input from** | Deployed infrastructure, prior artifacts (architecture, IaC templates, ADR) |
-| **Your output** | `agent-output/freshconnect/07-diagnostics-quick-card.md` (required), optionally `07-ab-diagnostics-runbook.md` |
+| **Your output** | `agent-output/freshconnect/07-diagnostics-quick-card.md` (required), optionally `agent-output/freshconnect/07-ab-diagnostics-runbook.md` |
 | **Next challenge uses** | C8 uses this card as evidence that your solution is operable, not just deployable |
 
 ## Next Step

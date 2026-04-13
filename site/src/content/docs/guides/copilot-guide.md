@@ -126,14 +126,18 @@ what output format to use, and what quality checks to perform.
 
 | Agent                  | Persona       | Step | Purpose                                             |
 | ---------------------- | ------------- | ---- | --------------------------------------------------- |
-| **InfraOps Conductor** | 🎼 Maestro    | All  | Master orchestrator for the full 7-step workflow    |
-| **Requirements**       | 📜 Scribe     | 1    | Capture functional and non-functional requirements  |
-| **Architect**          | 🏛️ Oracle     | 2    | Design WAF-aligned architecture with cost estimates |
-| **Design**             | 🎨 Artisan    | 3    | Generate architecture diagrams and documentation    |
-| **Bicep Plan**         | 📐 Strategist | 4    | Create implementation plans                         |
-| **Bicep Code**         | ⚒️ Forge      | 5    | Generate Bicep templates                            |
-| **Deploy**             | 🚀 Envoy      | 6    | Deploy infrastructure to Azure                      |
-| **Diagnose**           | 🔍 Sentinel   | —    | Troubleshooting and diagnostic runbooks             |
+| **01-Orchestrator**    | 🎼 Maestro    | All  | Master orchestrator for the full 7-step workflow    |
+| **02-Requirements**    | 📜 Scribe     | 1    | Capture functional and non-functional requirements  |
+| **03-Architect**       | 🏛️ Oracle     | 2    | Design WAF-aligned architecture with cost estimates |
+| **04-Design**          | 🎨 Artisan    | 3    | Generate architecture diagrams and ADRs             |
+| **04g-Governance**     | 🛡️ Guard      | 3.5  | Discover Azure Policy constraints before planning   |
+| **05-IaC Planner**     | 📐 Strategist | 4    | Create the implementation plan for Bicep or Terraform |
+| **06b-Bicep CodeGen**  | ⚒️ Forge      | 5    | Generate Bicep templates                            |
+| **06t-Terraform CodeGen** | 🪓 Builder | 5    | Generate Terraform templates                        |
+| **07b-Bicep Deploy**   | 🚀 Envoy      | 6    | Deploy Bicep infrastructure to Azure                |
+| **07t-Terraform Deploy** | 🚀 Envoy    | 6    | Deploy Terraform infrastructure to Azure            |
+| **08-As-Built**        | 🧾 Archivist  | 7    | Generate post-deployment documentation              |
+| **09-Diagnose**        | 🔍 Sentinel   | —    | Troubleshooting and diagnostic runbooks             |
 
 ### Subagents
 
@@ -142,9 +146,9 @@ inside the parent agent's workflow:
 
 | Subagent                  | Parent     | Purpose                                        |
 | ------------------------- | ---------- | ---------------------------------------------- |
-| **bicep-lint-subagent**   | bicep-code | Runs `bicep build` and `bicep lint` validation |
-| **bicep-review-subagent** | bicep-code | Reviews Bicep code for best practices          |
-| **bicep-whatif-subagent** | deploy     | Runs `az deployment group what-if` analysis    |
+| **bicep-lint-subagent**   | 06b-Bicep CodeGen | Runs `bicep build` and `bicep lint` validation |
+| **bicep-review-subagent** | 06b-Bicep CodeGen | Reviews Bicep code for best practices          |
+| **bicep-whatif-subagent** | 07b-Bicep Deploy  | Runs `az deployment group what-if` analysis    |
 
 You don't select subagents directly — they're invoked automatically by their parent agent.
 
@@ -169,24 +173,24 @@ Read 01-requirements.md and create a WAF architecture assessment
 
 ### One Step at a Time
 
-Use the **InfraOps Conductor** for multi-step workflows.
+Use **01-Orchestrator** for multi-step workflows.
 For targeted work, invoke agents directly:
 
 ```text
-@Requirements — Capture requirements for a static web app
-@Architect — Assess the requirements in 01-requirements.md
-@Bicep Plan — Create an implementation plan from 02-architecture-assessment.md
+@02-Requirements — Capture requirements for a static web app
+@03-Architect — Assess the requirements in 01-requirements.md
+@05-IaC Planner — Create an implementation plan from 02-architecture-assessment.md
 ```
 
 ### Agent-Specific Tips
 
 | Agent                        | Best Approach                                                                           |
 | ---------------------------- | --------------------------------------------------------------------------------------- |
-| **Requirements** (📜 Scribe) | Describe the **business problem** not the technical solution.                           |
-| **Architect** (🏛️ Oracle)    | Always let it read `01-requirements.md` first. Request cost estimates explicitly.       |
-| **Design** (🎨 Artisan)      | Request diagrams after architecture assessment exists.                                  |
-| **Bicep Code** (⚒️ Forge)    | It prefers Azure Verified Modules (AVM). Let it read `04-implementation-plan.md` first. |
-| **Deploy** (🚀 Envoy)        | Ensure `az login` is active. It runs `what-if` before deployment — review the preview.  |
+| **02-Requirements** (📜 Scribe) | Describe the **business problem** not the technical solution.                        |
+| **03-Architect** (🏛️ Oracle)    | Always let it read `01-requirements.md` first. Request cost estimates explicitly.    |
+| **04-Design** (🎨 Artisan)      | Request diagrams after architecture assessment exists.                               |
+| **06b-Bicep CodeGen** (⚒️ Forge) | It prefers Azure Verified Modules (AVM). Let it read `04-implementation-plan.md` first. |
+| **07b-Bicep Deploy** / **07t-Terraform Deploy** (🚀 Envoy) | Ensure `az login` is active. Review the preview before deployment. |
 
 ### Use `#file` References
 
@@ -215,9 +219,9 @@ When an agent starts working, it reads specific skill files to understand:
 | ----------------------- | -------------------------------------------------- | ------------------ |
 | **azure-defaults**      | Regions, tags, naming, security baselines          | All agents         |
 | **azure-artifacts**     | Output templates (H2 structures for each artifact) | All agents         |
-| **azure-diagrams**      | Python architecture diagram generation             | design             |
-| **azure-adr**           | Architecture Decision Records format               | design, bicep-plan |
-| **docs-writer**         | Documentation generation standards                 | design             |
+| **azure-diagrams**      | Python architecture diagram generation             | 04-Design          |
+| **azure-adr**           | Architecture Decision Records format               | 04-Design, 05-IaC Planner |
+| **docs-writer**         | Documentation generation standards                 | 04-Design, 08-As-Built |
 | **git-commit**          | Commit message conventions                         | All agents         |
 | **github-operations**   | Issues, PRs, GitHub CLI patterns                   | All agents         |
 | **make-skill-template** | Template for creating new skills                   | Meta               |
@@ -290,7 +294,7 @@ MCP servers extend Copilot's capabilities with external data sources and APIs.
 ### Azure Pricing MCP
 
 This workshop includes an **Azure Pricing MCP server** that gives agents access to
-real-time Azure pricing data. When the **architect** agent generates a cost estimate,
+real-time Azure pricing data. When the **03-Architect** agent generates a cost estimate,
 it queries this server for accurate per-service pricing.
 
 **What it enables**:
@@ -311,7 +315,7 @@ Here's how all the pieces connect:
 
 ```text
 You (prompt)
-  └─→ Agent (e.g., architect)
+  └─→ Agent (e.g., 03-Architect)
         ├─→ Reads Skills (azure-defaults, azure-artifacts)
         ├─→ Follows Instructions (bicep-best-practices, markdown)
         ├─→ Uses MCP Server (Azure Pricing for cost estimates)
@@ -323,16 +327,17 @@ You (prompt)
 ### Workflow Through the Microhack
 
 ```text
-Challenge 1 → Requirements  → 01-requirements.md
-Challenge 2 → Architect     → 02-architecture-assessment.md + cost estimate
-              Design        → architecture diagram (Python)
-Challenge 3 → Bicep Plan    → 04-implementation-plan.md
-              Bicep Code    → infra/bicep/{project}/*.bicep
-              Deploy        → 06-deployment-summary.md
+Challenge 1 → 02-Requirements → 01-requirements.md
+Challenge 2 → 03-Architect    → 02-architecture-assessment.md + cost estimate
+              04-Design       → architecture diagram (Python)
+Challenge 3 → 05-IaC Planner  → 04-implementation-plan.md
+              06b-Bicep CodeGen or 06t-Terraform CodeGen → infra/{bicep|terraform}/{project}/
+              04-Design or manual authoring               → 03-des-deployment-workflow.md
+              07b-Bicep Deploy or 07t-Terraform Deploy    → 06-deployment-summary.md
 Challenge 4 → (same as 3, adapted for DR)
-Challenge 5 → Design        → 05-load-test-results.md
-Challenge 6 → Design        → 07-ab-*.md documentation suite
-Challenge 7 → Diagnose      → troubleshooting card
+Challenge 5 → 04-Design     → 05-load-test-results.md
+Challenge 6 → 08-As-Built or 04-Design → 07-ab-*.md documentation suite
+Challenge 7 → 09-Diagnose   → troubleshooting card
 Challenge 8 → (team presentation — no agent needed)
 ```
 
@@ -343,7 +348,7 @@ Challenge 8 → (team presentation — no agent needed)
 ### Full Workflow
 
 ```text
-@InfraOps Conductor
+@01-Orchestrator
 Build an e-commerce platform on Azure with App Service, Azure SQL,
 Redis Cache, and Application Gateway. Budget: €500/month. Region: swedencentral.
 ```
@@ -351,14 +356,14 @@ Redis Cache, and Application Gateway. Budget: €500/month. Region: swedencentra
 ### Diagnose an Existing Resource
 
 ```text
-@Diagnose
+@09-Diagnose
 Check the health of my App Service named "myapp-prod" in resource group "rg-prod"
 ```
 
 ### Generate Documentation Only
 
 ```text
-@Design
+@04-Design
 Generate an architecture diagram for the infrastructure defined in
 02-architecture-assessment.md
 ```

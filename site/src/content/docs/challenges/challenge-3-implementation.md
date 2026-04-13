@@ -16,8 +16,8 @@ next:
 ---
 
 :::note[Challenge Info]
-⏱️ **45 min** · 🏆 **25 pts** · 🤖 `bicep-plan`/`bicep-code` or `terraform-plan`/`terraform-code`, `deploy`
-📄 IaC folder, `04-implementation-plan.md`, deployment evidence, workflow diagram
+⏱️ **45 min** · 🏆 **25 pts** · 🤖 `05-IaC Planner`, `06b-Bicep CodeGen` or `06t-Terraform CodeGen`, `07b-Bicep Deploy` or `07t-Terraform Deploy`
+📄 IaC folder, `agent-output/freshconnect/04-implementation-plan.md`, `agent-output/freshconnect/03-des-deployment-workflow.md`, `agent-output/freshconnect/06-deployment-summary.md`
 
 :::
 
@@ -25,8 +25,8 @@ next:
 
 - **Do now:** Choose one IaC path, generate templates, validate them, and attempt deployment.
 - **Input:** `02-architecture-assessment.md` and your architecture diagram.
-- **Output:** IaC templates, `agent-output/freshconnect/04-implementation-plan.md`, deployment evidence, and a Mermaid workflow diagram.
-- **Required to move on:** One working IaC path, validation results, deployment attempt, and the workflow explanation.
+- **Output:** IaC templates, `agent-output/freshconnect/04-implementation-plan.md`, `agent-output/freshconnect/03-des-deployment-workflow.md`, and `agent-output/freshconnect/06-deployment-summary.md`.
+- **Required to move on:** One working IaC path, validation results, a recorded deployment attempt, and the workflow explanation.
 - **Decisions now:** Bicep vs Terraform, module boundaries, governance handling, and what evidence to keep.
 - **Next:** C4 branches from your actual deployment outcome and extends the same platform for HA/DR.
 
@@ -42,21 +42,23 @@ deployed is not enough.
 
 ## Your Tasks
 
-1. **Plan the implementation (~10 min).** Use `bicep-plan` or `terraform-plan` to
+1. **Plan the implementation (~10 min).** Use `05-IaC Planner` to
    turn the architecture assessment into a phased implementation plan and save it as
    `agent-output/freshconnect/04-implementation-plan.md`.
 2. **Generate the IaC (~15 min).** Use the matching code agent to create a modular
    folder structure, tags, naming approach, and security settings for your chosen path.
 3. **Validate and deploy (~15 min).** Run the required validation and preview step,
    then attempt the deployment. If deployment fails, capture the exact blocker and the
-   fix you would make next.
+  fix you would make next, then save a concise summary at
+  `agent-output/freshconnect/06-deployment-summary.md`.
 4. **Explain the workflow (~5 min).** Create a Mermaid flowchart showing how agents,
-   validation, preview, deployment, and feedback loops fit together.
+  validation, preview, deployment, and feedback loops fit together, then save it at
+  `agent-output/freshconnect/03-des-deployment-workflow.md`.
 
 | Path | Planning agent | Code agent | Output folder |
 | --- | --- | --- | --- |
-| Bicep | `bicep-plan` | `bicep-code` | `infra/bicep/freshconnect/` |
-| Terraform | `terraform-plan` | `terraform-code` | `infra/terraform/freshconnect/` |
+| Bicep | `05-IaC Planner` | `06b-Bicep CodeGen` | `infra/bicep/freshconnect/` |
+| Terraform | `05-IaC Planner` | `06t-Terraform CodeGen` | `infra/terraform/freshconnect/` |
 
 | Path | Validate | Preview | Deploy |
 | --- | --- | --- | --- |
@@ -77,11 +79,13 @@ deployed is not enough.
 ## Deliverables
 
 - `agent-output/freshconnect/04-implementation-plan.md`
+- `agent-output/freshconnect/03-des-deployment-workflow.md`
+- `agent-output/freshconnect/06-deployment-summary.md`
 - IaC folder at `infra/bicep/freshconnect/` or `infra/terraform/freshconnect/`
 - Validation evidence such as build, lint, validate, or plan output.
-- Deployment evidence, or a written note capturing the blocker and next fix.
+- Deployment evidence or blocker notes captured in `06-deployment-summary.md`.
 - Mermaid workflow diagram covering generation, validation, deployment, errors, and
-  iteration.
+  iteration in `03-des-deployment-workflow.md`.
 
 ## Success Criteria
 
@@ -90,7 +94,7 @@ deployed is not enough.
 | Implementation strategy | The team has a clear path from architecture to deployable resources | `04-implementation-plan.md` reflects sequence, dependencies, and assumptions |
 | Maintainable IaC | Templates are structured for readability and reuse | The IaC folder has sensible files, modules, parameters, and naming strategy |
 | Validation and governance | The team checks quality before deployment and handles policy constraints intentionally | Validation output exists and required tags or security settings are included |
-| Delivery understanding | The team can explain what happened and why | Deployment evidence and workflow diagram show the real path, including failures if any |
+| Delivery understanding | The team can explain what happened and why | `06-deployment-summary.md` and `03-des-deployment-workflow.md` show the real path, including failures if any |
 
 ## Tips / Hints
 
@@ -117,15 +121,15 @@ If you hit a deployment blocker, record three things before you ask the agent to
 - Azure Policy propagation can lag; still include the required tags and security
   settings even if you are not denied immediately.
 - Global names can fail late, so keep your naming strategy explicit.
-- Do not skip the workflow diagram; later challenges use it as proof that you
-  understand the delivery path.
+- Do not skip the exact artifact names; later challenges and facilitator review expect
+  `03-des-deployment-workflow.md` and `06-deployment-summary.md`.
 
 ## Artifact Handoff
 
 | Item | Value |
 | --- | --- |
 | **Input from** | `agent-output/freshconnect/02-architecture-assessment.md`, architecture diagram |
-| **Your output** | IaC folder, `agent-output/freshconnect/04-implementation-plan.md`, deployment evidence, workflow diagram |
+| **Your output** | IaC folder, `agent-output/freshconnect/04-implementation-plan.md`, `agent-output/freshconnect/03-des-deployment-workflow.md`, `agent-output/freshconnect/06-deployment-summary.md` |
 | **Next challenge uses** | C4 branches from your deployment outcome and extends the same design with HA/DR changes |
 
 ## Next Step
