@@ -684,6 +684,26 @@ table {
   font-size: var(--sl-text-sm);
 }
 
+.challenge-chain-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  margin-block: 1rem;
+}
+
+.challenge-chain-table {
+  width: 100%;
+  min-width: 78rem;
+}
+
+.challenge-chain-table :is(th, td) {
+  vertical-align: top;
+}
+
+.challenge-chain-table code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 th {
   background: var(--sl-color-gray-6);
   font-weight: 600;

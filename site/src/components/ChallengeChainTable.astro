@@ -1,0 +1,472 @@
+---
+const rows = [
+  {
+    challengeHref: "challenge-1-requirements/",
+    challengeLabel: "C1 Requirements",
+    duration: "30 min",
+    points: "20",
+    input: "Scenario brief",
+    output: ["agent-output/freshconnect/01-requirements.md"],
+    nextStep:
+      "C2 uses the agreed business, operational, and compliance requirements",
+  },
+  {
+    challengeHref: "challenge-2-architecture/",
+    challengeLabel: "C2 Architecture",
+    duration: "30 min",
+    points: "25",
+    input: ["01-requirements.md"],
+    output: ["02-architecture-assessment.md", "03-des-architecture-diagram.md"],
+    nextStep:
+      "C3 uses the chosen services, constraints, and architecture diagram",
+  },
+  {
+    challengeHref: "challenge-3-implementation/",
+    challengeLabel: "C3 Implementation",
+    duration: "45 min",
+    points: "25",
+    input: "Architecture assessment and diagram",
+    output: [
+      "IaC folder",
+      "04-implementation-plan.md",
+      "workflow diagram",
+      "deployment evidence",
+    ],
+    nextStep:
+      "C4 uses your templates, deployment outcome, and explanation of how the platform is delivered",
+  },
+  {
+    challengeHref: "challenge-4-dr-curveball/",
+    challengeLabel: "C4 DR Curveball",
+    duration: "45 min",
+    points: "10",
+    input: "C3 templates and deployment outcome",
+    output: [
+      "04-adr-ha-dr-strategy.md",
+      "updated diagram",
+      "updated IaC or paper design",
+    ],
+    nextStep:
+      "C5 uses the revised platform or, if blocked, your documented intended target",
+  },
+  {
+    challengeHref: "challenge-5-load-testing/",
+    challengeLabel: "C5 Load Testing",
+    duration: "30 min",
+    points: "5",
+    input: "Deployed endpoint or documented fallback plan",
+    output: ["05-load-test-results.md"],
+    nextStep: "C6 uses the measured results and recommendations",
+  },
+  {
+    challengeHref: "challenge-6-documentation/",
+    challengeLabel: "C6 Documentation",
+    duration: "15 min",
+    points: "5",
+    input: "All prior artifacts",
+    output: ["07-ab-operations-guide.md", "plus at least one additional doc"],
+    nextStep: "C7 distills the broader docs into a one-page triage aid",
+  },
+  {
+    challengeHref: "challenge-7-diagnostics/",
+    challengeLabel: "C7 Diagnostics",
+    duration: "5 min",
+    points: "5",
+    input: "Platform knowledge, docs, and architecture",
+    output: ["07-diagnostics-quick-card.md"],
+    nextStep:
+      "C8 uses the diagnostics card as evidence of operational maturity",
+  },
+  {
+    challengeHref: "challenge-8-partner-showcase/",
+    challengeLabel: "C8 Team Showcase",
+    duration: "60 min",
+    points: "10",
+    input: "All artifacts from C1-C7",
+    output: ["Live presentation and Q&A"],
+    nextStep: "Workshop wrap-up",
+  },
+];
+
+const renderCellParts = (parts: string | string[]) =>
+  Array.isArray(parts) ? parts.filter(Boolean) : [parts].filter(Boolean);
+---
+
+<div class="expandable-table" data-expandable-table>
+  <div class="expandable-table__toolbar not-content">
+    <button
+      type="button"
+      class="expandable-table__trigger"
+      data-expand-trigger
+      aria-haspopup="dialog"
+    >
+      Expand table
+    </button>
+  </div>
+
+  <div class="challenge-chain-table-wrap">
+    <table class="challenge-chain-table">
+      <colgroup>
+        <col style="width: 18%" />
+        <col style="width: 8%" />
+        <col style="width: 6%" />
+        <col style="width: 18%" />
+        <col style="width: 22%" />
+        <col style="width: 28%" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Challenge</th>
+          <th>Duration</th>
+          <th>Points</th>
+          <th>Input</th>
+          <th>Output</th>
+          <th>What the next step consumes</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          rows.map((row) => (
+            <tr>
+              <td>
+                <a href={row.challengeHref}>{row.challengeLabel}</a>
+              </td>
+              <td>{row.duration}</td>
+              <td>{row.points}</td>
+              <td>
+                {renderCellParts(row.input).map((part, index) => (
+                  <>
+                    {typeof row.input !== "string" && part.endsWith(".md") ? (
+                      <code>{part}</code>
+                    ) : (
+                      part
+                    )}
+                    {index < renderCellParts(row.input).length - 1 ? ", " : ""}
+                  </>
+                ))}
+              </td>
+              <td>
+                {renderCellParts(row.output).map((part, index) => (
+                  <>
+                    {part.includes(".md") ? <code>{part}</code> : part}
+                    {index < renderCellParts(row.output).length - 1 ? ", " : ""}
+                  </>
+                ))}
+              </td>
+              <td>{row.nextStep}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <dialog
+    class="expandable-table__dialog"
+    data-expand-dialog
+    aria-label="Expanded challenge chain table"
+  >
+    <div class="expandable-table__dialog-shell">
+      <div class="expandable-table__dialog-header not-content">
+        <div>
+          <p class="expandable-table__eyebrow">Challenge Chain</p>
+          <h2>Expanded table view</h2>
+        </div>
+        <button
+          type="button"
+          class="expandable-table__close"
+          data-expand-close
+          aria-label="Close expanded table"
+        >
+          Close
+        </button>
+      </div>
+
+      <div class="expandable-table__dialog-body">
+        <table class="challenge-chain-table challenge-chain-table--expanded">
+          <colgroup>
+            <col style="width: 18%" />
+            <col style="width: 8%" />
+            <col style="width: 6%" />
+            <col style="width: 18%" />
+            <col style="width: 22%" />
+            <col style="width: 28%" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>Challenge</th>
+              <th>Duration</th>
+              <th>Points</th>
+              <th>Input</th>
+              <th>Output</th>
+              <th>What the next step consumes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              rows.map((row) => (
+                <tr>
+                  <td>
+                    <a href={row.challengeHref}>{row.challengeLabel}</a>
+                  </td>
+                  <td>{row.duration}</td>
+                  <td>{row.points}</td>
+                  <td>
+                    {renderCellParts(row.input).map((part, index) => (
+                      <>
+                        {typeof row.input !== "string" &&
+                        part.endsWith(".md") ? (
+                          <code>{part}</code>
+                        ) : (
+                          part
+                        )}
+                        {index < renderCellParts(row.input).length - 1
+                          ? ", "
+                          : ""}
+                      </>
+                    ))}
+                  </td>
+                  <td>
+                    {renderCellParts(row.output).map((part, index) => (
+                      <>
+                        {part.includes(".md") ? <code>{part}</code> : part}
+                        {index < renderCellParts(row.output).length - 1
+                          ? ", "
+                          : ""}
+                      </>
+                    ))}
+                  </td>
+                  <td>{row.nextStep}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </dialog>
+</div>
+
+<script is:inline>
+  document.querySelectorAll("[data-expandable-table]").forEach((tableRoot) => {
+    if (tableRoot.dataset.expandableTableBound === "true") return;
+
+    const dialog = tableRoot.querySelector("[data-expand-dialog]");
+    const openButton = tableRoot.querySelector("[data-expand-trigger]");
+    const closeButton = tableRoot.querySelector("[data-expand-close]");
+
+    if (
+      !(dialog instanceof HTMLDialogElement) ||
+      !(openButton instanceof HTMLButtonElement)
+    ) {
+      return;
+    }
+
+    tableRoot.dataset.expandableTableBound = "true";
+
+    openButton.addEventListener("click", () => {
+      dialog.showModal();
+      document.documentElement.classList.add("has-expanded-table-dialog");
+    });
+
+    closeButton?.addEventListener("click", () => {
+      dialog.close();
+    });
+
+    dialog.addEventListener("close", () => {
+      document.documentElement.classList.remove("has-expanded-table-dialog");
+      openButton.focus();
+    });
+
+    dialog.addEventListener("click", (event) => {
+      const bounds = dialog.getBoundingClientRect();
+      const clickedBackdrop =
+        event.clientX < bounds.left ||
+        event.clientX > bounds.right ||
+        event.clientY < bounds.top ||
+        event.clientY > bounds.bottom;
+
+      if (clickedBackdrop) {
+        dialog.close();
+      }
+    });
+  });
+</script>
+
+<style>
+  .expandable-table {
+    --expandable-surface: linear-gradient(
+      180deg,
+      rgba(20, 26, 37, 0.96),
+      rgba(12, 16, 24, 0.96)
+    );
+    --expandable-surface-strong: linear-gradient(
+      180deg,
+      rgba(18, 23, 33, 0.98),
+      rgba(13, 17, 24, 0.98)
+    );
+    --expandable-border: rgba(124, 135, 160, 0.28);
+    --expandable-text: #f0f6fc;
+    --expandable-muted: #d7e0ea;
+    --expandable-heading: #8fcfff;
+    --expandable-code-surface: rgba(240, 246, 252, 0.08);
+    --expandable-code-border: rgba(143, 207, 255, 0.18);
+    margin-block: 1rem;
+  }
+
+  .expandable-table__toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0.75rem;
+  }
+
+  .expandable-table__trigger,
+  .expandable-table__close {
+    border: 1px solid var(--expandable-border);
+    border-radius: 999px;
+    background: var(--expandable-surface);
+    color: var(--expandable-text);
+    font: inherit;
+    font-size: var(--sl-text-sm);
+    font-weight: 700;
+    padding: 0.55rem 0.95rem;
+    cursor: pointer;
+    transition:
+      border-color 0.18s ease,
+      transform 0.18s ease,
+      box-shadow 0.18s ease;
+  }
+
+  .expandable-table__trigger:hover,
+  .expandable-table__close:hover {
+    transform: translateY(-1px);
+    border-color: rgba(124, 232, 255, 0.38);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  }
+
+  .expandable-table__trigger:focus-visible,
+  .expandable-table__close:focus-visible {
+    outline: 2px solid var(--sl-color-accent-high);
+    outline-offset: 3px;
+  }
+
+  .challenge-chain-table-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 0;
+  }
+
+  .challenge-chain-table {
+    width: 100%;
+    min-width: 78rem;
+  }
+
+  .challenge-chain-table :is(th, td) {
+    vertical-align: top;
+  }
+
+  .challenge-chain-table code {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .expandable-table__dialog {
+    width: min(96vw, 92rem);
+    max-width: none;
+    max-height: 88vh;
+    padding: 0;
+    border: 1px solid rgba(124, 135, 160, 0.18);
+    border-radius: 1rem;
+    color: var(--expandable-text);
+    background: var(--expandable-surface-strong);
+    box-shadow: 0 38px 90px rgba(0, 0, 0, 0.42);
+  }
+
+  .expandable-table__dialog::backdrop {
+    background: rgba(5, 10, 18, 0.74);
+    backdrop-filter: blur(6px);
+  }
+
+  .expandable-table__dialog-shell {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    max-height: 88vh;
+  }
+
+  .expandable-table__dialog-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: start;
+    padding: 1.25rem 1.25rem 0.75rem;
+    border-bottom: 1px solid rgba(124, 135, 160, 0.16);
+  }
+
+  .expandable-table__dialog-header h2 {
+    margin: 0;
+    color: var(--expandable-text);
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+  }
+
+  .expandable-table__eyebrow {
+    margin: 0 0 0.2rem;
+    color: var(--expandable-heading);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .expandable-table__dialog :is(td, p) {
+    color: var(--expandable-muted);
+  }
+
+  .expandable-table__dialog th {
+    color: var(--expandable-text);
+    background: rgba(240, 246, 252, 0.1);
+  }
+
+  .expandable-table__dialog td {
+    color: var(--expandable-muted);
+  }
+
+  .expandable-table__dialog .challenge-chain-table code {
+    color: var(--expandable-text);
+    background: var(--expandable-code-surface);
+    border: 1px solid var(--expandable-code-border);
+  }
+
+  .expandable-table__dialog-body {
+    overflow: auto;
+    padding: 0.75rem 1.25rem 1.25rem;
+  }
+
+  .challenge-chain-table--expanded {
+    min-width: 88rem;
+  }
+
+  :global(html.has-expanded-table-dialog) {
+    overflow: hidden;
+  }
+
+  @media (max-width: 767px) {
+    .expandable-table__dialog {
+      width: min(100vw - 1rem, 96vw);
+      max-height: 92vh;
+      border-radius: 0.85rem;
+    }
+
+    .expandable-table__dialog-header {
+      padding-inline: 1rem;
+    }
+
+    .expandable-table__dialog-body {
+      padding-inline: 1rem;
+    }
+
+    .challenge-chain-table,
+    .challenge-chain-table--expanded {
+      min-width: 72rem;
+    }
+  }
+</style>

@@ -1,10 +1,13 @@
 ---
 title: Challenges
-description: Orientation page for the full challenge sequence, artifact chain, and
+description:
+  Orientation page for the full challenge sequence, artifact chain, and
   optional deep-dive references.
 sidebar:
   order: 0
 ---
+
+import ChallengeChainTable from "../../../components/ChallengeChainTable.astro";
 
 Eight challenges take you from problem framing to stakeholder defense. Treat this
 page as the map for the whole workshop: skim the chain here, then open only the
@@ -64,16 +67,7 @@ paper exercise and carrying that design evidence into later challenges.
 
 ## Challenge Chain
 
-| Challenge | Duration | Points | Input | Output | What the next step consumes |
-| --- | --- | --- | --- | --- | --- |
-| [C1 Requirements](challenge-1-requirements/) | 30 min | 20 | Scenario brief | `agent-output/freshconnect/01-requirements.md` | C2 uses the agreed business, operational, and compliance requirements |
-| [C2 Architecture](challenge-2-architecture/) | 30 min | 25 | `01-requirements.md` | `02-architecture-assessment.md`, `03-des-architecture-diagram.md` | C3 uses the chosen services, constraints, and architecture diagram |
-| [C3 Implementation](challenge-3-implementation/) | 45 min | 25 | Architecture assessment and diagram | IaC folder, `04-implementation-plan.md`, `03-des-deployment-workflow.md`, `06-deployment-summary.md` | C4 uses your templates, deployment outcome, and explanation of how the platform is delivered |
-| [C4 DR Curveball](challenge-4-dr-curveball/) | 45 min | 10 | C3 templates and deployment outcome | `04-adr-ha-dr-strategy.md`, updated diagram, updated IaC or paper design | C5 uses the revised platform or, if blocked, your documented intended target |
-| [C5 Load Testing](challenge-5-load-testing/) | 30 min | 5 | Deployed endpoint or documented fallback plan | `05-load-test-results.md` | C6 uses the measured results and recommendations |
-| [C6 Documentation](challenge-6-documentation/) | 15 min | 5 | All prior artifacts | `07-ab-operations-guide.md` plus at least one additional doc | C7 distills the broader docs into a one-page triage aid |
-| [C7 Diagnostics](challenge-7-diagnostics/) | 5 min | 5 | Platform knowledge, docs, and architecture | `07-diagnostics-quick-card.md` | C8 uses the diagnostics card as evidence of operational maturity |
-| [C8 Team Showcase](challenge-8-partner-showcase/) | 60 min | 10 | All artifacts from C1-C7 | Live presentation and Q&A | Workshop wrap-up |
+<ChallengeChainTable />
 
 **Total:** 105 base points + up to 25 bonus points
 
@@ -81,11 +75,11 @@ paper exercise and carrying that design evidence into later challenges.
 
 ## Optional Deep Guidance
 
-| Need | Go here |
-| --- | --- |
-| Commands, naming rules, security baseline, budget guardrails, artifact handoff rules, Mermaid and ADR conventions | [Quick Reference Card](../guides/quick-reference-card/) |
-| Prompt patterns, WAF decision prompts, security/compliance questions, governance policy pitfalls, DR thinking, load-test guidance, documentation prompts | [Hints & Tips](../guides/hints-and-tips/) |
-| Broken deployment, policy denial, agent issues, or environment problems | [Troubleshooting](../reference/troubleshooting/) |
+| Need                                                                                                                                                     | Go here                                                 |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| Commands, naming rules, security baseline, budget guardrails, artifact handoff rules, Mermaid and ADR conventions                                        | [Quick Reference Card](../guides/quick-reference-card/) |
+| Prompt patterns, WAF decision prompts, security/compliance questions, governance policy pitfalls, DR thinking, load-test guidance, documentation prompts | [Hints & Tips](../guides/hints-and-tips/)               |
+| Broken deployment, policy denial, agent issues, or environment problems                                                                                  | [Troubleshooting](../reference/troubleshooting/)        |
 
 ## Read This Way
 

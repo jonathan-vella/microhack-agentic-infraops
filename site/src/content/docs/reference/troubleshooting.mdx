@@ -1,10 +1,63 @@
 ---
 title: Troubleshooting
-description: Common issues and solutions for environment setup, Azure deployments,
+description:
+  Common issues and solutions for environment setup, Azure deployments,
   and agent interactions
 sidebar:
   order: 3
 ---
+
+import ExpandableTable from "../../../components/ExpandableTable.astro";
+
+export const quickDiagnosisHeaders = ["Symptom", "Likely category", "Go to"];
+
+export const quickDiagnosisRows = [
+  [
+    "Can't log in to Azure, subscription not found",
+    '<a href="#azure-cli">Azure CLI</a>',
+    "Auth / subscription issue",
+  ],
+  [
+    "<code>RequestDisallowedByPolicy</code> error",
+    '<a href="#policy-errors-and-governance">Policy Errors</a>',
+    "Azure Policy denial",
+  ],
+  [
+    "<code>QuotaExceeded</code>, region capacity errors",
+    '<a href="#quota-errors">Quota Errors</a>',
+    "Insufficient Azure quota",
+  ],
+  [
+    "Container won't build, extensions missing",
+    '<a href="#dev-container">Dev Container</a>',
+    "Environment setup issue",
+  ],
+  [
+    "<code>bicep build</code> fails, module errors",
+    '<a href="#bicep">Bicep</a>',
+    "Template/syntax issue",
+  ],
+  [
+    "Deployment fails (naming, auth, timeout)",
+    '<a href="#deployment-errors">Deployment Errors</a>',
+    "Azure deployment issue",
+  ],
+  [
+    "Agent not appearing, MCP errors",
+    '<a href="#copilot-agents">Copilot Agents</a>',
+    "Agent / tooling issue",
+  ],
+  [
+    "Secret leaked in output or commit",
+    '<a href="#secrets-and-credential-leakage">Secrets</a>',
+    "Credential leakage",
+  ],
+  [
+    "Lint or link check fails",
+    '<a href="#validation-and-linting">Validation</a>',
+    "Linting / validation",
+  ],
+];
 
 Common issues and fixes for APEX.
 
@@ -16,17 +69,15 @@ Common issues and fixes for APEX.
 
 :::
 
-| Symptom | Go to | Likely category |
-|---|---|---|
-| Can't log in to Azure, subscription not found | [Azure CLI](#azure-cli) | Auth / subscription issue |
-| `RequestDisallowedByPolicy` error | [Policy Errors](#policy-errors-and-governance) | Azure Policy denial |
-| `QuotaExceeded`, region capacity errors | [Quota Errors](#quota-errors) | Insufficient Azure quota |
-| Container won't build, extensions missing | [Dev Container](#dev-container) | Environment setup issue |
-| `bicep build` fails, module errors | [Bicep](#bicep) | Template/syntax issue |
-| Deployment fails (naming, auth, timeout) | [Deployment Errors](#deployment-errors) | Azure deployment issue |
-| Agent not appearing, MCP errors | [Copilot Agents](#copilot-agents) | Agent / tooling issue |
-| Secret leaked in output or commit | [Secrets](#secrets-and-credential-leakage) | Credential leakage |
-| Lint or link check fails | [Validation](#validation-and-linting) | Linting / validation |
+<ExpandableTable
+  title="Quick Diagnosis"
+  eyebrow="Troubleshooting"
+  headers={quickDiagnosisHeaders}
+  rows={quickDiagnosisRows}
+  columnWidths={["40%", "26%", "34%"]}
+  minWidth="52rem"
+  expandedMinWidth="60rem"
+/>
 
 ---
 
@@ -207,15 +258,15 @@ For remaining issues, check `.markdownlint-cli2.jsonc` for the rule that fired.
 
 **Fixes by policy type**:
 
-| Policy denial | Fix |
-|---|---|
-| Missing `Environment` or `Project` tag | Add `tags` block to every resource in your Bicep |
-| Storage not HTTPS-only | Set `supportsHttpsTrafficOnly: true` |
-| Storage TLS version | Set `minimumTlsVersion: 'TLS1_2'` |
-| Storage public blob access | Set `allowBlobPublicAccess: false` |
-| SQL not Azure AD-only | Set `azureADOnlyAuthentication: true` |
-| App Service not HTTPS | Set `httpsOnly: true` |
-| Location not allowed | Deploy to `swedencentral` or `germanywestcentral` only |
+| Policy denial                          | Fix                                                    |
+| -------------------------------------- | ------------------------------------------------------ |
+| Missing `Environment` or `Project` tag | Add `tags` block to every resource in your Bicep       |
+| Storage not HTTPS-only                 | Set `supportsHttpsTrafficOnly: true`                   |
+| Storage TLS version                    | Set `minimumTlsVersion: 'TLS1_2'`                      |
+| Storage public blob access             | Set `allowBlobPublicAccess: false`                     |
+| SQL not Azure AD-only                  | Set `azureADOnlyAuthentication: true`                  |
+| App Service not HTTPS                  | Set `httpsOnly: true`                                  |
+| Location not allowed                   | Deploy to `swedencentral` or `germanywestcentral` only |
 
 ### Policies not taking effect
 

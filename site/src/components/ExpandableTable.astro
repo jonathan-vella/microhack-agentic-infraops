@@ -1,0 +1,327 @@
+---
+interface Props {
+  title: string;
+  headers: string[];
+  rows: string[][];
+  eyebrow?: string;
+  buttonLabel?: string;
+  columnWidths?: string[];
+  minWidth?: string;
+  expandedMinWidth?: string;
+}
+
+const {
+  title,
+  headers,
+  rows,
+  eyebrow = "Table",
+  buttonLabel = "Expand table",
+  columnWidths = [],
+  minWidth = "48rem",
+  expandedMinWidth = minWidth,
+} = Astro.props;
+
+const hasColumnWidths = columnWidths.length === headers.length;
+---
+
+<div
+  class="expandable-data-table"
+  data-expandable-table
+  style={`--expandable-table-min-width:${minWidth}; --expandable-expanded-table-min-width:${expandedMinWidth};`}
+>
+  <div class="expandable-data-table__toolbar not-content">
+    <button
+      type="button"
+      class="expandable-data-table__trigger"
+      data-expand-trigger
+      aria-haspopup="dialog"
+    >
+      {buttonLabel}
+    </button>
+  </div>
+
+  <div class="expandable-data-table__viewport">
+    <table class="expandable-data-table__table">
+      {hasColumnWidths && (
+        <colgroup>
+          {columnWidths.map((width) => <col style={`width: ${width}`} />)}
+        </colgroup>
+      )}
+      <thead>
+        <tr>
+          {headers.map((header) => <th>{header}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => (
+          <tr>
+            {headers.map((_, index) => (
+              <td><Fragment set:html={row[index] ?? ""} /></td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <dialog
+    class="expandable-data-table__dialog"
+    data-expand-dialog
+    aria-label={`Expanded ${title}`}
+  >
+    <div class="expandable-data-table__dialog-shell">
+      <div class="expandable-data-table__dialog-header not-content">
+        <div>
+          <p class="expandable-data-table__eyebrow">{eyebrow}</p>
+          <h2>{title}</h2>
+        </div>
+        <button
+          type="button"
+          class="expandable-data-table__close"
+          data-expand-close
+          aria-label={`Close expanded ${title}`}
+        >
+          Close
+        </button>
+      </div>
+
+      <div class="expandable-data-table__dialog-body">
+        <table class="expandable-data-table__table expandable-data-table__table--expanded">
+          {hasColumnWidths && (
+            <colgroup>
+              {columnWidths.map((width) => <col style={`width: ${width}`} />)}
+            </colgroup>
+          )}
+          <thead>
+            <tr>
+              {headers.map((header) => <th>{header}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr>
+                {headers.map((_, index) => (
+                  <td><Fragment set:html={row[index] ?? ""} /></td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </dialog>
+</div>
+
+<script is:inline>
+  document.querySelectorAll("[data-expandable-table]").forEach((tableRoot) => {
+    if (tableRoot.dataset.expandableTableBound === "true") return;
+
+    const dialog = tableRoot.querySelector("[data-expand-dialog]");
+    const openButton = tableRoot.querySelector("[data-expand-trigger]");
+    const closeButton = tableRoot.querySelector("[data-expand-close]");
+
+    if (
+      !(dialog instanceof HTMLDialogElement) ||
+      !(openButton instanceof HTMLButtonElement)
+    ) {
+      return;
+    }
+
+    tableRoot.dataset.expandableTableBound = "true";
+
+    openButton.addEventListener("click", () => {
+      dialog.showModal();
+      document.documentElement.classList.add("has-expanded-table-dialog");
+    });
+
+    closeButton?.addEventListener("click", () => {
+      dialog.close();
+    });
+
+    dialog.addEventListener("close", () => {
+      document.documentElement.classList.remove("has-expanded-table-dialog");
+      openButton.focus();
+    });
+
+    dialog.addEventListener("click", (event) => {
+      const bounds = dialog.getBoundingClientRect();
+      const clickedBackdrop =
+        event.clientX < bounds.left ||
+        event.clientX > bounds.right ||
+        event.clientY < bounds.top ||
+        event.clientY > bounds.bottom;
+
+      if (clickedBackdrop) {
+        dialog.close();
+      }
+    });
+  });
+</script>
+
+<style>
+  .expandable-data-table {
+    --expandable-surface: linear-gradient(
+      180deg,
+      rgba(20, 26, 37, 0.96),
+      rgba(12, 16, 24, 0.96)
+    );
+    --expandable-surface-strong: linear-gradient(
+      180deg,
+      rgba(18, 23, 33, 0.98),
+      rgba(13, 17, 24, 0.98)
+    );
+    --expandable-border: rgba(124, 135, 160, 0.28);
+    --expandable-text: #f0f6fc;
+    --expandable-muted: #d7e0ea;
+    --expandable-heading: #8fcfff;
+    --expandable-code-surface: rgba(240, 246, 252, 0.08);
+    --expandable-code-border: rgba(143, 207, 255, 0.18);
+    margin-block: 1rem;
+  }
+
+  .expandable-data-table__toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0.75rem;
+  }
+
+  .expandable-data-table__trigger,
+  .expandable-data-table__close {
+    border: 1px solid var(--expandable-border);
+    border-radius: 999px;
+    background: var(--expandable-surface);
+    color: var(--expandable-text);
+    font: inherit;
+    font-size: var(--sl-text-sm);
+    font-weight: 700;
+    padding: 0.55rem 0.95rem;
+    cursor: pointer;
+    transition:
+      border-color 0.18s ease,
+      transform 0.18s ease,
+      box-shadow 0.18s ease;
+  }
+
+  .expandable-data-table__trigger:hover,
+  .expandable-data-table__close:hover {
+    transform: translateY(-1px);
+    border-color: rgba(124, 232, 255, 0.38);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  }
+
+  .expandable-data-table__trigger:focus-visible,
+  .expandable-data-table__close:focus-visible {
+    outline: 2px solid var(--sl-color-accent-high);
+    outline-offset: 3px;
+  }
+
+  .expandable-data-table__viewport {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .expandable-data-table__table {
+    width: 100%;
+    min-width: var(--expandable-table-min-width);
+  }
+
+  .expandable-data-table__table :is(th, td) {
+    vertical-align: top;
+  }
+
+  .expandable-data-table__table code {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .expandable-data-table__dialog {
+    width: min(96vw, 92rem);
+    max-width: none;
+    max-height: 88vh;
+    padding: 0;
+    border: 1px solid rgba(124, 135, 160, 0.18);
+    border-radius: 1rem;
+    color: var(--expandable-text);
+    background: var(--expandable-surface-strong);
+    box-shadow: 0 38px 90px rgba(0, 0, 0, 0.42);
+  }
+
+  .expandable-data-table__dialog::backdrop {
+    background: rgba(5, 10, 18, 0.74);
+    backdrop-filter: blur(6px);
+  }
+
+  .expandable-data-table__dialog-shell {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    max-height: 88vh;
+  }
+
+  .expandable-data-table__dialog-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: start;
+    padding: 1.25rem 1.25rem 0.75rem;
+    border-bottom: 1px solid rgba(124, 135, 160, 0.16);
+  }
+
+  .expandable-data-table__dialog-header h2 {
+    margin: 0;
+    color: var(--expandable-text);
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+  }
+
+  .expandable-data-table__eyebrow {
+    margin: 0 0 0.2rem;
+    color: var(--expandable-heading);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .expandable-data-table__dialog-body {
+    overflow: auto;
+    padding: 0.75rem 1.25rem 1.25rem;
+  }
+
+  .expandable-data-table__table--expanded {
+    min-width: var(--expandable-expanded-table-min-width);
+  }
+
+  .expandable-data-table__dialog th {
+    color: var(--expandable-text);
+    background: rgba(240, 246, 252, 0.1);
+  }
+
+  .expandable-data-table__dialog td {
+    color: var(--expandable-muted);
+  }
+
+  .expandable-data-table__dialog .expandable-data-table__table code {
+    color: var(--expandable-text);
+    background: var(--expandable-code-surface);
+    border: 1px solid var(--expandable-code-border);
+  }
+
+  :global(html.has-expanded-table-dialog) {
+    overflow: hidden;
+  }
+
+  @media (max-width: 767px) {
+    .expandable-data-table__dialog {
+      width: min(100vw - 1rem, 96vw);
+      max-height: 92vh;
+      border-radius: 0.85rem;
+    }
+
+    .expandable-data-table__dialog-header {
+      padding-inline: 1rem;
+    }
+
+    .expandable-data-table__dialog-body {
+      padding-inline: 1rem;
+    }
+  }
+</style>
