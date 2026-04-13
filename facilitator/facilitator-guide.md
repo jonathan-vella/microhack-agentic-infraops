@@ -148,7 +148,7 @@ pwsh -File scripts/Get-GovernanceStatus.ps1 -Subscription "<sub-id>" -MicrohackO
 
 ## Schedule
 
-📅 **See [site/src/content/docs/about/agenda.md](../site/src/content/docs/about/agenda.md) for the full schedule overview.**
+📅 **See [site/src/content/docs/about/agenda.mdx](../site/src/content/docs/about/agenda.mdx) for the full schedule overview.**
 
 > **Event runs 09:00 - 17:00** as a 1-day hackathon with lunch from 12:00 - 12:45 and a 15-minute afternoon break at 15:00
 
