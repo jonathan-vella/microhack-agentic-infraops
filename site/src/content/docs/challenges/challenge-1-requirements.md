@@ -40,6 +40,10 @@ consumers. Peak seasons can hit 3x normal load, the MVP budget is about €500 p
 month, launch is in 3 months, GDPR keeps customer data in the EU, and the small team
 needs managed services they can actually operate.
 
+:::caution[Out of Scope]
+API Management (APIM) is out of scope for this POC due to time constraints.
+:::
+
 ## Your Tasks
 
 1. Review the scenario and write down the business constraints you cannot ignore:

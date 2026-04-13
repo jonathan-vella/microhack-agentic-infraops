@@ -1,13 +1,15 @@
 {
   "name": "APEX MicroHack",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:22-bookworm",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "features": {
     "ghcr.io/devcontainers/features/azure-cli:1": {
       "version": "latest",
       "installBicep": true
     },
     "ghcr.io/devcontainers/features/github-cli:1": {
-      "version": "latest"
+      "version": "2.74.0"
     },
     "ghcr.io/devcontainers/features/python:1": {
       "version": "3.12"
@@ -24,7 +26,9 @@
     // Value is empty string if not set — gh CLI falls back to its normal auth flow.
     "GH_TOKEN": "${localEnv:GH_TOKEN}"
   },
-  "forwardPorts": [4321],
+  "forwardPorts": [
+    4321
+  ],
   "postCreateCommand": "npm install && cd site && npm install",
   "customizations": {
     "vscode": {
