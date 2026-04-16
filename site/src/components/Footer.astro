@@ -1,5 +1,5 @@
 ---
-import StarlightFooter from '@astrojs/starlight/components/Footer.astro';
+import StarlightFooter from "@astrojs/starlight/components/Footer.astro";
 ---
 
 <StarlightFooter {...Astro.props}><slot /></StarlightFooter>
@@ -8,23 +8,27 @@ import StarlightFooter from '@astrojs/starlight/components/Footer.astro';
   let mermaidModulePromise;
 
   function loadMermaid() {
-    mermaidModulePromise ??= import('mermaid').then(({ default: mermaid }) => mermaid);
+    mermaidModulePromise ??= import("mermaid").then(
+      ({ default: mermaid }) => mermaid,
+    );
     return mermaidModulePromise;
   }
 
   function getTheme() {
-    return document.documentElement.dataset.theme === 'light' ? 'default' : 'dark';
+    return document.documentElement.dataset.theme === "light"
+      ? "default"
+      : "dark";
   }
 
   async function renderMermaid() {
-    const elements = document.querySelectorAll('.mermaid');
+    const elements = document.querySelectorAll(".mermaid");
     if (elements.length === 0) return;
 
     const mermaid = await loadMermaid();
 
     elements.forEach((el) => {
-      if (!el.getAttribute('data-original')) {
-        el.setAttribute('data-original', el.textContent || '');
+      if (!el.getAttribute("data-original")) {
+        el.setAttribute("data-original", el.textContent || "");
       }
     });
 
@@ -33,27 +37,27 @@ import StarlightFooter from '@astrojs/starlight/components/Footer.astro';
     try {
       await mermaid.run({ nodes: elements });
     } catch (e) {
-      console.warn('Mermaid render error:', e);
+      console.warn("Mermaid render error:", e);
     }
   }
 
   // Initial render once DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', renderMermaid);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", renderMermaid);
   } else {
     renderMermaid();
   }
 
   // Re-render on theme change
   const observer = new MutationObserver(async () => {
-    document.querySelectorAll('.mermaid').forEach((el) => {
-      el.removeAttribute('data-processed');
-      el.innerHTML = el.getAttribute('data-original') || '';
+    document.querySelectorAll(".mermaid").forEach((el) => {
+      el.removeAttribute("data-processed");
+      el.innerHTML = el.getAttribute("data-original") || "";
     });
     await renderMermaid();
   });
   observer.observe(document.documentElement, {
     attributes: true,
-    attributeFilter: ['data-theme'],
+    attributeFilter: ["data-theme"],
   });
 </script>
