@@ -8,6 +8,11 @@ export default defineConfig({
   site: "https://jonathan-vella.github.io",
   base: "/microhack-agentic-infraops",
   trailingSlash: "always",
+  vite: {
+    build: {
+      chunkSizeWarningLimit: 650,
+    },
+  },
   markdown: {
     rehypePlugins: [rehypeMermaid],
   },
@@ -16,6 +21,7 @@ export default defineConfig({
       title: "APEX MicroHack",
       description:
         "1-day hands-on hackathon: Master IaC-driven Azure infrastructure delivery using platform engineering practices — accelerated by GitHub Copilot.",
+      disable404Route: true,
       favicon: "/images/favicon.svg",
       logo: {
         src: "./src/assets/images/logo.svg",

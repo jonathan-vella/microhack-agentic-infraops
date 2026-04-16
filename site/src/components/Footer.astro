@@ -5,7 +5,12 @@ import StarlightFooter from '@astrojs/starlight/components/Footer.astro';
 <StarlightFooter {...Astro.props}><slot /></StarlightFooter>
 
 <script>
-  import mermaid from 'mermaid';
+  let mermaidModulePromise;
+
+  function loadMermaid() {
+    mermaidModulePromise ??= import('mermaid').then(({ default: mermaid }) => mermaid);
+    return mermaidModulePromise;
+  }
 
   function getTheme() {
     return document.documentElement.dataset.theme === 'light' ? 'default' : 'dark';
@@ -14,6 +19,8 @@ import StarlightFooter from '@astrojs/starlight/components/Footer.astro';
   async function renderMermaid() {
     const elements = document.querySelectorAll('.mermaid');
     if (elements.length === 0) return;
+
+    const mermaid = await loadMermaid();
 
     elements.forEach((el) => {
       if (!el.getAttribute('data-original')) {

@@ -24,6 +24,7 @@ Participants should create their own repository from the [azure-agentic-infraops
 
 ## Maintainer Commands
 
+- Use Node 24 (`.node-version` or `.nvmrc`) for local maintenance and CI parity.
 - `npm install`
 - `cd site && npm install && npm run lint:md && npm run build`
 

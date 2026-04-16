@@ -2,6 +2,9 @@
   "name": "site",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -16,7 +19,7 @@
     "@fontsource/ibm-plex-mono": "^5.2.7",
     "@fontsource/manrope": "^5.2.8",
     "@fontsource/space-grotesk": "^5.2.10",
-    "astro": "^6.1.5",
+    "astro": "^6.1.7",
     "mermaid": "^11.14.0",
     "rehype-mermaid-lite": "^1.1.0",
     "sharp": "^0.34.5"
