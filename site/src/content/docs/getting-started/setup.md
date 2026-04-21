@@ -29,7 +29,7 @@ Your working repository must be created from the [azure-agentic-infraops-acceler
 
 If any item below fails, your team is not ready to participate:
 
-- No paid GitHub Copilot plan with custom agents.
+- No Copilot Business or Enterprise plan.
 - No Azure subscription with the required access.
 - More than one team trying to share the same subscription.
 - Not enough quota in `swedencentral`.
@@ -45,16 +45,16 @@ Resolve blockers before event day. Do not treat them as day-of issues.
 
 :::caution
 
-This workshop requires **GitHub Copilot Pro**, **Copilot Business**, **Copilot Pro+**, or **GitHub Copilot Enterprise**. Custom agents are not available on Copilot Free.
+APEX requires either a **Copilot Business** or **Copilot Enterprise** license. Other SKUs do not include the required functionality. See [GitHub Copilot Plans](https://github.com/features/copilot/plans).
 
 :::
 
 | Plan | Custom agents | Compatible |
 |---|---|---|
 | Copilot Free | No | No |
-| **Copilot Pro** | **Yes** | **Yes** |
+| Copilot Pro | No | No |
 | **Copilot Business** | **Yes** | **Yes** |
-| **Copilot Pro+** | **Yes** | **Yes** |
+| Copilot Pro+ | No | No |
 | **Copilot Enterprise** | **Yes** | **Yes** |
 
 Compare plans: [GitHub Copilot Plans](https://github.com/features/copilot/plans)
@@ -66,7 +66,7 @@ See [GitHub Copilot billing](https://docs.github.com/en/billing/managing-billing
 :::
 
 1. Go to [github.com/settings/copilot](https://github.com/settings/copilot)
-2. Confirm your subscription shows **Pro**, **Business**, **Pro+**, or **Enterprise**.
+2. Confirm your subscription shows **Business** or **Enterprise**.
 3. Ensure "Copilot Chat in the IDE" is enabled
 
 Setup guide: [VS Code Copilot Setup](https://code.visualstudio.com/docs/copilot/setup)
@@ -182,7 +182,7 @@ Run this gate before the event starts. Every item below is a true blocker.
 
 | # | Check | How to verify | Why it blocks |
 |---|---|---|---|
-| 1 | **Paid GitHub Copilot plan** | [github.com/settings/copilot](https://github.com/settings/copilot) shows Pro, Business, Pro+, or Enterprise | Custom agents are required for the workshop flow |
+| 1 | **Copilot Business or Enterprise plan** | [github.com/settings/copilot](https://github.com/settings/copilot) shows Business or Enterprise | Custom agents require a Business or Enterprise license — other SKUs do not include the required functionality ([plans](https://github.com/features/copilot/plans)) |
 | 2 | **Azure subscription with required access** | `az login && az account show` works | You cannot deploy or validate infrastructure without it |
 | 3 | **One subscription per team** | Confirm with your facilitator or team lead | Shared subscriptions are not supported |
 | 4 | **Quota in `swedencentral`** | `az vm list-usage -l swedencentral -o table` | Insufficient quota blocks deployment |
