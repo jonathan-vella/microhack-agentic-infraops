@@ -56,7 +56,7 @@ Complete this checklist before the event, on the morning of, and at wrap-up.
 
 ### Pre-Event (1–2 Days Before)
 
-- [ ] **Licensing confirmed**: Every participant has a Copilot Business or Enterprise license (other SKUs do not include the required functionality) — see [GitHub Copilot Plans](https://github.com/features/copilot/plans)
+- [ ] **Licensing confirmed**: Every participant has a GitHub Copilot Business or Enterprise license (other SKUs do not include the required functionality) — see [GitHub Copilot Plans](https://github.com/features/copilot/plans)
 - [ ] **Subscriptions verified**: One dedicated Azure subscription per team, each with Owner access
 - [ ] **Quotas checked**: Each subscription has sufficient quota in `swedencentral` (run `az vm list-usage -l swedencentral -o table`)
 - [ ] **Policies deployed**: `Setup-GovernancePolicies.ps1` run on each subscription

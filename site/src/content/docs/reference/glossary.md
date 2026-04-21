@@ -47,9 +47,12 @@ Use the full product name on first reference, then the short form:
 | Azure Policy | Policy |
 | Azure Monitor / Application Insights | App Insights |
 | Azure Resource Manager | ARM |
-| GitHub Copilot Pro+ | Copilot Pro+ |
 | GitHub Copilot Enterprise | Copilot Enterprise |
 | Azure Well-Architected Framework | WAF |
+
+:::note[Supported Copilot plans]
+This workshop requires a **GitHub Copilot Business or Enterprise** license. Free, Pro, and Pro+ plans do not include the agent and custom model features required by APEX.
+:::
 
 ---
 

@@ -26,7 +26,7 @@ the Nordic Fresh Foods scenario from requirements to deployment planning and fin
 ## What to Bring
 
 - A laptop that can run VS Code and a Dev Container.
-- A paid GitHub Copilot plan.
+- A GitHub Copilot Business or Enterprise license.
 - One Azure subscription for your team.
 - A repository created from the [template repo](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator).
 

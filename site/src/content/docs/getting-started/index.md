@@ -20,7 +20,7 @@ is the guide for setup, scenario context, and challenge navigation.
 
 ## What You Need
 
-- A paid GitHub Copilot plan.
+- A GitHub Copilot Business or Enterprise license.
 - One Azure subscription per team with the required access and quota in `swedencentral`.
 - A working Dev Container and a repository created from the template repo.
 

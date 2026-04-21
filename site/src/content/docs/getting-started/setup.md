@@ -41,11 +41,11 @@ Resolve blockers before event day. Do not treat them as day-of issues.
 
 ## Prerequisites
 
-### GitHub Copilot plan
+### GitHub Copilot Business or Enterprise
 
 :::caution
 
-APEX requires either a **Copilot Business** or **Copilot Enterprise** license. Other SKUs do not include the required functionality. See [GitHub Copilot Plans](https://github.com/features/copilot/plans).
+APEX requires a **GitHub Copilot Business or Enterprise** license. Other SKUs do not include the required functionality. See [GitHub Copilot Plans](https://github.com/features/copilot/plans).
 
 :::
 

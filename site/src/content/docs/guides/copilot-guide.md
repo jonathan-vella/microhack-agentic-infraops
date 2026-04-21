@@ -32,10 +32,10 @@ get the fully configured environment. See [Getting Started](../../getting-starte
 ## GitHub Copilot Overview
 
 GitHub Copilot is an AI coding assistant built into VS Code. This project uses Copilot to
-accelerate platform engineering practices — from requirements capture to IaC generation. APEX requires either a
-**Copilot Business** or **Copilot Enterprise** license — other SKUs do not include the required functionality.
+accelerate platform engineering practices — from requirements capture to IaC generation. APEX requires a
+**GitHub Copilot Business or Enterprise** license — other SKUs do not include the required functionality.
 See [GitHub Copilot Plans](https://github.com/features/copilot/plans) and
-[pre-event setup](../../getting-started/setup/#github-copilot-plan).
+[pre-event setup](../../getting-started/setup/#github-copilot-business-or-enterprise).
 
 Copilot works in three main modes, each suited to different tasks:
 
