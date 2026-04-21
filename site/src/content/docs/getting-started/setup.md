@@ -29,7 +29,7 @@ Your working repository must be created from the [azure-agentic-infraops-acceler
 
 If any item below fails, your team is not ready to participate:
 
-- No Copilot Business or Enterprise plan.
+- No GitHub Copilot Business or Enterprise license.
 - No Azure subscription with the required access.
 - More than one team trying to share the same subscription.
 - Not enough quota in `swedencentral`.
@@ -182,7 +182,7 @@ Run this gate before the event starts. Every item below is a true blocker.
 
 | # | Check | How to verify | Why it blocks |
 |---|---|---|---|
-| 1 | **Copilot Business or Enterprise plan** | [github.com/settings/copilot](https://github.com/settings/copilot) shows Business or Enterprise | Custom agents require a Business or Enterprise license — other SKUs do not include the required functionality ([plans](https://github.com/features/copilot/plans)) |
+| 1 | **GitHub Copilot Business or Enterprise license** | [github.com/settings/copilot](https://github.com/settings/copilot) shows Business or Enterprise | Custom agents require a GitHub Copilot Business or Enterprise license — other SKUs do not include the required functionality ([plans](https://github.com/features/copilot/plans)) |
 | 2 | **Azure subscription with required access** | `az login && az account show` works | You cannot deploy or validate infrastructure without it |
 | 3 | **One subscription per team** | Confirm with your facilitator or team lead | Shared subscriptions are not supported |
 | 4 | **Quota in `swedencentral`** | `az vm list-usage -l swedencentral -o table` | Insufficient quota blocks deployment |
