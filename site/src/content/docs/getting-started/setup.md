@@ -252,7 +252,7 @@ If any gate item fails, resolve it before the event or contact your facilitator 
 
 :::tip
 
-Complete all steps below before event day. Steps 1 and 2 pull and build the Dev Container image and should not be left until the morning of the workshop.
+Complete all steps below before event day. Steps 1-3 create, build, and initialize the repository and should not be left until the morning of the workshop.
 
 :::
 
@@ -266,16 +266,15 @@ Complete all steps below before event day. Steps 1 and 2 pull and build the Dev 
 :::
 
 1. Go to the [azure-agentic-infraops-accelerator template](https://github.com/jonathan-vella/azure-agentic-infraops-accelerator)
-2. Click **Use this template** → **Create a new repository**
-3. Clone your new repository and open it in VS Code:
+2. Click **Use this template** -> **Create a new repository**
+3. Choose an owner, give the repository a name, select **Private**, and click **Create repository**
+4. Clone your new repository and open it in VS Code:
 
 ```bash
 git clone https://github.com/<your-org-or-user>/<your-new-repo>.git
 cd <your-new-repo>
 code .
 ```
-
-4. If the repository still contains template placeholders, run `npm run init:template` from the repo root. If you do not have Node.js locally, run it after reopening in the dev container.
 
 When VS Code opens, accept the **"Reopen in Container"** prompt.
 
@@ -305,7 +304,57 @@ pwsh --version
 </details>
 
 <details>
-<summary>3. Sign in to Azure</summary>
+<summary>3. Initialize your repository</summary>
+
+After the Dev Container starts, run the initialization commands from the repository root:
+
+```bash
+npm install
+npm run init
+npm run sync:workflows
+```
+
+| Command | Purpose |
+|---|---|
+| `npm install` | Installs Node.js dependencies for validation scripts and linting. |
+| `npm run init` | Replaces accelerator-template references with your repository URL. Run `npm run init -- --dry-run` first if you want to preview changes. |
+| `npm run sync:workflows` | Fetches the latest GitHub Actions workflows from the upstream APEX project into `.github/workflows/`. |
+
+:::note
+
+Python dependencies for diagrams, Azure Pricing MCP, and related tools are installed automatically by the Dev Container post-create script. No manual `pip install` is needed.
+
+:::
+
+Review and commit the initialization changes:
+
+```bash
+git diff
+git add -A && git commit -m "chore: initialize from template"
+```
+
+</details>
+
+<details>
+<summary>4. Set up Azure automation (optional)</summary>
+
+Skip this step if you are only exploring the agent workflow without Azure automation.
+
+Run the setup wizard to configure Azure OIDC authentication, RBAC roles, and GitHub secrets and variables:
+
+```bash
+az login
+npm run setup
+```
+
+The wizard creates an Entra ID app registration, OIDC federated credentials for `main`, `dev`, `staging`, and `prod`, assigns Reader at the management group and Contributor at the subscription, and configures the GitHub secrets and variables. It is idempotent and safe to rerun.
+
+See the [Azure Setup documentation](https://jonathan-vella.github.io/azure-agentic-infraops/getting-started/azure-setup/) for headless mode, manual setup steps, and troubleshooting.
+
+</details>
+
+<details>
+<summary>5. Sign in to Azure for workshop deployments</summary>
 
 ```bash
 az login
@@ -316,7 +365,7 @@ az account show --query "{Name:name, SubscriptionId:id, TenantId:tenantId}" -o t
 </details>
 
 <details>
-<summary>4. Enable custom agents</summary>
+<summary>6. Enable custom agents</summary>
 
 Open VS Code Settings (`Ctrl+,`) and add:
 
@@ -333,7 +382,7 @@ Open VS Code Settings (`Ctrl+,`) and add:
 </details>
 
 <details>
-<summary>5. Verify model and MCP access</summary>
+<summary>7. Verify model and MCP access</summary>
 
 In VS Code Copilot Chat:
 
@@ -351,7 +400,7 @@ If MCP tools are missing, confirm the GitHub MCP policy is set to **Allow all**,
 </details>
 
 <details>
-<summary>6. Verify your toolchain</summary>
+<summary>8. Verify your toolchain</summary>
 
 Verify the core tools manually:
 
@@ -366,7 +415,7 @@ gh --version
 </details>
 
 <details>
-<summary>7. Start the workflow</summary>
+<summary>9. Start the workflow</summary>
 
 Open Copilot Chat (`Ctrl+Alt+I`) and choose the entry point that matches your
 working repo:
@@ -407,6 +456,8 @@ Use this quick check after you finish setup steps:
 
 - [ ] My repository was created from the template repo, not from the docs repo.
 - [ ] The Dev Container opens and the terminal tools load correctly.
+- [ ] Repository initialization commands (`npm install`, `npm run init`, `npm run sync:workflows`) have been completed.
+- [ ] Azure automation setup (`npm run setup`) has been run or intentionally skipped.
 - [ ] `az account show` works inside the container.
 - [ ] The agent dropdown appears in Copilot Chat.
 - [ ] The required Claude and GPT models appear in the Copilot Chat model picker.

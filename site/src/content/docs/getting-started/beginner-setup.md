@@ -41,6 +41,12 @@ code --install-extension ms-vscode-remote.remote-containers
 code --install-extension github.copilot-chat
 ```
 
+:::note
+
+On current Windows 11, `wsl --install` should install Ubuntu automatically. If Ubuntu is not installed or does not appear in the Start menu or when you run `wsl`, follow the [Microsoft WSL installation guidance](https://learn.microsoft.com/en-us/windows/wsl/install).
+
+:::
+
 :::caution
 
 Installing software is not enough for this MicroHack. Before event day, confirm the mandatory GitHub Copilot plan, required model access, and GitHub MCP **Allow all** setting in the [Setup Guide](../setup/#participation-gate).
@@ -135,7 +141,9 @@ VS Code will open the project. Because the folder is inside WSL, VS Code should 
 Your code is now cloned into WSL and open in VS Code. From here, follow the [Setup Guide — Setup Steps](../setup/#setup-steps) starting at **step 2** to:
 
 - Pull and build the Dev Container
-- Sign in to Azure
+- Initialize your repository with `npm install`, `npm run init`, and `npm run sync:workflows`
+- Optionally set up Azure automation with `az login` and `npm run setup`
+- Sign in to Azure for workshop deployments
 - Enable custom agents
 - Verify model access, MCP tools, and your toolchain
 
