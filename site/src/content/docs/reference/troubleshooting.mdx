@@ -165,6 +165,17 @@ param location string = resourceGroup().location
 1. Sign out of GitHub in VS Code and sign back in with the correct account
 2. Reload VS Code (`Developer: Reload Window`)
 3. Verify your Copilot subscription at [github.com/settings/copilot](https://github.com/settings/copilot)
+4. Confirm the required Claude and GPT models appear in the Copilot Chat model picker
+
+### Required models not available
+
+**Symptoms**: The model picker does not show the required Claude or GPT models.
+
+**Fixes**:
+
+1. Verify your Copilot plan is Pro, Business, Pro+, or Enterprise
+2. Ask your GitHub organization or enterprise owner to confirm the required models are enabled
+3. Reload VS Code after model policy changes are applied
 
 ### Agent not appearing in Chat
 
@@ -188,13 +199,17 @@ param location string = resourceGroup().location
 
 ### MCP tools not working
 
-**Symptoms**: Azure MCP tools return errors or are not available.
+**Symptoms**: Azure, Azure Pricing, Draw.io, GitHub, MS Learn, or Terraform MCP tools return errors or are not available.
 
 **Fixes**:
 
-1. Check `.vscode/mcp.json` is present and correct
-2. Ensure you are logged in: `az login`
-3. Restart the MCP server: `Developer: Reload Window`
+1. Confirm the GitHub organization or enterprise MCP policy is set to **Allow all: No restrictions. All MCP servers can be used**
+2. Check `.vscode/mcp.json` is present and correct in the accelerator repo
+3. Run `npm run lint:mcp-config` if the accelerator repo provides that validation script
+4. Ensure you are logged in for Azure-backed tools: `az login`
+5. Restart the MCP servers by reloading VS Code: `Developer: Reload Window`
+
+GitHub reference: [Configure MCP server access](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-mcp-server-access)
 
 ## Validation and Linting
 

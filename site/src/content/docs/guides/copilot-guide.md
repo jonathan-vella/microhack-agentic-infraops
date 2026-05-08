@@ -33,7 +33,8 @@ get the fully configured environment. See [Getting Started](../../getting-starte
 
 GitHub Copilot is an AI coding assistant built into VS Code. This project uses Copilot to
 accelerate platform engineering practices — from requirements capture to IaC generation. It requires a
-**Copilot Pro**, **Copilot Business**, **Copilot Pro+**, or **Copilot Enterprise** license (verified during
+**Copilot Pro**, **Copilot Business**, **Copilot Pro+**, or **Copilot Enterprise** license, the required
+Claude and GPT model access, and unrestricted MCP server access. Verify all three during
 [pre-event setup](../../getting-started/setup/#github-copilot-plan).
 
 Copilot works in three main modes, each suited to different tasks:
@@ -289,23 +290,29 @@ The file `.github/copilot-instructions.md` contains project-wide rules that appl
 
 ## MCP Servers (Model Context Protocol)
 
-MCP servers extend Copilot's capabilities with external data sources and APIs.
+MCP servers extend Copilot's capabilities with external data sources and APIs. This MicroHack
+requires GitHub Copilot MCP access set to **Allow all: No restrictions. All MCP servers can be used.**
+If your organization or enterprise restricts MCP access to registry servers only, the workshop
+agents may not see the required tools.
 
-### Azure Pricing MCP
+GitHub reference: [Configure MCP server access](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-mcp-server-access)
 
-This workshop includes an **Azure Pricing MCP server** that gives agents access to
-real-time Azure pricing data. When the **03-Architect** agent generates a cost estimate,
-it queries this server for accurate per-service pricing.
+The participant workflow uses the MCP servers documented in the
+[APEX MCP Server Integration](https://jonathan-vella.github.io/azure-agentic-infraops/concepts/how-it-works/mcp-integration/):
 
-**What it enables**:
+| MCP server | What agents use it for |
+|---|---|
+| **Azure MCP** | Azure resource, deployment, subscription, and policy context |
+| **Azure Pricing MCP** | Cost estimates, SKU discovery, and FinOps comparisons |
+| **Draw.io MCP** | Azure architecture diagrams as `.drawio` files |
+| **GitHub MCP** | Repository operations, issues, pull requests, code search, and file content |
+| **MS Learn MCP** | Official Microsoft and Azure documentation lookup |
+| **Terraform MCP** | Terraform provider, module, and registry lookup |
 
-- Accurate monthly cost estimates in EUR
-- Per-service cost breakdowns
-- Cost comparison between service tiers
-- Budget validation against the €500/€700 constraints
-
-You don't need to interact with the MCP server directly — agents use it automatically
-when generating cost estimates.
+You usually do not call these MCP servers directly. Agents use them automatically when they need
+pricing data, Azure context, diagram generation, documentation lookup, GitHub operations, or
+Terraform registry information. The `astro-docs` MCP server in this docs repo is only for
+maintaining the website and is not part of the participant toolchain.
 
 ---
 
@@ -318,7 +325,7 @@ You (prompt)
   └─→ Agent (e.g., 03-Architect)
         ├─→ Reads Skills (azure-defaults, azure-artifacts)
         ├─→ Follows Instructions (bicep-best-practices, markdown)
-        ├─→ Uses MCP Server (Azure Pricing for cost estimates)
+        ├─→ Uses MCP Servers (Azure, GitHub, Pricing, Draw.io, MS Learn, Terraform)
         ├─→ Reads Templates (H2 structures from azure-artifacts)
         ├─→ May invoke Subagents (bicep-lint, bicep-review)
         └─→ Generates Artifacts (agent-output/{project}/*.md)

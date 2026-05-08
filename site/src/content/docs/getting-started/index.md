@@ -20,7 +20,8 @@ is the guide for setup, scenario context, and challenge navigation.
 
 ## What You Need
 
-- A paid GitHub Copilot plan.
+- A paid GitHub Copilot plan with the required Claude and GPT models enabled.
+- GitHub Copilot MCP server access set to **Allow all** for the organization or enterprise.
 - One Azure subscription per team with the required access and quota in `swedencentral`.
 - A working Dev Container and a repository created from the template repo.
 
@@ -55,6 +56,7 @@ Workshop Prep before starting [Challenge 1](../challenges/challenge-1-requiremen
 |---|---|
 | Confirm the container is running | [Dev Container](setup/#dev-container) |
 | Check Azure sign-in and agents | [Ready-to-Start Check](setup/#ready-to-start-check) |
+| Confirm models and MCP tools | [Participation Gate](setup/#participation-gate) |
 | Start the first challenge | [Challenge 1: Requirements](../challenges/challenge-1-requirements/) |
 
 ### During the Workshop

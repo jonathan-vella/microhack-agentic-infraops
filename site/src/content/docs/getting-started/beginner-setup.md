@@ -29,15 +29,23 @@ Install the tools below before continuing. Each link opens the official installe
 | **Visual Studio Code** | [Download VS Code](https://code.visualstudio.com/) | Version 1.100 or newer |
 | **VS Code — WSL extension** | [WSL extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) | Required to open projects stored in WSL |
 | **VS Code — Dev Containers extension** | [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) | Required to open the workshop Dev Container |
+| **VS Code — GitHub Copilot Chat extension** | [GitHub Copilot Chat extension](https://marketplace.visualstudio.com/items?itemName=github.copilot-chat) | Required for Copilot Chat, custom agents, and model selection |
 | **GitHub Desktop** | [Download GitHub Desktop](https://desktop.github.com/) | Sign in with the same GitHub account that has Copilot |
 | **Azure CLI** | [Install Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli-windows) | Optional locally — it is pre-installed inside the Dev Container |
 
-Install the two VS Code extensions from the command line if you prefer:
+Install the VS Code extensions from the command line if you prefer:
 
 ```bash
 code --install-extension ms-vscode-remote.remote-wsl
 code --install-extension ms-vscode-remote.remote-containers
+code --install-extension github.copilot-chat
 ```
+
+:::caution
+
+Installing software is not enough for this MicroHack. Before event day, confirm the mandatory GitHub Copilot plan, required model access, and GitHub MCP **Allow all** setting in the [Setup Guide](../setup/#participation-gate).
+
+:::
 
 ---
 
@@ -129,7 +137,7 @@ Your code is now cloned into WSL and open in VS Code. From here, follow the [Set
 - Pull and build the Dev Container
 - Sign in to Azure
 - Enable custom agents
-- Verify your toolchain
+- Verify model access, MCP tools, and your toolchain
 
 :::tip
 
@@ -141,4 +149,4 @@ Do not skip the Dev Container step. All challenge work during the workshop happe
 
 ## What to do next
 
-Once the Dev Container is running and you have completed the [Setup Guide](../setup/) checks, head to [Workshop Prep](../workshop-prep/) to read the scenario brief and team roles before event day.
+Once the Dev Container is running and you have completed the [Setup Guide](../setup/) checks, including model access and MCP access, head to [Workshop Prep](../workshop-prep/) to read the scenario brief and team roles before event day.

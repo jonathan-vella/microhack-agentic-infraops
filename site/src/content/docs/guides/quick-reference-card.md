@@ -12,7 +12,7 @@ sidebar:
 ## Key Actions at a Glance
 
 1. **Before the event** → Run the [Participation Gate](../../getting-started/setup/#participation-gate)
-2. **First 10 minutes** → Open Dev Container, `az login`, verify agents
+2. **First 10 minutes** → Open Dev Container, `az login`, verify models, MCP tools, and agents
 3. **Each challenge** → Check inputs, produce outputs, hand off to next challenge
 4. **End of day** → Team lead deletes resources and confirms cleanup
 

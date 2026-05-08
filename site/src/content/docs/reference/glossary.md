@@ -32,6 +32,7 @@ Key terms and definitions for APEX.
 | Working repository | **Template repo** (`azure-agentic-infraops-accelerator`) | starter repo, base repo |
 | This documentation repo | **Docs repo** (`microhack-agentic-infraops`) | main repo, source repo |
 | Team subscription model | **One subscription per team** | shared subscription (prohibited) |
+| MCP server access | **GitHub MCP Allow all** | registry-only MCP access for this MicroHack |
 | Post-event resource deletion | **Cleanup** | teardown, decommission |
 
 ## Azure Product Names
@@ -135,7 +136,9 @@ submission and review, but it is not included in this repository.
 ## M
 
 **MCP** — Model Context Protocol. A standard for connecting AI models to external
-tools and data sources. This repo uses Azure MCP and a custom Pricing MCP server.
+tools and data sources. The participant workflow uses Azure MCP, Azure Pricing MCP,
+Draw.io MCP, GitHub MCP, MS Learn MCP, and Terraform MCP from the template repo.
+This docs repo also configures an Astro Docs MCP server for website maintenance.
 
 **Member** — A Leaderboard App role (`member` in SWA). Members can view the
 leaderboard, see their own team's score breakdown, register their attendee

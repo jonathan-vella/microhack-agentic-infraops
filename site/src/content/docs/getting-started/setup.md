@@ -30,6 +30,8 @@ Your working repository must be created from the [azure-agentic-infraops-acceler
 If any item below fails, your team is not ready to participate:
 
 - No paid GitHub Copilot plan with custom agents.
+- Required Copilot models are unavailable in the model picker.
+- GitHub MCP server access is restricted instead of set to **Allow all**.
 - No Azure subscription with the required access.
 - More than one team trying to share the same subscription.
 - Not enough quota in `swedencentral`.
@@ -45,7 +47,7 @@ Resolve blockers before event day. Do not treat them as day-of issues.
 
 :::caution
 
-This workshop requires **GitHub Copilot Pro**, **Copilot Business**, **Copilot Pro+**, or **GitHub Copilot Enterprise**. Custom agents are not available on Copilot Free.
+This workshop requires **GitHub Copilot Pro**, **Copilot Business**, **Copilot Pro+**, or **GitHub Copilot Enterprise**. Custom agents and the required model access are not available on Copilot Free.
 
 :::
 
@@ -67,9 +69,54 @@ See [GitHub Copilot billing](https://docs.github.com/en/billing/managing-billing
 
 1. Go to [github.com/settings/copilot](https://github.com/settings/copilot)
 2. Confirm your subscription shows **Pro**, **Business**, **Pro+**, or **Enterprise**.
-3. Ensure "Copilot Chat in the IDE" is enabled
+3. Ensure "Copilot Chat in the IDE" is enabled.
+4. Confirm the required models are available in the VS Code Copilot Chat model picker.
 
 Setup guide: [VS Code Copilot Setup](https://code.visualstudio.com/docs/copilot/setup)
+
+#### Required model access
+
+The workshop agents expect access to the following model families and versions:
+
+| Model family | Required access |
+|---|---|
+| Claude Haiku | Claude Haiku 4.5 or newer |
+| Claude Sonnet | Claude Sonnet 4.6 or newer |
+| Claude Opus | Claude Opus 4.6 or newer |
+| GPT Codex | GPT Codex 5.3 |
+| GPT | GPT 5.4 and GPT 5.5 |
+
+If your GitHub organization or enterprise restricts model availability, ask an owner to confirm these models are enabled before the event.
+
+### MCP server access
+
+:::caution
+
+This MicroHack requires GitHub Copilot MCP server access with **Allow all: No restrictions. All MCP servers can be used.** Restricted MCP access blocks the agent workflow.
+
+:::
+
+Organization or enterprise owners should verify the GitHub MCP policy before participants arrive:
+
+1. Open the GitHub Copilot MCP policy settings for the organization or enterprise.
+2. Ensure **MCP servers in Copilot** is enabled.
+3. Set **Restrict MCP access to registry servers** to **Allow all: No restrictions. All MCP servers can be used.**
+
+GitHub reference: [Configure MCP server access](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-mcp-usage/configure-mcp-server-access)
+
+This MicroHack uses the MCP servers documented in the
+[APEX MCP Server Integration](https://jonathan-vella.github.io/azure-agentic-infraops/concepts/how-it-works/mcp-integration/):
+
+| MCP server | Purpose |
+|---|---|
+| Azure MCP | RBAC-aware Azure resource, deployment, and policy context |
+| Azure Pricing MCP | Cost estimates, SKU discovery, and FinOps data |
+| Draw.io MCP | Azure architecture diagrams as `.drawio` files |
+| GitHub MCP | Repository operations, issues, pull requests, and code search |
+| MS Learn MCP | Official Microsoft and Azure documentation lookup |
+| Terraform MCP | Terraform provider and registry lookup for the Terraform track |
+
+The `astro-docs` MCP server configured in this docs repo is only for maintaining this website. Participant work uses the MCP configuration in the accelerator template repo.
 
 ### Azure subscription and access
 
@@ -166,8 +213,11 @@ Ensure your network allows outbound HTTPS to the following services:
 | Service | Domains |
 |---|---|
 | GitHub | `github.com`, `api.github.com` |
-| GitHub Copilot | `copilot.github.com`, `*.githubusercontent.com` |
+| GitHub Copilot and GitHub MCP | `copilot.github.com`, `api.githubcopilot.com`, `*.githubusercontent.com` |
 | Azure | `*.azure.com`, `*.microsoft.com`, `login.microsoftonline.com` |
+| Microsoft Learn MCP | `learn.microsoft.com` |
+| Azure Pricing MCP | `prices.azure.com` |
+| Terraform MCP | `registry.terraform.io` |
 | Docker | `docker.io`, `registry-1.docker.io` |
 
 ---
@@ -183,10 +233,12 @@ Run this gate before the event starts. Every item below is a true blocker.
 | # | Check | How to verify | Why it blocks |
 |---|---|---|---|
 | 1 | **Paid GitHub Copilot plan** | [github.com/settings/copilot](https://github.com/settings/copilot) shows Pro, Business, Pro+, or Enterprise | Custom agents are required for the workshop flow |
-| 2 | **Azure subscription with required access** | `az login && az account show` works | You cannot deploy or validate infrastructure without it |
-| 3 | **One subscription per team** | Confirm with your facilitator or team lead | Shared subscriptions are not supported |
-| 4 | **Quota in `swedencentral`** | `az vm list-usage -l swedencentral -o table` | Insufficient quota blocks deployment |
-| 5 | **Dev Container opens successfully** | `F1` → `Dev Containers: Reopen in Container` | All challenge work happens inside the container |
+| 2 | **Required model access** | VS Code Copilot Chat model picker includes the required Claude and GPT models | Agent prompts depend on the approved model set |
+| 3 | **GitHub MCP access set to Allow all** | GitHub Copilot MCP policy allows all MCP servers, and MCP tools appear in agent chat | The MicroHack workflow relies on MCP tools for Azure, GitHub, docs, diagrams, pricing, and Terraform context |
+| 4 | **Azure subscription with required access** | `az login && az account show` works | You cannot deploy or validate infrastructure without it |
+| 5 | **One subscription per team** | Confirm with your facilitator or team lead | Shared subscriptions are not supported |
+| 6 | **Quota in `swedencentral`** | `az vm list-usage -l swedencentral -o table` | Insufficient quota blocks deployment |
+| 7 | **Dev Container opens successfully** | `F1` -> `Dev Containers: Reopen in Container` | All challenge work happens inside the container |
 
 :::caution
 
@@ -281,7 +333,25 @@ Open VS Code Settings (`Ctrl+,`) and add:
 </details>
 
 <details>
-<summary>5. Verify your toolchain</summary>
+<summary>5. Verify model and MCP access</summary>
+
+In VS Code Copilot Chat:
+
+1. Open the model picker and confirm the required Claude and GPT models are available.
+2. Open any workshop agent, such as `01-Orchestrator`.
+3. Confirm the agent tool list includes MCP tools from the accelerator template.
+4. If the accelerator repo provides MCP validation, run it from the repo root:
+
+```bash
+npm run lint:mcp-config
+```
+
+If MCP tools are missing, confirm the GitHub MCP policy is set to **Allow all**, reload VS Code, and check the accelerator repo's `.vscode/mcp.json`.
+
+</details>
+
+<details>
+<summary>6. Verify your toolchain</summary>
 
 Verify the core tools manually:
 
@@ -296,7 +366,7 @@ gh --version
 </details>
 
 <details>
-<summary>6. Start the workflow</summary>
+<summary>7. Start the workflow</summary>
 
 Open Copilot Chat (`Ctrl+Alt+I`) and choose the entry point that matches your
 working repo:
@@ -339,6 +409,8 @@ Use this quick check after you finish setup steps:
 - [ ] The Dev Container opens and the terminal tools load correctly.
 - [ ] `az account show` works inside the container.
 - [ ] The agent dropdown appears in Copilot Chat.
+- [ ] The required Claude and GPT models appear in the Copilot Chat model picker.
+- [ ] GitHub MCP access is set to **Allow all**, and MCP tools appear for workshop agents.
 - [ ] My team has exactly one Azure subscription assigned.
 - [ ] My team knows who will own cleanup at the end of the event.
 
