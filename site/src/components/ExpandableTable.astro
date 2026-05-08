@@ -42,33 +42,37 @@ const hasColumnWidths = columnWidths.length === headers.length;
 
   <div class="expandable-data-table__viewport">
     <table class="expandable-data-table__table">
-      {hasColumnWidths && (
-        <colgroup>
-          {columnWidths.map((width) => <col style={`width: ${width}`} />)}
-        </colgroup>
-      )}
+      {
+        hasColumnWidths && (
+          <colgroup>
+            {columnWidths.map((width) => (
+              <col style={`width: ${width}`} />
+            ))}
+          </colgroup>
+        )
+      }
       <thead>
         <tr>
           {headers.map((header) => <th>{header}</th>)}
         </tr>
       </thead>
       <tbody>
-        {rows.map((row) => (
-          <tr>
-            {headers.map((_, index) => (
-              <td><Fragment set:html={row[index] ?? ""} /></td>
-            ))}
-          </tr>
-        ))}
+        {
+          rows.map((row) => (
+            <tr>
+              {headers.map((_, index) => (
+                <td>
+                  <Fragment set:html={row[index] ?? ""} />
+                </td>
+              ))}
+            </tr>
+          ))
+        }
       </tbody>
     </table>
   </div>
 
-  <dialog
-    class="expandable-data-table__dialog"
-    data-expand-dialog
-    aria-label={`Expanded ${title}`}
-  >
+  <dialog class="expandable-data-table__dialog" data-expand-dialog aria-label={`Expanded ${title}`}>
     <div class="expandable-data-table__dialog-shell">
       <div class="expandable-data-table__dialog-header not-content">
         <div>
@@ -87,24 +91,32 @@ const hasColumnWidths = columnWidths.length === headers.length;
 
       <div class="expandable-data-table__dialog-body">
         <table class="expandable-data-table__table expandable-data-table__table--expanded">
-          {hasColumnWidths && (
-            <colgroup>
-              {columnWidths.map((width) => <col style={`width: ${width}`} />)}
-            </colgroup>
-          )}
+          {
+            hasColumnWidths && (
+              <colgroup>
+                {columnWidths.map((width) => (
+                  <col style={`width: ${width}`} />
+                ))}
+              </colgroup>
+            )
+          }
           <thead>
             <tr>
               {headers.map((header) => <th>{header}</th>)}
             </tr>
           </thead>
           <tbody>
-            {rows.map((row) => (
-              <tr>
-                {headers.map((_, index) => (
-                  <td><Fragment set:html={row[index] ?? ""} /></td>
-                ))}
-              </tr>
-            ))}
+            {
+              rows.map((row) => (
+                <tr>
+                  {headers.map((_, index) => (
+                    <td>
+                      <Fragment set:html={row[index] ?? ""} />
+                    </td>
+                  ))}
+                </tr>
+              ))
+            }
           </tbody>
         </table>
       </div>
@@ -120,10 +132,7 @@ const hasColumnWidths = columnWidths.length === headers.length;
     const openButton = tableRoot.querySelector("[data-expand-trigger]");
     const closeButton = tableRoot.querySelector("[data-expand-close]");
 
-    if (
-      !(dialog instanceof HTMLDialogElement) ||
-      !(openButton instanceof HTMLButtonElement)
-    ) {
+    if (!(dialog instanceof HTMLDialogElement) || !(openButton instanceof HTMLButtonElement)) {
       return;
     }
 
@@ -160,11 +169,7 @@ const hasColumnWidths = columnWidths.length === headers.length;
 
 <style>
   .expandable-data-table {
-    --expandable-surface: linear-gradient(
-      180deg,
-      rgba(20, 26, 37, 0.96),
-      rgba(12, 16, 24, 0.96)
-    );
+    --expandable-surface: linear-gradient(180deg, rgba(20, 26, 37, 0.96), rgba(12, 16, 24, 0.96));
     --expandable-surface-strong: linear-gradient(
       180deg,
       rgba(18, 23, 33, 0.98),

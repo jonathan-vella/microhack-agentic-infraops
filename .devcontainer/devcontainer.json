@@ -26,9 +26,7 @@
     // Value is empty string if not set — gh CLI falls back to its normal auth flow.
     "GH_TOKEN": "${localEnv:GH_TOKEN}"
   },
-  "forwardPorts": [
-    4321
-  ],
+  "forwardPorts": [4321],
   "postCreateCommand": "npm install && cd site && npm install",
   "customizations": {
     "vscode": {
@@ -47,20 +45,11 @@
         // Formatting
         "EditorConfig.EditorConfig",
         "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
         // Astro
         "astro-build.astro-vscode",
         "unifiedjs.vscode-mdx"
-      ],
-      "settings": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "[markdown]": {
-          "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
-        },
-        "[astro]": {
-          "editor.defaultFormatter": "astro-build.astro-vscode"
-        }
-      }
+      ]
     }
   }
 }

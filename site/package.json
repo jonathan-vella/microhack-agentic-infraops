@@ -10,6 +10,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "lint:code": "eslint \"**/*.{js,mjs,ts,astro}\"",
     "lint:md": "markdownlint-cli2",
     "lint:prose": "vale --minAlertLevel=error src/content ../facilitator ../README.md ../AGENTS.md",
     "astro": "astro"
@@ -26,7 +27,14 @@
     "sharp": "^0.34.5"
   },
   "devDependencies": {
-    "markdownlint-cli2": "^0.22.1"
+    "@eslint/js": "^10.0.1",
+    "astro-eslint-parser": "^1.4.0",
+    "eslint": "^10.3.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-astro": "^1.7.0",
+    "globals": "^17.6.0",
+    "markdownlint-cli2": "^0.22.1",
+    "typescript-eslint": "^8.59.2"
   },
   "overrides": {
     "lodash-es": "^4.18.1",

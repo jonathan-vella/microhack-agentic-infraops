@@ -27,8 +27,7 @@ export default defineConfig({
         src: "./src/assets/images/logo.svg",
       },
       editLink: {
-        baseUrl:
-          "https://github.com/jonathan-vella/microhack-agentic-infraops/edit/main/site/",
+        baseUrl: "https://github.com/jonathan-vella/microhack-agentic-infraops/edit/main/site/",
       },
       lastUpdated: true,
       social: [

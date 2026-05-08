@@ -1,0 +1,8 @@
+node_modules/
+site/node_modules/
+site/.astro/
+site/dist/
+tmp/
+*.log
+package-lock.json
+site/package-lock.json

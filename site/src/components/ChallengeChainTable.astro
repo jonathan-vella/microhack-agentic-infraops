@@ -7,8 +7,7 @@ const rows = [
     points: "20",
     input: "Scenario brief",
     output: ["agent-output/freshconnect/01-requirements.md"],
-    nextStep:
-      "C2 uses the agreed business, operational, and compliance requirements",
+    nextStep: "C2 uses the agreed business, operational, and compliance requirements",
   },
   {
     challengeHref: "challenge-2-architecture/",
@@ -17,8 +16,7 @@ const rows = [
     points: "25",
     input: ["01-requirements.md"],
     output: ["02-architecture-assessment.md", "03-des-architecture-diagram.md"],
-    nextStep:
-      "C3 uses the chosen services, constraints, and architecture diagram",
+    nextStep: "C3 uses the chosen services, constraints, and architecture diagram",
   },
   {
     challengeHref: "challenge-3-implementation/",
@@ -26,12 +24,7 @@ const rows = [
     duration: "45 min",
     points: "25",
     input: "Architecture assessment and diagram",
-    output: [
-      "IaC folder",
-      "04-implementation-plan.md",
-      "workflow diagram",
-      "deployment evidence",
-    ],
+    output: ["IaC folder", "04-implementation-plan.md", "workflow diagram", "deployment evidence"],
     nextStep:
       "C4 uses your templates, deployment outcome, and explanation of how the platform is delivered",
   },
@@ -41,13 +34,8 @@ const rows = [
     duration: "45 min",
     points: "10",
     input: "C3 templates and deployment outcome",
-    output: [
-      "04-adr-ha-dr-strategy.md",
-      "updated diagram",
-      "updated IaC or paper design",
-    ],
-    nextStep:
-      "C5 uses the revised platform or, if blocked, your documented intended target",
+    output: ["04-adr-ha-dr-strategy.md", "updated diagram", "updated IaC or paper design"],
+    nextStep: "C5 uses the revised platform or, if blocked, your documented intended target",
   },
   {
     challengeHref: "challenge-5-load-testing/",
@@ -74,8 +62,7 @@ const rows = [
     points: "5",
     input: "Platform knowledge, docs, and architecture",
     output: ["07-diagnostics-quick-card.md"],
-    nextStep:
-      "C8 uses the diagnostics card as evidence of operational maturity",
+    nextStep: "C8 uses the diagnostics card as evidence of operational maturity",
   },
   {
     challengeHref: "challenge-8-partner-showcase/",
@@ -214,15 +201,12 @@ const renderCellParts = (parts: string | string[]) =>
                   <td>
                     {renderCellParts(row.input).map((part, index) => (
                       <>
-                        {typeof row.input !== "string" &&
-                        part.endsWith(".md") ? (
+                        {typeof row.input !== "string" && part.endsWith(".md") ? (
                           <code>{part}</code>
                         ) : (
                           part
                         )}
-                        {index < renderCellParts(row.input).length - 1
-                          ? ", "
-                          : ""}
+                        {index < renderCellParts(row.input).length - 1 ? ", " : ""}
                       </>
                     ))}
                   </td>
@@ -230,9 +214,7 @@ const renderCellParts = (parts: string | string[]) =>
                     {renderCellParts(row.output).map((part, index) => (
                       <>
                         {part.includes(".md") ? <code>{part}</code> : part}
-                        {index < renderCellParts(row.output).length - 1
-                          ? ", "
-                          : ""}
+                        {index < renderCellParts(row.output).length - 1 ? ", " : ""}
                       </>
                     ))}
                   </td>
@@ -255,10 +237,7 @@ const renderCellParts = (parts: string | string[]) =>
     const openButton = tableRoot.querySelector("[data-expand-trigger]");
     const closeButton = tableRoot.querySelector("[data-expand-close]");
 
-    if (
-      !(dialog instanceof HTMLDialogElement) ||
-      !(openButton instanceof HTMLButtonElement)
-    ) {
+    if (!(dialog instanceof HTMLDialogElement) || !(openButton instanceof HTMLButtonElement)) {
       return;
     }
 
@@ -295,11 +274,7 @@ const renderCellParts = (parts: string | string[]) =>
 
 <style>
   .expandable-table {
-    --expandable-surface: linear-gradient(
-      180deg,
-      rgba(20, 26, 37, 0.96),
-      rgba(12, 16, 24, 0.96)
-    );
+    --expandable-surface: linear-gradient(180deg, rgba(20, 26, 37, 0.96), rgba(12, 16, 24, 0.96));
     --expandable-surface-strong: linear-gradient(
       180deg,
       rgba(18, 23, 33, 0.98),
