@@ -19,7 +19,7 @@ Key terms and definitions for APEX.
 |---|---|---|
 | APEX expansion | **Agentic Platform Engineering eXperience for Azure** | alternative expansions, reworded acronym definitions |
 | The event | **MicroHack** or **microhack** | hackathon, workshop (except in general descriptions) |
-| Event organiser | **Facilitator** | coach, instructor, proctor |
+| Event organizer | **Facilitator** | coach, instructor, proctor |
 | Event participant | **Participant** | attendee, student, user (in workshop context) |
 | Challenge tasks | **Challenge 1**, **Challenge 2**, etc. | Task, Exercise, Lab |
 | The surprise DR requirement | **Curveball** (Challenge 4) | twist, surprise, pivot |
@@ -107,7 +107,7 @@ disaster recovery requirements.
 
 ## F
 
-**Facilitator** — The event organiser who runs the microhack: manages the schedule,
+**Facilitator** — The event organizer who runs the microhack: manages the schedule,
 announces the curveball, coaches teams, and runs the scoring scripts.
 
 **FreshConnect** — The project codename for the Nordic Fresh Foods delivery
@@ -151,7 +151,7 @@ profile, and submit scores for their own team. Compare with **Admin**.
 
 **Persona** — A named character assigned to each agent for easy recognition.
 For example, the Requirements agent is 📜 Scribe and the Architect agent is
-🏤 Oracle. See the [Copilot Guide](../../guides/copilot-guide/).
+�️ Oracle. See the [Copilot Guide](../../guides/copilot-guide/).
 
 **Platform Engineering** — The discipline of designing and building
 standardised, self-service toolchains and workflows that enable infrastructure

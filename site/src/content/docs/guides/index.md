@@ -11,5 +11,5 @@ Practical resources to help you get the most out of GitHub Copilot and AI-assist
 **In this section:**
 
 - **[Copilot Guide](copilot-guide/)** — VS Code setup, agent interactions, and prompting tips
-- **[Hints & Tips](hints-and-tips/)** — Architecture patterns and cost-optimisation advice
+- **[Hints & Tips](hints-and-tips/)** — Architecture patterns and cost-optimization advice
 - **[Quick Reference Card](quick-reference-card/)** — Printable one-page cheat sheet for use during challenges

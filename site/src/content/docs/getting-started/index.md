@@ -27,9 +27,9 @@ is the guide for setup, scenario context, and challenge navigation.
 
 ## Start Here
 
-0. *(Windows beginners)* [Beginner Setup (Windows)](beginner-setup/) for a screenshot walkthrough of installing tools and cloning the repo.
 1. [Setup Guide](setup/) for the canonical pre-event checklist, tooling, quota, costs, and cleanup.
 2. [Workshop Prep](workshop-prep/) for the scenario brief, mission, and team roles.
+3. *(Windows beginners — optional)* [Beginner Setup (Windows)](beginner-setup/) for a screenshot walkthrough of installing tools and cloning the repo before you tackle the Setup Guide.
 
 :::note
 

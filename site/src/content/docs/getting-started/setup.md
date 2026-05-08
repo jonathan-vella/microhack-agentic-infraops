@@ -137,7 +137,7 @@ This is a bring-your-own-subscription event. Azure is required because teams dep
 
 - **One Azure subscription per team** is the only supported model. Shared subscriptions are not supported.
 - **Owner** is the preferred role because facilitators may need to deploy Azure Policy assignments for governance challenges.
-- If your organisation restricts Owner, confirm with your facilitator whether **Contributor** plus **Resource Policy Contributor** is accepted for your event.
+- If your organization restricts Owner, confirm with your facilitator whether **Contributor** plus **Resource Policy Contributor** is accepted for your event.
 - Your subscription must have enough quota in `swedencentral`. See [Quota and Estimated Costs](#quota-and-estimated-costs).
 
 Verify with:

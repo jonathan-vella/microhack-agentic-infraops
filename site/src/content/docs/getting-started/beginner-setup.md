@@ -84,7 +84,7 @@ Replace `<your-username>` with your Ubuntu username. You can check it by running
 
 ![Use this template button on the accelerator repo](../../../assets/images/getting-started/01-accelerator-use-this-template.png)
 
-3. Choose an owner (your GitHub user or organisation) and give the repository a name.
+3. Choose an owner (your GitHub user or organization) and give the repository a name.
 4. Click **Create repository**.
 
 :::caution
