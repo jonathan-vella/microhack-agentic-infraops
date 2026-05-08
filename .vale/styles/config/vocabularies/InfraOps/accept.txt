@@ -55,6 +55,7 @@ repo
 Repo
 Dev
 Agentic
+declaratively
 ADRs
 devs
 runbooks

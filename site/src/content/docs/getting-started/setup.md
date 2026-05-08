@@ -29,7 +29,7 @@ Your working repository must be created from the [azure-agentic-infraops-acceler
 
 If any item below fails, your team is not ready to participate:
 
-- No paid GitHub Copilot plan with custom agents.
+- No GitHub Copilot Business or Enterprise license.
 - Required Copilot models are unavailable in the model picker.
 - GitHub MCP server access is restricted instead of set to **Allow all**.
 - No Azure subscription with the required access.
@@ -43,20 +43,20 @@ Resolve blockers before event day. Do not treat them as day-of issues.
 
 ## Prerequisites
 
-### GitHub Copilot plan
+### GitHub Copilot Business or Enterprise
 
 :::caution
 
-This workshop requires **GitHub Copilot Pro**, **Copilot Business**, **Copilot Pro+**, or **GitHub Copilot Enterprise**. Custom agents and the required model access are not available on Copilot Free.
+APEX requires a **GitHub Copilot Business or Enterprise** license. Other SKUs do not include the required functionality. Required model access and unrestricted MCP server access are also mandatory. See [GitHub Copilot Plans](https://github.com/features/copilot/plans).
 
 :::
 
 | Plan | Custom agents | Compatible |
 |---|---|---|
 | Copilot Free | No | No |
-| **Copilot Pro** | **Yes** | **Yes** |
+| Copilot Pro | No | No |
 | **Copilot Business** | **Yes** | **Yes** |
-| **Copilot Pro+** | **Yes** | **Yes** |
+| Copilot Pro+ | No | No |
 | **Copilot Enterprise** | **Yes** | **Yes** |
 
 Compare plans: [GitHub Copilot Plans](https://github.com/features/copilot/plans)
@@ -68,7 +68,7 @@ See [GitHub Copilot billing](https://docs.github.com/en/billing/managing-billing
 :::
 
 1. Go to [github.com/settings/copilot](https://github.com/settings/copilot)
-2. Confirm your subscription shows **Pro**, **Business**, **Pro+**, or **Enterprise**.
+2. Confirm your subscription shows **Business** or **Enterprise**.
 3. Ensure "Copilot Chat in the IDE" is enabled.
 4. Confirm the required models are available in the VS Code Copilot Chat model picker.
 
@@ -232,7 +232,7 @@ Run this gate before the event starts. Every item below is a true blocker.
 
 | # | Check | How to verify | Why it blocks |
 |---|---|---|---|
-| 1 | **Paid GitHub Copilot plan** | [github.com/settings/copilot](https://github.com/settings/copilot) shows Pro, Business, Pro+, or Enterprise | Custom agents are required for the workshop flow |
+| 1 | **GitHub Copilot Business or Enterprise license** | [github.com/settings/copilot](https://github.com/settings/copilot) shows Business or Enterprise | Custom agents require a GitHub Copilot Business or Enterprise license; other SKUs do not include the required functionality ([plans](https://github.com/features/copilot/plans)) |
 | 2 | **Required model access** | VS Code Copilot Chat model picker includes the required Claude and GPT models | Agent prompts depend on the approved model set |
 | 3 | **GitHub MCP access set to Allow all** | GitHub Copilot MCP policy allows all MCP servers, and MCP tools appear in agent chat | The MicroHack workflow relies on MCP tools for Azure, GitHub, docs, diagrams, pricing, and Terraform context |
 | 4 | **Azure subscription with required access** | `az login && az account show` works | You cannot deploy or validate infrastructure without it |

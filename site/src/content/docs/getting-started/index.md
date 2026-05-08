@@ -20,7 +20,7 @@ is the guide for setup, scenario context, and challenge navigation.
 
 ## What You Need
 
-- A paid GitHub Copilot plan with the required Claude and GPT models enabled.
+- A GitHub Copilot Business or Enterprise license with the required Claude and GPT models enabled.
 - GitHub Copilot MCP server access set to **Allow all** for the organization or enterprise.
 - One Azure subscription per team with the required access and quota in `swedencentral`.
 - A working Dev Container and a repository created from the template repo.
