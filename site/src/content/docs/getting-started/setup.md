@@ -149,6 +149,12 @@ az account show --output table
 
 ### Core tools
 
+:::caution
+
+Before installing WSL or Docker, confirm the partition where they will be installed has at least **150GB of free disk space**. Insufficient space can cause installation failures or interrupt the workshop Dev Container build.
+
+:::
+
 <details>
 <summary>Docker-compatible container runtime</summary>
 
