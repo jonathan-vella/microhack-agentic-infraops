@@ -44,27 +44,27 @@ export default defineConfig({
         {
           label: "Getting Started",
           collapsed: true,
-          autogenerate: { directory: "getting-started" },
+          items: [{ autogenerate: { directory: "getting-started" } }],
         },
         {
           label: "Challenges",
           collapsed: true,
-          autogenerate: { directory: "challenges" },
+          items: [{ autogenerate: { directory: "challenges" } }],
         },
         {
           label: "Guides",
           collapsed: true,
-          autogenerate: { directory: "guides" },
+          items: [{ autogenerate: { directory: "guides" } }],
         },
         {
           label: "Reference",
           collapsed: true,
-          autogenerate: { directory: "reference" },
+          items: [{ autogenerate: { directory: "reference" } }],
         },
         {
           label: "About",
           collapsed: true,
-          autogenerate: { directory: "about" },
+          items: [{ autogenerate: { directory: "about" } }],
         },
       ],
       customCss: [
