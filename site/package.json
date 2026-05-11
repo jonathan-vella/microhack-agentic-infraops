@@ -22,7 +22,7 @@
     "@fontsource/manrope": "^5.2.8",
     "@fontsource/space-grotesk": "^5.2.10",
     "astro": "^6.3.1",
-    "mermaid": "^11.14.0",
+    "mermaid": "^11.15.0",
     "rehype-mermaid-lite": "^1.1.0",
     "sharp": "^0.34.5"
   },
