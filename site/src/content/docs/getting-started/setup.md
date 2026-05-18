@@ -342,9 +342,7 @@ git add -A && git commit -m "chore: initialize from template"
 </details>
 
 <details>
-<summary>4. Set up Azure automation (optional)</summary>
-
-Skip this step if you are only exploring the agent workflow without Azure automation.
+<summary>4. Set up Azure automation</summary>
 
 Run the setup wizard to configure Azure OIDC authentication, RBAC roles, and GitHub secrets and variables:
 
@@ -360,7 +358,33 @@ See the [Azure Setup documentation](https://jonathan-vella.github.io/azure-agent
 </details>
 
 <details>
-<summary>5. Sign in to Azure for workshop deployments</summary>
+<summary>5. Run the maintenance workflows</summary>
+
+After Azure setup completes, trigger the two scheduled maintenance workflows once so your repository has a fresh baseline before the event. Both run weekly on Mondays after this initial seed.
+
+```bash
+gh workflow run "Weekly Maintenance"
+gh workflow run "Governance Policy Baseline"
+```
+
+| Workflow | Purpose | Schedule |
+|---|---|---|
+| **Weekly Maintenance** | Refreshes the AVM module index, tracks Azure service deprecations, runs the quarterly docs/orphan audit, validates Draw.io tooling, and link-checks docs. | Mondays 06:00 UTC |
+| **Governance Policy Baseline** | Collects effective Azure Policy assignments (including management-group inheritance) from your subscription so the IaC planner consumes real governance constraints. Requires step 4 to be complete. | Mondays 05:00 UTC |
+
+Verify both runs succeeded:
+
+```bash
+gh run list --workflow "Weekly Maintenance" --limit 1
+gh run list --workflow "Governance Policy Baseline" --limit 1
+```
+
+Each run may open a pull request when it detects drift (new AVM module versions, policy changes, deprecated services). Review and merge those PRs as they appear — they are never auto-merged.
+
+</details>
+
+<details>
+<summary>6. Sign in to Azure for workshop deployments</summary>
 
 ```bash
 az login
@@ -371,7 +395,7 @@ az account show --query "{Name:name, SubscriptionId:id, TenantId:tenantId}" -o t
 </details>
 
 <details>
-<summary>6. Enable custom agents</summary>
+<summary>7. Enable custom agents</summary>
 
 Open VS Code Settings (`Ctrl+,`) and add:
 
@@ -388,7 +412,7 @@ Open VS Code Settings (`Ctrl+,`) and add:
 </details>
 
 <details>
-<summary>7. Verify model and MCP access</summary>
+<summary>8. Verify model and MCP access</summary>
 
 In VS Code Copilot Chat:
 
@@ -406,7 +430,7 @@ If MCP tools are missing, confirm the GitHub MCP policy is set to **Allow all**,
 </details>
 
 <details>
-<summary>8. Verify your toolchain</summary>
+<summary>9. Verify your toolchain</summary>
 
 Verify the core tools manually:
 
@@ -421,7 +445,7 @@ gh --version
 </details>
 
 <details>
-<summary>9. Start the workflow</summary>
+<summary>10. Start the workflow</summary>
 
 Open Copilot Chat (`Ctrl+Alt+I`) and choose the entry point that matches your
 working repo:
@@ -463,7 +487,8 @@ Use this quick check after you finish setup steps:
 - [ ] My repository was created from the template repo, not from the docs repo.
 - [ ] The Dev Container opens and the terminal tools load correctly.
 - [ ] Repository initialization commands (`npm install`, `npm run init`, `npm run sync:workflows`) have been completed.
-- [ ] Azure automation setup (`npm run setup`) has been run or intentionally skipped.
+- [ ] Azure automation setup (`npm run setup`) has been completed.
+- [ ] The **Weekly Maintenance** and **Governance Policy Baseline** workflows have been triggered at least once and completed successfully.
 - [ ] `az account show` works inside the container.
 - [ ] The agent dropdown appears in Copilot Chat.
 - [ ] The required Claude and GPT models appear in the Copilot Chat model picker.
